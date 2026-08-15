@@ -25,9 +25,9 @@ export default {
       },
       fontFamily: {
         sans: ["Urbanist", "sans-serif"],
-        serif: ["Bodoni Moda", "serif"],
+        serif: ["'Bodoni Moda'", "serif"],
         mono: ["Urbanist", "sans-serif"],
-        display: ["Bodoni Moda", "serif"],
+        display: ["'Bodoni Moda'", "serif"],
       },
       letterSpacing: {
         tightest: "-0.03em",
