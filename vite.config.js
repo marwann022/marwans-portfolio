@@ -1,10 +1,12 @@
 import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import path from "path";
 
-// The portfolio uses Vue's in-file template option, so Vite must bundle
-// Vue's compiler-enabled build for production as well as development.
 export default defineConfig({
+  plugins: [vue()],
   resolve: {
     alias: {
+      "@": path.resolve(__dirname, "./src"),
       vue: "vue/dist/vue.esm-bundler.js"
     }
   }
