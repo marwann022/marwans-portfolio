@@ -5,8 +5,12 @@ import AppFooter from "@/components/layout/AppFooter.vue";
 
 <template>
   <div class="overflow-x-hidden min-h-screen flex flex-col bg-paper text-ink font-sans">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <AppHeader />
-    <router-view class="flex-grow" />
+    <div id="main-content" class="flex-grow flex flex-col">
+      <router-view />
+    </div>
     <AppFooter />
   </div>
 </template>
+

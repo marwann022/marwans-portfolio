@@ -147,55 +147,25 @@ const nextProject = computed(() => {
         <div
           v-for="(item, idx) in project.gallery"
           :key="idx"
-          :class="[
-            'border border-ink bg-paper rounded-lg overflow-hidden flex flex-col justify-between shadow-[6px_6px_0_rgba(21,21,21,0.1)]',
-            item.type === 'landscape' ? 'md:col-span-2' : ''
-          ]"
+          class="border border-ink bg-paper rounded-none overflow-hidden flex flex-col justify-between md:col-span-2"
         >
-          <!-- Real image or structured neutral placeholder -->
+          <!-- Real image showcase -->
           <div
             v-if="item.image"
-            class="relative w-full aspect-[16/9] md:aspect-auto overflow-hidden bg-gallery-bg border-b border-ink"
+            class="relative w-full overflow-hidden bg-gallery-bg border-b border-ink"
           >
             <img
               :src="item.image"
-              :alt="item.caption || project.name + ' detail visual'"
-              class="w-full h-full max-h-[480px] object-cover object-top block"
+              :alt="item.caption || project.name + ' detail visual showcase'"
+              class="w-full h-full max-h-[560px] object-cover object-center block"
+              loading="lazy"
             />
           </div>
 
-          <!-- Structured Neutral Placeholder with replacement guide -->
-          <div
-            v-else
-            class="relative w-full p-8 bg-paper border-b border-ink min-h-[260px] flex flex-col justify-between select-none"
-          >
-            <div class="flex justify-between items-start font-sans text-[11px] font-bold text-ink/60">
-              <span class="bg-ink text-paper px-2.5 py-0.5 rounded">ASSET {{ idx + 1 }}</span>
-              <span>ORIENTATION: {{ item.type.toUpperCase() }}</span>
-            </div>
-
-            <div class="my-6">
-              <span class="font-sans text-[12px] text-lime-700 font-extrabold block mb-1">
-                READY FOR IMAGE SOURCE
-              </span>
-              <h3 class="text-[20px] font-extrabold tracking-[-0.03em] text-ink m-0">
-                {{ item.title }}
-              </h3>
-              <p class="font-sans text-[12px] text-ink/60 font-semibold mt-1 m-0">
-                Add image URL to `gallery.js` under `gallery[{{ idx }}]`
-              </p>
-            </div>
-
-            <div class="flex items-center gap-2 font-sans text-[11px] font-bold text-ink/40">
-              <font-awesome-icon icon="fa-solid fa-circle-info" />
-              <span>Renders automatically upon updating the dataset array</span>
-            </div>
-          </div>
-
           <!-- Caption Footer -->
-          <div class="p-3.5 font-sans text-[12px] font-bold text-ink/80 bg-paper flex items-center justify-between border-t border-line">
-            <span>0{{ idx + 1 }} — {{ item.title || item.caption }}</span>
-            <span class="capitalize text-ink/50 text-[11px]">{{ item.type }}</span>
+          <div class="p-4 font-sans text-[12px] font-bold text-ink/80 bg-paper flex items-center justify-between border-t border-line">
+            <span>0{{ idx + 1 }} — {{ item.caption }}</span>
+            <span class="uppercase text-ink/50 text-[11px] font-extrabold">{{ project.name }}</span>
           </div>
         </div>
       </div>

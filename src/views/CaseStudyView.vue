@@ -24,7 +24,7 @@ const project = computed(() => getProject(props.slug));
   <main v-if="project" class="bg-paper w-full">
     <CaseStudyHero :project="project" />
     <ProjectFacts :facts="project.facts" />
-    <ContentBlock :blocks="project.blocks" :show-role-visual="project.id === 'goldera'" />
+    <ContentBlock :blocks="project.blocks" :sections="project.sections" :show-role-visual="project.id === 'goldera'" />
     <RoleFlow :role-map="project.roleMap" />
 
     <template v-if="project.id === 'franchise212'">
