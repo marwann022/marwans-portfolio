@@ -1,11 +1,11 @@
 export const projects = {
   smartmeet: {
     id: "smartmeet",
-    num: "01",
+    num: "03",
     name: "SmartMeet",
     kind: "AI meeting intelligence & workspace",
     accent: "blue",
-    image: "https://drive.google.com/thumbnail?id=1eyyBc02D7vPxCUSO2kxjI38tHjAwJtNt&sz=w1600",
+    image: "../public/Thumbnail.png",
     headline: "Meetings that leave<br>something behind.",
     blurb: "AI meeting intelligence and productivity platform transforming live conversations into structured transcripts, action items, decisions, and team knowledge.",
     facts: [
@@ -111,7 +111,7 @@ export const projects = {
   },
   goldera: {
     id: "goldera",
-    num: "03",
+    num: "01",
     name: "GolderaPharm",
     kind: "Role-based pharmaceutical CRM",
     accent: "lime",
@@ -345,13 +345,13 @@ export const projects = {
   }
 };
 
-export const projectKeys = ["smartmeet", "wecare", "goldera", "hmz", "franchise212", "imdb"];
+export const projectKeys = ["goldera", "wecare", "smartmeet", "hmz", "franchise212", "imdb"];
 
-// Explicit Flagship Curation (Exact Order: 01 SmartMeet, 02 WeCare, 03 GolderaPharm)
+// Explicit Flagship Curation (Exact Priority Order: 01 GolderaPharm, 02 WeCare, 03 SmartMeet)
 export const flagshipProjects = [
-  projects.smartmeet,
+  projects.goldera,
   projects.wecare,
-  projects.goldera
+  projects.smartmeet
 ];
 
 // Secondary Extended Work
