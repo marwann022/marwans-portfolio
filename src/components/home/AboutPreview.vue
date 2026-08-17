@@ -49,10 +49,10 @@ import { RouterLink } from "vue-router";
 
       <div class="flex flex-wrap items-center gap-4">
         <RouterLink
-          to="/about"
+          to="/contact"
           class="px-6 py-3 bg-ink text-paper rounded-full font-bold text-[13px] hover:bg-ink/85 transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
         >
-          Read full background ↗
+          Initiate Contact ↗
         </RouterLink>
         <a
           href="/Marwan-Ashraf-Product-Designer-CV.pdf"

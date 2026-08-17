@@ -60,7 +60,7 @@ export const projects = {
     name: "WeCare",
     kind: "Healthcare appointment experience",
     accent: "blue",
-    image: "https://drive.google.com/thumbnail?id=10ndQUkdxh0OSo-qoMa5XY3AgV-cU1zcE&sz=w1600",
+    image: "/WeCare/WeCare Thumbnail .jpg",
     headline: "Care journeys deserve<br>calm interfaces.",
     blurb: "End-to-end healthcare product experience covering doctor discovery, progressive 3-step scheduling, transparent pricing, and post-care support.",
     facts: [

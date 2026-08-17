@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
-import AboutView from "@/views/AboutView.vue";
 import ContactView from "@/views/ContactView.vue";
 import ProjectsView from "@/views/ProjectsView.vue";
 import CaseStudyView from "@/views/CaseStudyView.vue";
@@ -24,8 +23,7 @@ const routes = [
   },
   {
     path: "/about",
-    name: "about",
-    component: AboutView
+    redirect: "/#about"
   },
   {
     path: "/contact",
@@ -54,8 +52,24 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior() {
+  scrollBehavior(to) {
+    if (to.hash) {
+      return { el: to.hash, behavior: "smooth" };
+    }
     return { top: 0, behavior: "smooth" };
+  }
+});
+
+router.beforeResolve((to, from, next) => {
+  if (
+    document.startViewTransition &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    document.startViewTransition(() => {
+      next();
+    });
+  } else {
+    next();
   }
 });
 

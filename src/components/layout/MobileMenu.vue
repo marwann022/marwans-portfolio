@@ -25,7 +25,6 @@ function handleKeyDown(event) {
 // Active Route Logic (matches desktop)
 const isHomeActive = computed(() => route.path === "/");
 const isWorkActive = computed(() => route.path === "/projects" || route.path === "/work" || route.path.startsWith("/projects/"));
-const isAboutActive = computed(() => route.path === "/about");
 const isContactActive = computed(() => route.path === "/contact");
 
 watch(
@@ -83,18 +82,6 @@ onUnmounted(() => {
       >
         <span>Work</span>
         <span v-if="isWorkActive" class="ml-2 text-[12px] font-extrabold text-[#4fbf5d]">●</span>
-      </RouterLink>
-
-      <RouterLink
-        to="/about"
-        :class="[
-          'min-h-[48px] flex items-center text-[24px] font-extrabold text-ink hover:underline underline-offset-4 transition-all',
-          isAboutActive ? 'underline decoration-2' : ''
-        ]"
-        @click="handleNavClick"
-      >
-        <span>About</span>
-        <span v-if="isAboutActive" class="ml-2 text-[12px] font-extrabold text-[#4fbf5d]">●</span>
       </RouterLink>
 
       <RouterLink

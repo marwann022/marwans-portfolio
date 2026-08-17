@@ -1,157 +1,184 @@
 <script setup>
+import { ref } from "vue";
+
+const copied = ref(false);
+
+function copyEmail() {
+  navigator.clipboard.writeText("marwanelgammal0@gmail.com");
+  copied.value = true;
+  setTimeout(() => {
+    copied.value = false;
+  }, 2500);
+}
 </script>
 
 <template>
   <main
-    class="contact-page min-h-[calc(100vh-82px)] p-6 md:p-[7vw] flex flex-col justify-center bg-[#151515] font-sans text-paper"
+    class="contact-page min-h-[calc(100vh-82px)] bg-paper font-sans text-ink flex flex-col justify-between"
     id="contact"
   >
-    <div class="max-w-[1240px] mx-auto w-full my-auto py-8 md:py-12">
-      <!-- Main Content Grid (Two-column on Desktop: Left 60% / Right 40%) -->
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 lg:gap-16 items-start">
+    <!-- Top Main Composition Section (Asymmetrical: Left 65% / Right 35%) -->
+    <section class="py-12 md:py-20 px-5 md:px-[7vw] max-w-[1240px] mx-auto w-full flex-grow flex items-center">
+      <div class="w-full grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 lg:gap-16 items-stretch">
         
-        <!-- LEFT COLUMN: Primary Recruiter Value & CTAs -->
-        <div class="space-y-8">
-          <div class="flex items-center gap-3">
-            <span class="font-sans text-[11px] font-extrabold uppercase tracking-widest bg-lime text-ink px-3 py-1 rounded-sm">
-              GET IN TOUCH
-            </span>
-            <span class="text-[12px] font-bold text-paper/60 uppercase tracking-wider hidden sm:inline-block">
-              RECRUITER &amp; TEAM DIRECT CONTACT
-            </span>
-          </div>
-
-          <!-- Headline -->
-          <h1 class="text-[clamp(38px,5.5vw,80px)] leading-[1.04] tracking-[-0.035em] m-0 font-extrabold text-paper">
-            Let’s build products <br />
-            <span class="font-serif italic font-normal text-lime">that solve real problems.</span>
-          </h1>
-
-          <!-- Value Proposition Paragraph -->
-          <p class="text-[18px] md:text-[21px] leading-[1.55] tracking-[-0.015em] max-w-[640px] text-paper/90 font-medium m-0">
-            I design complex digital products and turn ideas into production-ready experiences by combining UX thinking with engineering knowledge.
-          </p>
-
-          <!-- Roles Availability Pills -->
-          <div class="space-y-3 pt-2">
-            <span class="text-[11px] font-extrabold uppercase tracking-wider text-paper/50 block">
-              AVAILABLE FOR
-            </span>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3.5 py-1.5 border border-paper/30 bg-paper/5 rounded-full text-[13px] font-bold text-paper">
-                Product Designer Roles
-              </span>
-              <span class="px-3.5 py-1.5 border border-paper/30 bg-paper/5 rounded-full text-[13px] font-bold text-paper">
-                UI/UX Designer Roles
-              </span>
-              <span class="px-3.5 py-1.5 border border-paper/30 bg-paper/5 rounded-full text-[13px] font-bold text-paper">
-                Frontend / UI Engineer Roles
-              </span>
-            </div>
-          </div>
-
-          <!-- Primary & Secondary Action Block -->
-          <div class="pt-4 space-y-6">
-            <!-- Email (Secondary CTA) -->
-            <div>
-              <span class="text-[11px] font-extrabold uppercase tracking-wider text-paper/50 block mb-2">
-                DIRECT EMAIL
-              </span>
-              <a
-                href="mailto:marwanelgammal0@gmail.com"
-                class="text-[clamp(20px,3.2vw,36px)] font-extrabold tracking-[-0.03em] border-b-2 border-lime pb-1 inline-flex items-center gap-3 text-paper hover:text-lime hover:border-paper transition-all"
-              >
-                <span class="break-all">marwanelgammal0@gmail.com</span>
-                <span class="text-[0.7em] text-lime">↗</span>
-              </a>
-            </div>
-
-            <!-- Download CV (Primary CTA) -->
-            <div class="pt-2">
-              <a
-                href="/Marwan-Ashraf-Product-Designer-CV.pdf"
-                download="Marwan-Ashraf-Product-Designer-CV.pdf"
-                class="inline-flex items-center gap-2 px-8 py-4 bg-lime text-ink rounded-full font-extrabold text-[14px] hover:bg-lime/90 transition-colors shadow-lg"
-              >
-                Download CV / Résumé ↗
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT COLUMN: Compact Professional Summary -->
-        <div class="lg:border-l lg:border-paper/20 lg:pl-12 space-y-8 font-sans text-paper/90">
+        <!-- LEFT COLUMN (~65%): Direct Statement, Giant Hero Email, CV Action -->
+        <div class="flex flex-col justify-between space-y-10 py-2">
           
-          <!-- Section 1: Roles -->
-          <div class="space-y-2">
-            <span class="block text-paper/40 text-[11px] uppercase font-extrabold tracking-widest">
-              CURRENTLY AVAILABLE FOR
-            </span>
-            <ul class="space-y-1.5 font-bold text-[15px] text-paper list-none p-0 m-0">
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-lime"></span>
-                Product Design
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-lime"></span>
-                UI/UX Design
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-lime"></span>
-                Frontend Development
-              </li>
-            </ul>
-          </div>
+          <div class="space-y-6">
+            <!-- Status Indicator -->
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#2dc732]"></span>
+              <span class="font-mono text-[12px] font-bold text-ink/70 uppercase tracking-widest">
+                AVAILABLE FOR SELECT OPPORTUNITIES
+              </span>
+            </div>
 
-          <!-- Section 2: Location -->
-          <div class="space-y-1.5">
-            <span class="block text-paper/40 text-[11px] uppercase font-extrabold tracking-widest">
-              BASED IN
-            </span>
-            <p class="font-extrabold text-[15px] text-paper m-0">
-              Egypt
-            </p>
-            <p class="text-[13px] text-paper/70 font-medium m-0">
-              Open to relocation &amp; remote opportunities worldwide.
+            <!-- Direct Title (Distinct hierarchy: Bold sans + clean serif subtitle) -->
+            <div>
+              <h1 class="text-[clamp(42px,6vw,78px)] leading-[1.02] tracking-[-0.04em] font-extrabold text-ink m-0">
+                Let’s talk.
+              </h1>
+              <p class="text-[20px] md:text-[24px] font-serif italic text-ink/75 mt-2 m-0">
+                about products, systems, and new ideas.
+              </p>
+            </div>
+
+            <!-- Conversation Lead-in -->
+            <p class="text-[17px] md:text-[19px] leading-[1.55] max-w-[580px] text-ink/80 font-medium m-0">
+              Have a project, open product role, or design system problem worth discussing? The fastest way to reach me is directly via email or LinkedIn.
             </p>
           </div>
 
-          <!-- Section 3: Response Expectation -->
-          <div class="space-y-1">
-            <span class="block text-paper/40 text-[11px] uppercase font-extrabold tracking-widest">
-              RESPONSE TIME
+          <!-- The Visual Hero Element: Large Direct Email Component -->
+          <div class="pt-4 space-y-4">
+            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50 block">
+              PRIMARY INBOX
             </span>
-            <p class="font-bold text-[14px] text-paper/90 m-0">
-              Within 24 hours via email or LinkedIn.
-            </p>
-          </div>
+            
+            <a
+              href="mailto:marwanelgammal0@gmail.com"
+              class="group relative inline-block text-[clamp(22px,3.5vw,40px)] font-extrabold tracking-[-0.035em] text-ink border-b-2 border-ink pb-1 transition-colors hover:text-[#0d244a]"
+            >
+              <span class="break-all">marwanelgammal0@gmail.com</span>
+              <span class="inline-block ml-2 text-[0.7em] transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1">↗</span>
+            </a>
 
-          <!-- Section 4: Connect Links -->
-          <div class="space-y-2 pt-2 border-t border-paper/15">
-            <span class="block text-paper/40 text-[11px] uppercase font-extrabold tracking-widest">
-              CONNECT
-            </span>
-            <div class="flex items-center gap-6 font-bold text-[14px] text-paper">
+            <div class="pt-4 flex flex-wrap items-center gap-4">
+              <a
+                href="/Marwan-Ashraf-uiux%20design-CV.pdf"
+                download="Marwan-Ashraf-uiux design-CV.pdf"
+                class="px-7 py-3.5 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-ink/85 active:scale-[0.98] transition-all inline-flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
+              >
+                Download Résumé / CV ↗
+              </a>
+              
               <a
                 href="https://www.linkedin.com/in/marwan-ashraf-ibrahim/"
                 target="_blank"
                 rel="noopener"
-                class="hover:text-lime hover:underline inline-flex items-center gap-1"
+                class="px-6 py-3.5 border border-ink text-ink rounded-full font-bold text-[13px] hover:bg-ink hover:text-paper transition-all inline-flex items-center gap-2"
               >
-                LinkedIn ↗
-              </a>
-              <a
-                href="mailto:marwanelgammal0@gmail.com"
-                class="hover:text-lime hover:underline inline-flex items-center gap-1"
-              >
-                Email ↗
+                LinkedIn Profile ↗
               </a>
             </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN (~35%): Restrained Tinted Panel with Typography List -->
+        <div class="bg-[#f4f7fa] border border-ink p-8 md:p-10 rounded-sm flex flex-col justify-between space-y-8">
+          
+          <!-- Specializations (Clean Typography, NO pills) -->
+          <div class="space-y-4">
+            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50 block border-b border-ink/20 pb-2">
+              TARGET ROLES &amp; SCOPE
+            </span>
+            <ul class="space-y-3 font-sans text-[15px] font-extrabold text-ink list-none p-0 m-0">
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 bg-ink rounded-full"></span>
+                <span>Product Design (SaaS &amp; Web)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 bg-ink rounded-full"></span>
+                <span>UI/UX &amp; Interaction Systems</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 bg-ink rounded-full"></span>
+                <span>Frontend UI (Vue 3 / Tailwind)</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Location & Relocation -->
+          <div class="space-y-2 border-t border-ink/20 pt-6">
+            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50 block">
+              LOCATION &amp; AVAILABILITY
+            </span>
+            <p class="text-[15px] font-extrabold text-ink m-0">
+              Based in Egypt
+            </p>
+            <p class="text-[13px] text-ink/75 font-medium m-0">
+              Open to relocation &amp; full-time remote opportunities worldwide.
+            </p>
+          </div>
+
+          <!-- Response Expectation -->
+          <div class="space-y-2 border-t border-ink/20 pt-6">
+            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50 block">
+              RESPONSE TIME
+            </span>
+            <p class="text-[13px] text-ink/80 font-bold m-0">
+              Usually respond within 24 hours on business days.
+            </p>
+          </div>
+
+          <!-- Social Links -->
+          <div class="border-t border-ink/20 pt-6 flex items-center gap-5 text-[13px] font-extrabold">
+            <a
+              href="https://www.linkedin.com/in/marwan-ashraf-ibrahim/"
+              target="_blank"
+              rel="noopener"
+              class="text-ink hover:underline"
+            >
+              LinkedIn ↗
+            </a>
+            <a
+              href="https://github.com/marwann022"
+              target="_blank"
+              rel="noopener"
+              class="text-ink hover:underline"
+            >
+              GitHub ↗
+            </a>
           </div>
 
         </div>
 
       </div>
-    </div>
+    </section>
+
+    <!-- Bottom Deep Ink Conversion Band -->
+    <section class="bg-ink text-paper py-8 px-5 md:px-[7vw] border-t border-ink font-sans">
+      <div class="max-w-[1240px] mx-auto flex max-md:flex-col items-start md:items-center justify-between gap-6">
+        <div>
+          <span class="font-mono text-[11px] uppercase tracking-widest text-paper/50 block mb-1">
+            DIRECT INQUIRIES
+          </span>
+          <p class="text-[16px] md:text-[18px] font-bold text-paper m-0">
+            Prefer traditional email attachments or direct outreach? Feel free to reach out anytime.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <button
+            @click="copyEmail"
+            type="button"
+            class="px-6 py-3 bg-paper text-ink rounded-full font-extrabold text-[13px] hover:bg-paper/90 transition-colors cursor-pointer"
+          >
+            {{ copied ? 'Copied to Clipboard! ✓' : 'Copy Email Address' }}
+          </button>
+        </div>
+      </div>
+    </section>
   </main>
 </template>
