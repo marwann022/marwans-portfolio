@@ -38,7 +38,7 @@ function copyEmail() {
               <h1 class="text-[clamp(42px,6vw,78px)] leading-[1.02] tracking-[-0.04em] font-extrabold text-ink m-0">
                 Let’s talk.
               </h1>
-              <p class="text-[20px] md:text-[24px] font-serif italic text-ink/75 mt-2 m-0">
+              <p class="text-[20px] md:text-[24px] font-serif italic text-green-700 mt-2 m-0">
                 about products, systems, and new ideas.
               </p>
             </div>

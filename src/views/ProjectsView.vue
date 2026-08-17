@@ -138,7 +138,7 @@ onUnmounted(() => {
             <div class="flex flex-col md:items-end justify-between gap-3">
               <div class="text-[12px] font-mono font-bold text-ink/60 space-y-1 text-left md:text-right">
                 <p class="m-0">Role: Lead Product Designer &amp; Frontend Engineer</p>
-                <p class="m-0 text-[#1e3a8a]">Outcome: Top Capstone Evaluation Score at ITI</p>
+                <p class="m-0 text-[#1e3a8a]">Outcome: Top Capstone Score at ITI</p>
               </div>
               <RouterLink
                 to="/projects/smartmeet"
@@ -200,7 +200,7 @@ onUnmounted(() => {
 
             <div class="space-y-3 font-sans text-[13px] font-bold text-ink">
               <div class="p-4 border-l-4 border-[#1e8dc1] border-t border-r border-b border-ink/20 bg-story-bg rounded-r">
-                <span class="text-[#1e8dc1] font-mono text-[11px] uppercase block mb-1 font-extrabold">UX RESEARCH INSIGHT</span>
+                <span class="text-[#1e8dc1] font-mono text-[11px] uppercase block mb-1 font-extrabold">PATIENT UX &amp; TRUST</span>
                 <span>Anxiety-reducing appointment workflows with transparent cost breakdowns before confirmation.</span>
               </div>
 
@@ -296,40 +296,40 @@ onUnmounted(() => {
           <span class="hidden sm:inline-block text-[12px] font-mono font-extrabold uppercase text-ink/50">SECONDARY PROJECTS</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <article
             v-for="project in secondaryProjects"
             :key="project.id"
-            class="border border-ink bg-paper p-6 md:p-8 space-y-6 flex flex-col justify-between shadow-sm hover:-translate-y-1 transition-all duration-300 group"
+            class="border border-ink bg-paper p-6 space-y-5 flex flex-col justify-between shadow-sm hover:-translate-y-1 transition-all duration-300 group"
           >
             <div class="space-y-4">
               <div class="flex items-center justify-between border-b border-ink/20 pb-3">
                 <span class="font-mono text-[11px] font-extrabold uppercase text-ink/60">
-                  {{ project.category }}
+                  {{ project.kind }}
                 </span>
-                <span class="font-mono text-[11px] font-bold text-ink/40">{{ project.year }}</span>
+                <span class="font-mono text-[11px] font-bold text-ink/40">{{ project.num }}</span>
               </div>
 
-              <div class="aspect-[16/9] border border-ink overflow-hidden bg-ink/5">
+              <div class="aspect-[16/10] border border-ink overflow-hidden bg-ink/5">
                 <img
                   :src="project.image"
-                  :alt="project.title"
-                  class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  :alt="project.name"
+                  class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
 
               <h3 class="text-[22px] font-extrabold text-ink m-0 group-hover:underline underline-offset-4">
-                {{ project.title }}
+                {{ project.name }}
               </h3>
 
               <p class="text-[14px] text-ink/80 font-medium m-0 leading-[1.55]">
-                {{ project.summary }}
+                {{ project.blurb }}
               </p>
             </div>
 
             <div class="pt-4 border-t border-ink/20 flex items-center justify-between">
-              <span class="text-[12px] font-bold text-ink/60">{{ project.deliverables }}</span>
+              <span class="text-[12px] font-bold text-ink/60">{{ project.meta?.status || 'Case Study' }}</span>
               <RouterLink
                 :to="`/projects/${project.id}`"
                 class="text-[12px] font-extrabold text-ink hover:underline inline-flex items-center gap-1"
@@ -366,15 +366,15 @@ onUnmounted(() => {
             <div class="aspect-[4/3] border border-ink overflow-hidden bg-ink/5">
               <img
                 :src="item.image"
-                :alt="item.title"
+                :alt="item.name"
                 class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                 loading="lazy"
               />
             </div>
             <div>
               <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block mb-0.5">{{ item.category }}</span>
-              <h3 class="text-[18px] font-extrabold text-ink m-0">{{ item.title }}</h3>
-              <p class="text-[13px] text-ink/75 font-medium m-0 mt-1">{{ item.description }}</p>
+              <h3 class="text-[18px] font-extrabold text-ink m-0">{{ item.name }}</h3>
+              <p class="text-[13px] text-ink/75 font-medium m-0 mt-1">{{ item.summary }}</p>
             </div>
             <div class="pt-3 border-t border-ink/20 flex justify-end">
               <RouterLink :to="`/archive/${item.id}`" class="text-[12px] font-extrabold text-ink hover:underline">

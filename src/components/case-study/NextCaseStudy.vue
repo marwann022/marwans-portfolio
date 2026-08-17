@@ -17,47 +17,71 @@ const prevProject = computed(() => getPrevProject(props.currentId));
 
 <template>
   <section class="py-16 md:py-24 px-5 md:px-[7vw] border-t border-ink bg-paper font-sans">
-    <!-- Top Direct Navigation Bar -->
-    <div class="flex flex-wrap items-center justify-between gap-4 pb-8 mb-8 border-b border-line text-[13px] font-bold text-ink">
-      <div>
+    <div class="max-w-[1240px] mx-auto space-y-10">
+
+      <!-- Navigation Control Header -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-ink text-[13px] font-bold text-ink">
+        <div>
+          <RouterLink
+            v-if="prevProject && currentId !== 'smartmeet'"
+            :to="`/projects/${prevProject.id}`"
+            class="inline-flex items-center gap-2 hover:underline"
+          >
+            <span>← Previous: {{ prevProject.name }}</span>
+          </RouterLink>
+          <span v-else class="font-mono text-[11px] uppercase text-ink/50 tracking-wider">
+            01 / FLAGSHIP START
+          </span>
+        </div>
+
         <RouterLink
-          v-if="prevProject && currentId !== 'smartmeet'"
-          :to="`/projects/${prevProject.id}`"
-          class="inline-flex items-center gap-2 hover:underline"
+          to="/projects"
+          class="font-mono text-[12px] uppercase tracking-wider font-extrabold text-ink hover:underline"
         >
-          <span>← Previous: {{ prevProject.name }}</span>
+          Work Index ↑
         </RouterLink>
-        <span v-else class="text-ink/50">01. FLAGSHIP START</span>
       </div>
 
-      <RouterLink
-        to="/"
-        class="text-[13px] font-extrabold border-b-2 border-ink text-ink hover:opacity-80 transition-opacity"
-      >
-        ← Back to selected work
-      </RouterLink>
-    </div>
+      <!-- Main Next Flagship Transition Card -->
+      <div v-if="nextProject">
+        <span class="font-mono text-[11px] font-black uppercase tracking-widest text-ink/50 block mb-3">
+          UP NEXT — FLAGSHIP {{ nextProject.num }}
+        </span>
 
-    <!-- Main Next Project Callout -->
-    <div v-if="nextProject">
-      <p class="font-sans font-extrabold text-[12px] tracking-[0.05em] uppercase m-0 text-ink/70 mb-3">
-        NEXT CASE STUDY
-      </p>
+        <RouterLink
+          :to="`/projects/${nextProject.id}`"
+          class="group grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-8 border border-ink bg-story-bg p-6 md:p-10 hover:bg-paper transition-all duration-300 shadow-[8px_8px_0_rgba(21,21,21,0.08)] focus-visible:ring-2 focus-visible:ring-ink"
+        >
+          <div class="flex flex-col justify-between space-y-6">
+            <div class="space-y-3">
+              <span class="font-mono text-[12px] font-extrabold uppercase text-[#0d244a] block">
+                {{ nextProject.kind }}
+              </span>
+              <h2 class="text-[clamp(36px,5vw,72px)] leading-[1.02] tracking-[-0.04em] font-extrabold text-ink group-hover:underline underline-offset-8 transition-all m-0">
+                {{ nextProject.name }} ↗
+              </h2>
+              <p class="text-[17px] md:text-[19px] leading-[1.5] text-ink/80 font-medium m-0 max-w-[540px]">
+                {{ nextProject.thesis || nextProject.blurb }}
+              </p>
+            </div>
 
-      <RouterLink
-        :to="`/projects/${nextProject.id}`"
-        class="group block text-[clamp(36px,6vw,84px)] tracking-[-0.035em] leading-[1.05] font-extrabold text-ink hover:underline decoration-2 underline-offset-8 transition-all focus-visible:ring-2 focus-visible:ring-ink focus-visible:outline-none"
-      >
-        <div class="flex items-center gap-4">
-          <span>{{ nextProject.name }}</span>
-          <span class="text-[0.65em] font-normal transition-transform group-hover:translate-x-2">↗</span>
-        </div>
-        <p class="text-[16px] md:text-[18px] text-ink/70 font-medium tracking-normal mt-2 m-0">
-          {{ nextProject.kind }}
-        </p>
-      </RouterLink>
+            <div class="inline-flex items-center gap-2 font-mono text-[12px] font-extrabold uppercase text-ink">
+              <span>Read {{ nextProject.name }} case study</span>
+              <span>→</span>
+            </div>
+          </div>
+
+          <div v-if="nextProject.image" class="aspect-[16/10] overflow-hidden border border-ink bg-ink">
+            <img
+              :src="nextProject.image"
+              :alt="'Next case study: ' + nextProject.name"
+              class="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+        </RouterLink>
+      </div>
+
     </div>
   </section>
 </template>
-
-

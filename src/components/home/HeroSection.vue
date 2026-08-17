@@ -72,6 +72,21 @@ function handleMouseLeave() {
 
       <!-- Right Column: Editorial Integrated Portrait Composition -->
       <div class="relative flex flex-col justify-end items-center lg:items-end h-full min-h-[340px] md:min-h-[440px] lg:min-h-[520px]">
+        <!-- Subtle Editorial Typographic Watermark (MA) -->
+        <div
+          class="absolute -top-6 lg:top-4 right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-4 text-[clamp(140px,20vw,280px)] leading-none font-serif italic text-ink/[0.06] select-none pointer-events-none font-extrabold z-0"
+          aria-hidden="true"
+        >
+          MA
+        </div>
+
+        <!-- Restrained Side Editorial Metadata (Desktop) -->
+        <div class="hidden xl:block absolute top-12 left-0 z-20 font-sans text-[11px] font-extrabold uppercase tracking-widest text-ink/50 border-l border-ink/30 pl-3">
+          <p class="m-0 text-ink font-extrabold text-[12px]">MARWAN ASHRAF</p>
+          <p class="m-0 text-ink/60 text-[10px] mt-0.5">PRODUCT DESIGN · UX · FRONTEND</p>
+          <p class="m-0 text-ink/40 text-[10px] mt-1 font-mono">01 — HERO</p>
+        </div>
+
         <!-- Main Real Portrait Cutout (Clean display on warm paper) -->
         <div
           class="relative z-10 w-full max-w-[380px] sm:max-w-[440px] md:max-w-[480px] lg:max-w-[520px] flex justify-center lg:justify-end animate-fade transition-transform duration-300 ease-out"
