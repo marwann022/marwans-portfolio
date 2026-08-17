@@ -45,7 +45,7 @@ function handleMouseLeave() {
 
         <h1 class="text-[clamp(40px,6vw,84px)] tracking-[-0.035em] leading-[1.05] max-w-[800px] font-extrabold text-ink m-0">
           <span class="block animate-rise">Product Designer</span>
-          <span class="block animate-rise-delay font-serif italic font-normal text-ink/90">shaped by engineering logic.</span>
+          <span class="block animate-rise-delay font-serif italic font-normal text-red-900">shaped by engineering logic.</span>
         </h1>
 
         <p class="text-[17px] md:text-[20px] leading-[1.55] max-w-[540px] tracking-[-0.01em] text-ink/85 font-medium m-0 animate-fade">

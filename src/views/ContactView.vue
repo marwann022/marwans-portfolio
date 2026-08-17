@@ -86,7 +86,7 @@ function copyEmail() {
         </div>
 
         <!-- RIGHT COLUMN (~35%): Restrained Tinted Panel with Typography List -->
-        <div class="bg-[#f4f7fa] border border-ink p-8 md:p-10 rounded-sm flex flex-col justify-between space-y-8">
+        <div class="bg-paper border border-ink p-8 md:p-10 rounded-md flex flex-col justify-between space-y-8">
           
           <!-- Specializations (Clean Typography, NO pills) -->
           <div class="space-y-4">

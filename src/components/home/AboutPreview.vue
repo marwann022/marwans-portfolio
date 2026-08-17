@@ -41,7 +41,7 @@ import { RouterLink } from "vue-router";
     <div>
       <p class="font-sans font-bold text-[12px] tracking-[0.05em] uppercase m-0 text-ink/70">(04) MULTIDISCIPLINARY ADVANTAGE</p>
       <h2 class="text-[clamp(32px,4.5vw,60px)] tracking-[-0.035em] leading-[1.05] my-6 font-extrabold text-ink">
-        Systems thinker.<br /><span class="font-serif italic font-normal text-ink/85">Frontend execution.</span>
+        Systems thinker.<br /><span class="font-serif italic font-normal text-green-900">Frontend execution.</span>
       </h2>
       <p class="text-[16px] md:text-[18px] leading-[1.55] tracking-[-0.01em] max-w-[480px] text-ink/85 font-medium m-0 mb-8">
         My engineering background brings algorithmic logic and component scalability, while UI/UX training ensures every interaction is user-validated, accessible, and ready for production.
