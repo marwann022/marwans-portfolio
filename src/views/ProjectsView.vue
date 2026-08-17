@@ -42,7 +42,7 @@ import { gallery } from "@/data/gallery.js";
       </div>
     </header>
 
-    <!-- SECTION 01: 3 FEATURED PROJECTS ONLY (Exact Order: 01 GolderaPharm, 02 WeCare, 03 SmartMeet) -->
+    <!-- SECTION 01: 3 FEATURED PROJECTS ONLY (Exact Order: 01 SmartMeet, 02 WeCare, 03 GolderaPharm) -->
     <section id="featured-projects" class="py-16 md:py-24 px-5 md:px-[7vw] border-b border-ink bg-paper">
       <div class="max-w-[1240px] mx-auto space-y-24">
 
@@ -59,87 +59,90 @@ import { gallery } from "@/data/gallery.js";
           <span class="hidden sm:inline-block text-[12px] font-mono font-extrabold uppercase text-ink/50">03 CURATED PROJECTS</span>
         </div>
 
-        <!-- PROJECT 01: GolderaPharm (Enterprise CRM) -->
+        <!-- PROJECT 01: SmartMeet (AI Meeting Intelligence Platform) -->
         <article class="border border-ink bg-paper p-6 md:p-10 shadow-[8px_8px_0_rgba(21,21,21,0.04)]">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <div class="space-y-8">
             
-            <!-- Left Side: Large Real Visual -->
-            <div class="space-y-4">
-              <div class="aspect-[16/10] overflow-hidden border border-ink bg-ink relative">
-                <img
-                  src="/assets/golderapharm-cover.png"
-                  alt="GolderaPharm Enterprise CRM Dashboard"
-                  class="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-500"
-                />
-              </div>
-
-              <!-- Three Roles Visual Breakdown Badges -->
-              <div class="p-4 border border-ink bg-story-bg space-y-2">
-                <span class="text-[11px] font-extrabold uppercase tracking-wider text-ink/70 block">
-                  ROLE-SPECIFIC INTERFACE MODULES
-                </span>
-                <div class="grid grid-cols-3 gap-2 text-center text-[11px] font-bold font-sans">
-                  <div class="p-2 border border-ink/30 bg-paper">Medical Rep</div>
-                  <div class="p-2 border border-ink/30 bg-paper">Supervisor</div>
-                  <div class="p-2 border border-ink/30 bg-paper">Manager</div>
-                </div>
-              </div>
+            <!-- Header Badge & Title -->
+            <div class="flex items-center justify-between border-b border-ink/20 pb-3">
+              <span class="font-sans text-[13px] font-black uppercase bg-ink text-paper px-3 py-1 rounded-sm">
+                PROJECT 01
+              </span>
+              <span class="font-mono text-[12px] font-bold text-ink/60 uppercase">AI Productivity · SaaS</span>
             </div>
 
-            <!-- Right Side: Product Information & Story -->
-            <div class="space-y-6">
-              <div class="flex items-center justify-between border-b border-ink/20 pb-3">
-                <span class="font-sans text-[13px] font-black uppercase bg-ink text-paper px-3 py-1 rounded-sm">
-                  PROJECT 01
-                </span>
-                <span class="font-mono text-[12px] font-bold text-ink/60 uppercase">Enterprise SaaS · Pharmaceutical</span>
-              </div>
-
-              <!-- Title & Quote Highlight -->
+            <!-- Text Section (FIRST) -->
+            <div class="space-y-6 max-w-[960px]">
               <div>
                 <h3 class="text-[32px] md:text-[40px] font-extrabold text-ink m-0 tracking-[-0.03em] leading-tight">
-                  GolderaPharm
+                  SmartMeet
                 </h3>
                 <p class="text-[14px] font-bold text-ink/60 mt-1 uppercase tracking-wider">
-                  Enterprise Role-Based CRM Platform
+                  AI Meeting Intelligence &amp; Workspace Platform
                 </p>
               </div>
 
               <blockquote class="p-4 border-l-2 border-ink bg-story-bg text-[17px] font-serif italic text-ink m-0 leading-snug">
-                “One CRM system adapted for three operational roles.”
+                “Transforming passive video meetings into structured, searchable organizational knowledge.”
               </blockquote>
 
               <p class="text-[15px] leading-[1.6] text-ink/85 font-medium m-0">
-                Architected an enterprise pharmaceutical sales platform. Medical Representatives gain sub-45s field visit and sample logging; Supervisors monitor real-time team visits; Managers receive macro sales targets and performance analytics.
+                Led UI/UX design and frontend development for an AI-powered meeting workspace. SmartMeet pairs real-time speech-to-text transcription with RAG knowledge search, automated action item extraction, decision logging, and multi-tenant data isolation.
               </p>
 
               <!-- Detailed Fact Grid -->
-              <div class="grid grid-cols-2 gap-4 py-4 border-t border-b border-ink/20 text-[13px]">
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-t border-b border-ink/20 text-[13px]">
                 <div>
                   <span class="text-[11px] font-extrabold uppercase text-ink/50 block">My Role</span>
-                  <strong class="font-extrabold text-ink">Lead Product Designer &amp; Systems Architect</strong>
+                  <strong class="font-extrabold text-ink">Lead Product Designer &amp; Frontend Engineer</strong>
                 </div>
                 <div>
                   <span class="text-[11px] font-extrabold uppercase text-ink/50 block">Industry</span>
-                  <strong class="font-extrabold text-ink">Pharmaceutical Enterprise Operations</strong>
+                  <strong class="font-extrabold text-ink">AI Productivity SaaS</strong>
                 </div>
                 <div>
                   <span class="text-[11px] font-extrabold uppercase text-ink/50 block">Main Challenge</span>
-                  <strong class="font-extrabold text-ink">40% workday lost to cluttered field logging forms</strong>
+                  <strong class="font-extrabold text-ink">Context loss post-meeting &amp; task fragmentation</strong>
                 </div>
                 <div>
                   <span class="text-[11px] font-extrabold uppercase text-ink/50 block">Main Outcome</span>
-                  <strong class="font-extrabold text-ink">Visit logging time reduced from 4.5m to ~45s</strong>
+                  <strong class="font-extrabold text-ink">Awarded top capstone evaluation score at ITI</strong>
                 </div>
               </div>
 
-              <!-- CTA Link -->
-              <div class="pt-2">
+              <!-- SmartMeet Feature Highlights -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-1">
+                <div class="p-3 border border-ink/30 bg-story-bg text-[12px] font-bold text-ink">
+                  Real-Time Transcription
+                </div>
+                <div class="p-3 border border-ink/30 bg-story-bg text-[12px] font-bold text-ink">
+                  Automated Action Extraction
+                </div>
+                <div class="p-3 border border-ink/30 bg-story-bg text-[12px] font-bold text-ink">
+                  RAG Knowledge Search
+                </div>
+                <div class="p-3 border border-ink/30 bg-story-bg text-[12px] font-bold text-ink">
+                  Sync-Scroll Split Workspace
+                </div>
+              </div>
+            </div>
+
+            <!-- Large Showcase Image (BELOW Text Section) -->
+            <div class="space-y-4 pt-4 border-t border-ink">
+              <div class="aspect-[16/9] overflow-hidden border border-ink bg-ink relative shadow-inner">
+                <img
+                  src="/Thumbnail.png"
+                  alt="SmartMeet AI Meeting Intelligence Dashboard and Transcript View"
+                  class="w-full h-full object-cover object-left hover:scale-[1.01] transition-transform duration-500"
+                />
+              </div>
+              <div class="flex items-center justify-between text-[12px] text-ink/70 font-sans font-bold px-1">
+                <span>SmartMeet Split-Screen Workspace UI (Vue 3 + Node.js)</span>
                 <RouterLink
-                  to="/projects/goldera"
-                  class="px-6 py-3 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-paper hover:text-ink border border-ink transition-colors inline-flex items-center gap-2"
+                  to="/projects/smartmeet"
+                  class="px-6 py-2.5 bg-ink text-paper rounded-full font-extrabold text-[12px] hover:bg-paper hover:text-ink border border-ink transition-colors inline-flex items-center gap-2"
                 >
-                  Read GolderaPharm Case Study ↗
+                  Read SmartMeet Case Study ↗
                 </RouterLink>
               </div>
             </div>
@@ -293,91 +296,87 @@ import { gallery } from "@/data/gallery.js";
           </div>
         </article>
 
-        <!-- PROJECT 03: SmartMeet (AI Meeting Intelligence Platform) -->
-        <!-- Layout Requirement: Text section FIRST, then a large product showcase image BELOW (image NOT beside text) -->
+        <!-- PROJECT 03: GolderaPharm (Enterprise CRM) -->
         <article class="border border-ink bg-paper p-6 md:p-10 shadow-[8px_8px_0_rgba(21,21,21,0.04)]">
-          <div class="space-y-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             
-            <!-- Header Badge & Title -->
-            <div class="flex items-center justify-between border-b border-ink/20 pb-3">
-              <span class="font-sans text-[13px] font-black uppercase bg-ink text-paper px-3 py-1 rounded-sm">
-                PROJECT 03
-              </span>
-              <span class="font-mono text-[12px] font-bold text-ink/60 uppercase">AI Productivity · SaaS</span>
+            <!-- Left Side: Large Real Visual -->
+            <div class="space-y-4">
+              <div class="aspect-[16/10] overflow-hidden border border-ink bg-ink relative">
+                <img
+                  src="/assets/golderapharm-cover.png"
+                  alt="GolderaPharm Enterprise CRM Dashboard"
+                  class="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-500"
+                />
+              </div>
+
+              <!-- Three Roles Visual Breakdown Badges -->
+              <div class="p-4 border border-ink bg-story-bg space-y-2">
+                <span class="text-[11px] font-extrabold uppercase tracking-wider text-ink/70 block">
+                  ROLE-SPECIFIC INTERFACE MODULES
+                </span>
+                <div class="grid grid-cols-3 gap-2 text-center text-[11px] font-bold font-sans">
+                  <div class="p-2 border border-ink/30 bg-paper">Medical Rep</div>
+                  <div class="p-2 border border-ink/30 bg-paper">Supervisor</div>
+                  <div class="p-2 border border-ink/30 bg-paper">Manager</div>
+                </div>
+              </div>
             </div>
 
-            <!-- Text Section (FIRST) -->
-            <div class="space-y-6 max-w-[960px]">
+            <!-- Right Side: Product Information & Story -->
+            <div class="space-y-6">
+              <div class="flex items-center justify-between border-b border-ink/20 pb-3">
+                <span class="font-sans text-[13px] font-black uppercase bg-ink text-paper px-3 py-1 rounded-sm">
+                  PROJECT 03
+                </span>
+                <span class="font-mono text-[12px] font-bold text-ink/60 uppercase">Enterprise SaaS · Pharmaceutical</span>
+              </div>
+
+              <!-- Title & Quote Highlight -->
               <div>
                 <h3 class="text-[32px] md:text-[40px] font-extrabold text-ink m-0 tracking-[-0.03em] leading-tight">
-                  SmartMeet
+                  GolderaPharm
                 </h3>
                 <p class="text-[14px] font-bold text-ink/60 mt-1 uppercase tracking-wider">
-                  AI Meeting Intelligence &amp; Workspace Platform
+                  Enterprise Role-Based CRM Platform
                 </p>
               </div>
 
               <blockquote class="p-4 border-l-2 border-ink bg-story-bg text-[17px] font-serif italic text-ink m-0 leading-snug">
-                “Transforming passive video meetings into structured, searchable organizational knowledge.”
+                “One CRM system adapted for three operational roles.”
               </blockquote>
 
               <p class="text-[15px] leading-[1.6] text-ink/85 font-medium m-0">
-                Led UI/UX design and frontend development for an AI-powered meeting workspace. SmartMeet pairs real-time speech-to-text transcription with RAG knowledge search, automated action item extraction, decision logging, and multi-tenant data isolation.
+                Architected an enterprise pharmaceutical sales platform. Medical Representatives gain sub-45s field visit and sample logging; Supervisors monitor real-time team visits; Managers receive macro sales targets and performance analytics.
               </p>
 
               <!-- Detailed Fact Grid -->
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-t border-b border-ink/20 text-[13px]">
+              <div class="grid grid-cols-2 gap-4 py-4 border-t border-b border-ink/20 text-[13px]">
                 <div>
                   <span class="text-[11px] font-extrabold uppercase text-ink/50 block">My Role</span>
-                  <strong class="font-extrabold text-ink">Lead Product Designer &amp; Frontend Engineer</strong>
+                  <strong class="font-extrabold text-ink">Lead Product Designer &amp; Systems Architect</strong>
                 </div>
                 <div>
                   <span class="text-[11px] font-extrabold uppercase text-ink/50 block">Industry</span>
-                  <strong class="font-extrabold text-ink">AI Productivity SaaS</strong>
+                  <strong class="font-extrabold text-ink">Pharmaceutical Enterprise Operations</strong>
                 </div>
                 <div>
                   <span class="text-[11px] font-extrabold uppercase text-ink/50 block">Main Challenge</span>
-                  <strong class="font-extrabold text-ink">Context loss post-meeting &amp; task fragmentation</strong>
+                  <strong class="font-extrabold text-ink">40% workday lost to cluttered field logging forms</strong>
                 </div>
                 <div>
                   <span class="text-[11px] font-extrabold uppercase text-ink/50 block">Main Outcome</span>
-                  <strong class="font-extrabold text-ink">Awarded top capstone evaluation score at ITI</strong>
+                  <strong class="font-extrabold text-ink">Visit logging time reduced from 4.5m to ~45s</strong>
                 </div>
               </div>
 
-              <!-- SmartMeet Feature Highlights -->
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-1">
-                <div class="p-3 border border-ink/30 bg-story-bg text-[12px] font-bold text-ink">
-                  Real-Time Transcription
-                </div>
-                <div class="p-3 border border-ink/30 bg-story-bg text-[12px] font-bold text-ink">
-                  Automated Action Extraction
-                </div>
-                <div class="p-3 border border-ink/30 bg-story-bg text-[12px] font-bold text-ink">
-                  RAG Knowledge Search
-                </div>
-                <div class="p-3 border border-ink/30 bg-story-bg text-[12px] font-bold text-ink">
-                  Sync-Scroll Split Workspace
-                </div>
-              </div>
-            </div>
-
-            <!-- Large Showcase Image (BELOW Text Section) -->
-            <div class="space-y-4 pt-4 border-t border-ink">
-              <div class="aspect-[16/9] overflow-hidden border border-ink bg-ink relative shadow-inner">
-                <img
-                  src="/Thumbnail.png"
-                  alt="SmartMeet AI Meeting Intelligence Dashboard and Transcript View"
-                  class="w-full h-full object-cover object-top hover:scale-[1.01] transition-transform duration-500"
-                />
-              </div>
-              <div class="flex items-center justify-between text-[12px] text-ink/70 font-sans font-bold px-1">
-                <span>SmartMeet Split-Screen Workspace UI (Vue 3 + Node.js)</span>
+              <!-- CTA Link -->
+              <div class="pt-2">
                 <RouterLink
-                  to="/projects/smartmeet"
-                  class="px-6 py-2.5 bg-ink text-paper rounded-full font-extrabold text-[12px] hover:bg-paper hover:text-ink border border-ink transition-colors inline-flex items-center gap-2"
+                  to="/projects/goldera"
+                  class="px-6 py-3 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-paper hover:text-ink border border-ink transition-colors inline-flex items-center gap-2"
                 >
-                  Read SmartMeet Case Study ↗
+                  Read GolderaPharm Case Study ↗
                 </RouterLink>
               </div>
             </div>

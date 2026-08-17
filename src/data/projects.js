@@ -1,7 +1,7 @@
 export const projects = {
   smartmeet: {
     id: "smartmeet",
-    num: "03",
+    num: "01",
     name: "SmartMeet",
     kind: "AI meeting intelligence & workspace",
     accent: "blue",
@@ -111,7 +111,7 @@ export const projects = {
   },
   goldera: {
     id: "goldera",
-    num: "01",
+    num: "03",
     name: "GolderaPharm",
     kind: "Role-based pharmaceutical CRM",
     accent: "lime",
@@ -345,13 +345,13 @@ export const projects = {
   }
 };
 
-export const projectKeys = ["goldera", "wecare", "smartmeet", "hmz", "franchise212", "imdb"];
+export const projectKeys = ["smartmeet", "wecare", "goldera", "hmz", "franchise212", "imdb"];
 
-// Explicit Flagship Curation (Exact Priority Order: 01 GolderaPharm, 02 WeCare, 03 SmartMeet)
+// Explicit Flagship Curation (Exact Order: 01 SmartMeet, 02 WeCare, 03 GolderaPharm)
 export const flagshipProjects = [
-  projects.goldera,
+  projects.smartmeet,
   projects.wecare,
-  projects.smartmeet
+  projects.goldera
 ];
 
 // Secondary Extended Work

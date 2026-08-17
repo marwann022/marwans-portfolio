@@ -1,8 +1,8 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import { flagshipProjects } from "@/data/projects.js";
+import { projects } from "@/data/projects.js";
 
-const [smartmeet, wecare, goldera] = flagshipProjects;
+const { smartmeet, wecare, goldera } = projects;
 </script>
 
 <template>
@@ -213,5 +213,3 @@ const [smartmeet, wecare, goldera] = flagshipProjects;
     </div>
   </section>
 </template>
-
-
