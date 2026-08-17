@@ -1,13 +1,123 @@
 export const projects = {
+  smartmeet: {
+    id: "smartmeet",
+    num: "01",
+    name: "SmartMeet",
+    kind: "AI meeting intelligence & workspace",
+    accent: "blue",
+    image: "https://drive.google.com/thumbnail?id=1eyyBc02D7vPxCUSO2kxjI38tHjAwJtNt&sz=w1600",
+    headline: "Meetings that leave<br>something behind.",
+    blurb: "AI meeting intelligence and productivity platform transforming live conversations into structured transcripts, action items, decisions, and team knowledge.",
+    facts: [
+      ["AI", "Meeting intelligence & summaries"],
+      ["RAG", "Knowledge search across chats"],
+      ["Vue + Node", "Full-stack web application"]
+    ],
+    overview: {
+      client: "ITI Graduation Capstone Project",
+      timeframe: "4 Months (2025-2026)",
+      team: "4 Engineers & Designers (Marwan: UX/UI Lead & Frontend Engineer)",
+      role: "Lead Product Designer & Frontend Developer",
+      platforms: "Responsive Web Application",
+      tools: "Figma, Vue 3, Vite, TailwindCSS, Express, MongoDB"
+    },
+    sections: {
+      problem: "Teams lose critical context after video meetings finish. Action items get buried in raw recordings or unorganized chat threads, forcing employees to spend hours re-watching meetings.",
+      constraints: "Tight 4-month development deadline with a 4-person team. AI API latency (3–5 seconds per summary) required clear loading UI states so users didn't assume the app was broken.",
+      research: "Surveyed 28 ITI engineering students and instructors. 82% reported missing assigned follow-ups from project meetings because action items were not centralized.",
+      coreInsight: "A transcript is noise; actionable extraction is signal. The interface must highlight generated action items directly alongside speaker timestamps.",
+      decisions: [
+        {
+          title: "Split-Screen Meeting Workspace",
+          problem: "Users switched back and forth between video view, transcripts, and task notes.",
+          options: "Tabbed sidebar vs. persistent split workspace view.",
+          decision: "Created a persistent split view with sync-scrolling transcript and AI highlights.",
+          reason: "Keeps context visible at all times without losing video focus.",
+          consequence: "Reduced post-meeting task review time significantly during usability testing."
+        }
+      ],
+      outcomes: {
+        type: "qualitative",
+        measured: "Successfully built and deployed working prototype tested with 3 student project teams.",
+        qualitative: "Awarded top grade for UI clarity and frontend execution at ITI graduation evaluation."
+      },
+      reflection: "Combining product design with frontend coding ensured every UI decision was technically feasible. In future iterations, I would add keyboard shortcuts for transcript bookmarking."
+    },
+    blocks: [
+      ["THE PRODUCT VISION", "SmartMeet transforms passive meetings into actionable knowledge by pairing live transcription with AI summaries, automated task extraction, and organization-level data isolation."],
+      ["ENGINEERING & DESIGN ROLE", "I led UI/UX design in Figma and contributed to front-end engineering using Vue 3 & Vite, integrated with Node.js, Express, MongoDB, and REST APIs."],
+      ["IMPACT & VALIDATION", "Delivered a functional multi-tenant SaaS platform that simplified post-meeting follow-ups and made organizational knowledge instantly searchable."]
+    ],
+    roleMap: [
+      "Real-time transcription & speaker tagging",
+      "Automated AI summary & action item extraction",
+      "Cross-meeting knowledge search & task sync"
+    ]
+  },
+  wecare: {
+    id: "wecare",
+    num: "02",
+    name: "WeCare",
+    kind: "Healthcare appointment experience",
+    accent: "blue",
+    image: "https://drive.google.com/thumbnail?id=10ndQUkdxh0OSo-qoMa5XY3AgV-cU1zcE&sz=w1600",
+    headline: "Care journeys deserve<br>calm interfaces.",
+    blurb: "End-to-end healthcare product experience covering doctor discovery, progressive 3-step scheduling, transparent pricing, and post-care support.",
+    facts: [
+      ["20+", "Mobile screens designed"],
+      ["End-to-end", "Patient care journey"],
+      ["UX Focus", "Anxiety-reducing workflows"]
+    ],
+    overview: {
+      client: "Healthcare Mobile App Exploration",
+      timeframe: "2 Months (2024)",
+      team: "Product Designer (Solo)",
+      role: "Mobile UX/UI Designer",
+      platforms: "iOS / Android Mobile Native UI",
+      tools: "Figma, Mobile Interaction Patterns"
+    },
+    sections: {
+      problem: "Medical booking apps often overwhelm anxious patients with dense clinical jargon, complex calendars, and unclear pricing.",
+      constraints: "Designed for small touchscreen interfaces (375px width base) requiring large touch targets and minimum 16px body text for accessibility.",
+      research: "Reviewed top telehealth apps and identified key user anxieties: hidden consultation fees and fear of missing appointment details.",
+      coreInsight: "Calm visual design and clear step-by-step confirmation loops build patient confidence.",
+      decisions: [
+        {
+          title: "3-Step Wizard Booking Flow",
+          problem: "Single-page booking forms resulted in high drop-off on mobile.",
+          options: "Long scrolling form vs. progressive 3-step wizard (Doctor → Date/Time → Confirmation).",
+          decision: "Implemented progressive 3-step wizard with clear progress indicator.",
+          reason: "Reduces cognitive burden when selecting sensitive medical consultations.",
+          consequence: "Simplified navigation flow with clear cost breakdowns at each step."
+        }
+      ],
+      outcomes: {
+        type: "qualitative",
+        measured: "20+ mobile screens designed and linked into a high-fidelity clickable prototype.",
+        qualitative: "Praised by peer designers for clear typography and anxiety-reducing aesthetic."
+      },
+      reflection: "Designing for healthcare demands strict attention to clarity, contrast, and reassuring feedback state design."
+    },
+    blocks: [
+      ["THE PATIENT EXPERIENCE", "Mapped patient touchpoints from onboarding and specialist search through scheduling, payment confirmation, direct chat, and follow-up alerts."],
+      ["ACCESSIBLE SYSTEM", "Designed with clear status indicators, supportive UI micro-copy, and accessible decision points to make medical tasks straightforward and reassuring."],
+      ["DESIGN OUTCOME", "Created a patient-first healthcare experience that minimizes booking steps and keeps critical care details easily accessible."]
+    ],
+    roleMap: [
+      "Find the right specialist doctor",
+      "Book appointment & pay securely",
+      "Access post-care support & messaging"
+    ]
+  },
   goldera: {
     id: "goldera",
-    num: "01",
+    num: "03",
     name: "GolderaPharm",
     kind: "Role-based pharmaceutical CRM",
     accent: "lime",
     image: "/assets/golderapharm-cover.png",
     headline: "One operating system.<br>Three ways through it.",
-    blurb: "A role-based pharmaceutical CRM designed for Managers, Supervisors, and Medical Representatives navigating complex field workflows.",
+    blurb: "Enterprise CRM for pharmaceutical field teams managing doctors, visits, planning, performance, and reporting across three operational roles.",
     facts: [
       ["3", "Tailored user roles mapped"],
       ["50+", "High-fidelity UI screens"],
@@ -62,64 +172,9 @@ export const projects = {
       "Medical Representative: Mobile-first field visit & sample logging"
     ]
   },
-  smartmeet: {
-    id: "smartmeet",
-    num: "02",
-    name: "SmartMeet",
-    kind: "Multi-tenant collaboration workspace",
-    accent: "blue",
-    image: "https://drive.google.com/thumbnail?id=1eyyBc02D7vPxCUSO2kxjI38tHjAwJtNt&sz=w1600",
-    headline: "Meetings that leave<br>something behind.",
-    blurb: "An ITI graduation project bringing live transcription, AI meeting intelligence, and action items into one collaborative workspace.",
-    facts: [
-      ["AI", "Meeting intelligence & summaries"],
-      ["RAG", "Knowledge search across chats"],
-      ["Vue + Node", "Full-stack web application"]
-    ],
-    overview: {
-      client: "ITI Graduation Capstone Project",
-      timeframe: "4 Months (2025-2026)",
-      team: "4 Engineers & Designers (Marwan: UX/UI Lead & Frontend Engineer)",
-      role: "Lead Product Designer & Frontend Developer",
-      platforms: "Responsive Web Application",
-      tools: "Figma, Vue 3, Vite, TailwindCSS, Express, MongoDB"
-    },
-    sections: {
-      problem: "Teams lose critical context after video meetings finish. Action items get buried in raw recordings or unorganized chat threads, forcing employees to spend hours re-watching meetings.",
-      constraints: "Tight 4-month development deadline with a 4-person team. AI API latency (3–5 seconds per summary) required clear loading UI states so users didn't assume the app was broken.",
-      research: "Surveyed 28 ITI engineering students and instructors. 82% reported missing assigned follow-ups from project meetings because action items were not centralized.",
-      coreInsight: "A transcript is noise; actionable extraction is signal. The interface must highlight generated action items directly alongside speaker timestamps.",
-      decisions: [
-        {
-          title: "Split-Screen Meeting Workspace",
-          problem: "Users switched back and forth between video view, transcripts, and task notes.",
-          options: "Tabbed sidebar vs. persistent split workspace view.",
-          decision: "Created a persistent split view with sync-scrolling transcript and AI highlights.",
-          reason: "Keeps context visible at all times without losing video focus.",
-          consequence: "Reduced post-meeting task review time significantly during usability testing."
-        }
-      ],
-      outcomes: {
-        type: "qualitative",
-        measured: "Successfully built and deployed working prototype tested with 3 student project teams.",
-        qualitative: "Awarded top grade for UI clarity and frontend execution at ITI graduation evaluation."
-      },
-      reflection: "Combining product design with frontend coding ensured every UI decision was technically feasible. In future iterations, I would add keyboard shortcuts for transcript bookmarking."
-    },
-    blocks: [
-      ["THE PRODUCT VISION", "SmartMeet transforms passive meetings into actionable knowledge by pairing live transcription with AI summaries, automated task extraction, and organization-level data isolation."],
-      ["ENGINEERING & DESIGN ROLE", "I led UI/UX design in Figma and contributed to front-end engineering using Vue 3 & Vite, integrated with Node.js, Express, MongoDB, and REST APIs."],
-      ["IMPACT & VALIDATION", "Delivered a functional multi-tenant SaaS platform that simplified post-meeting follow-ups and made organizational knowledge instantly searchable."]
-    ],
-    roleMap: [
-      "Real-time transcription & speaker tagging",
-      "Automated AI summary & action item extraction",
-      "Cross-meeting knowledge search & task sync"
-    ]
-  },
   hmz: {
     id: "hmz",
-    num: "03",
+    num: "04",
     name: "HMZ",
     kind: "E-learning UX case study",
     accent: "coral",
@@ -174,7 +229,7 @@ export const projects = {
   },
   franchise212: {
     id: "franchise212",
-    num: "04",
+    num: "05",
     name: "212° Franchise",
     kind: "Franchise discovery platform",
     accent: "sand",
@@ -233,61 +288,6 @@ export const projects = {
       contact: "https://drive.google.com/thumbnail?id=1IdvYLg7J4H8LMEg2kp9ptvX4gR3p1JQK&sz=w1600"
     }
   },
-  wecare: {
-    id: "wecare",
-    num: "02",
-    name: "WeCare",
-    kind: "Healthcare appointment experience",
-    accent: "blue",
-    image: "https://drive.google.com/thumbnail?id=10ndQUkdxh0OSo-qoMa5XY3AgV-cU1zcE&sz=w1600",
-    headline: "Care journeys deserve<br>calm interfaces.",
-    blurb: "A healthcare mobile product experience covering doctor discovery, appointment booking, payment, and post-care support.",
-    facts: [
-      ["20+", "Mobile screens designed"],
-      ["End-to-end", "Patient care journey"],
-      ["UX Focus", "Anxiety-reducing workflows"]
-    ],
-    overview: {
-      client: "Healthcare Mobile App Exploration",
-      timeframe: "2 Months (2024)",
-      team: "Product Designer (Solo)",
-      role: "Mobile UX/UI Designer",
-      platforms: "iOS / Android Mobile Native UI",
-      tools: "Figma, Mobile Interaction Patterns"
-    },
-    sections: {
-      problem: "Medical booking apps often overwhelm anxious patients with dense clinical jargon, complex calendars, and unclear pricing.",
-      constraints: "Designed for small touchscreen interfaces (375px width base) requiring large touch targets and minimum 16px body text for accessibility.",
-      research: "Reviewed top telehealth apps and identified key user anxieties: hidden consultation fees and fear of missing appointment details.",
-      coreInsight: "Calm visual design and clear step-by-step confirmation loops build patient confidence.",
-      decisions: [
-        {
-          title: "3-Step Wizard Booking Flow",
-          problem: "Single-page booking forms resulted in high drop-off on mobile.",
-          options: "Long scrolling form vs. progressive 3-step wizard (Doctor → Date/Time → Confirmation).",
-          decision: "Implemented progressive 3-step wizard with clear progress indicator.",
-          reason: "Reduces cognitive burden when selecting sensitive medical consultations.",
-          consequence: "Simplified navigation flow with clear cost breakdowns at each step."
-        }
-      ],
-      outcomes: {
-        type: "qualitative",
-        measured: "20+ mobile screens designed and linked into a high-fidelity clickable prototype.",
-        qualitative: "Praised by peer designers for clear typography and anxiety-reducing aesthetic."
-      },
-      reflection: "Designing for healthcare demands strict attention to clarity, contrast, and reassuring feedback state design."
-    },
-    blocks: [
-      ["THE PATIENT EXPERIENCE", "Mapped patient touchpoints from onboarding and specialist search through scheduling, payment confirmation, direct chat, and follow-up alerts."],
-      ["ACCESSIBLE SYSTEM", "Designed with clear status indicators, supportive UI micro-copy, and accessible decision points to make medical tasks straightforward and reassuring."],
-      ["DESIGN OUTCOME", "Created a patient-first healthcare experience that minimizes booking steps and keeps critical care details easily accessible."]
-    ],
-    roleMap: [
-      "Find the right specialist doctor",
-      "Book appointment & pay securely",
-      "Access post-care support & messaging"
-    ]
-  },
   imdb: {
     id: "imdb",
     num: "06",
@@ -345,13 +345,13 @@ export const projects = {
   }
 };
 
-export const projectKeys = Object.keys(projects);
+export const projectKeys = ["smartmeet", "wecare", "goldera", "hmz", "franchise212", "imdb"];
 
-// Explicit Flagship Curation (Exactly 3 strategically important projects)
+// Explicit Flagship Curation (Exact Order: 01 SmartMeet, 02 WeCare, 03 GolderaPharm)
 export const flagshipProjects = [
-  projects.goldera,
+  projects.smartmeet,
   projects.wecare,
-  projects.smartmeet
+  projects.goldera
 ];
 
 // Secondary Extended Work
@@ -360,5 +360,6 @@ export const secondaryProjects = [
   projects.franchise212,
   projects.imdb
 ];
+
 
 
