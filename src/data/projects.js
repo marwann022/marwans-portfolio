@@ -5,7 +5,7 @@ export const projects = {
     name: "SmartMeet",
     kind: "AI meeting intelligence & workspace",
     accent: "blue",
-    image: "../public/Thumbnail.png",
+    image: "/Thumbnail.png",
     headline: "Meetings that leave<br>something behind.",
     blurb: "AI meeting intelligence and productivity platform transforming live conversations into structured transcripts, action items, decisions, and team knowledge.",
     facts: [
