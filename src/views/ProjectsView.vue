@@ -168,7 +168,7 @@ onUnmounted(() => {
           <!-- Image Left (Mobile Dominant Visual) -->
           <RouterLink to="/projects/wecare" class="block border border-ink bg-[#eef7fc] overflow-hidden relative group/img order-2 lg:order-1">
             <img
-              src="/WeCare/WeCare Thumbnail .jpg"
+              src="/WeCare/Behance/WeCare Thumbnail .jpg"
               alt="WeCare Healthcare mobile patient booking journey screens"
               class="w-full h-auto max-h-[560px] object-cover object-center block transition-transform duration-700 ease-out group-hover/img:scale-[1.015]"
               loading="lazy"

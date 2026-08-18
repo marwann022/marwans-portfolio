@@ -167,7 +167,7 @@ export const projects = {
     name: "WeCare",
     kind: "Healthcare appointment experience",
     accent: "blue",
-    image: "/WeCare/WeCare Thumbnail .jpg",
+    image: "/WeCare/Behance/WeCare Thumbnail .jpg",
     headline: "Reducing uncertainty between discovering a doctor and completing an appointment.",
     blurb: "End-to-end healthcare product experience covering doctor discovery, progressive 3-step scheduling, transparent pricing, and post-care support.",
     
@@ -236,31 +236,35 @@ export const projects = {
       {
         step: "01",
         label: "Discover",
-        screen: "/WeCare/Screens/Doctor’s Info.png",
-        caption: "Specialist discovery with clear verification badges, ratings, specialty, and upfront consultation pricing."
+        screen: "/WeCare/Home.png",
+        caption: "Patient home dashboard & doctor search with category filters, upcoming appointments, and top-rated specialists."
       },
       {
         step: "02",
         label: "Schedule",
-        screen: "/WeCare/Screens/Second.png",
-        caption: "Progressive date and time selection calendar breaking scheduling into single digestible choices."
+        screen: "/WeCare/Doctor’s Info.png",
+        caption: "Specialist profile with credentials, verified 4.8 rating, upfront fee ($25), and calendar date & time slot selector."
       },
       {
         step: "03",
         label: "Confirm",
-        screen: "/WeCare/Screens/Appointment Details.png",
-        caption: "Transparent cost breakdown, clinic address, and 1-tap confirmation with instant calendar sync."
+        screen: "/WeCare/Checkout.png",
+        caption: "Instant booking confirmation with clinic location map, payment receipt summary, and direct navigation instructions."
       }
     ],
 
     // Full Mobile Screens Gallery
     galleryScreens: [
-      { name: "Home Discovery", path: "/WeCare/Screens/Home.png" },
-      { name: "Doctor Search", path: "/WeCare/Screens/Search.png" },
-      { name: "Checkout Summary", path: "/WeCare/Screens/Checkout.png" },
-      { name: "Doctor Consultation Chat", path: "/WeCare/Screens/Chat option.png" },
-      { name: "Audio Consultation", path: "/WeCare/Screens/Audio call.png" },
-      { name: "Payment Methods", path: "/WeCare/Screens/Payment methods.png" }
+      { name: "Home Discovery", path: "/WeCare/Home.png" },
+      { name: "Doctor Search", path: "/WeCare/Search.png" },
+      { name: "Doctor Credentials & Schedule", path: "/WeCare/Doctor’s Info.png" },
+      { name: "Booking Details", path: "/WeCare/Appointment Details.png" },
+      { name: "Payment Methods", path: "/WeCare/Payment methods.png" },
+      { name: "Booking Confirmed", path: "/WeCare/Checkout.png" },
+      { name: "Telehealth Doctors", path: "/WeCare/Chat option.png" },
+      { name: "Audio Consultation", path: "/WeCare/Audio call.png" },
+      { name: "Patient Profile", path: "/WeCare/Chat option-1.png" },
+      { name: "Notifications", path: "/WeCare/Notifications.png" }
     ],
 
     decisions: [

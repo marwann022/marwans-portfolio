@@ -650,48 +650,90 @@ const storyMap = {
           </div>
         </div>
 
-        <!-- 3 Equal Journey Screens -->
+        <!-- 3 Equal Journey Screens (Fixed 829px Outer Height Viewport with Internal Scroll) -->
         <div v-if="project.journeyFlow && project.journeyFlow.length" class="space-y-6 pt-6 border-t border-ink/20">
-          <div class="flex items-center justify-between border-b border-ink pb-4">
-            <h3 class="text-[24px] font-extrabold text-ink m-0">
-              01 Discover → 02 Schedule → 03 Confirm
-            </h3>
-            <span class="font-mono text-[11px] font-bold text-ink/50 uppercase hidden sm:inline-block">CLICK SCREENS TO ZOOM 🔍</span>
+          <div class="flex max-sm:flex-col items-start sm:items-center justify-between gap-3 border-b border-ink pb-4">
+            <div>
+              <h3 class="text-[24px] font-extrabold text-ink m-0">
+                01 Discover → 02 Schedule → 03 Confirm
+              </h3>
+              <p class="text-[13px] text-ink/70 font-mono m-0 mt-1">
+                Equal 829px phone viewports with scrollable internal screens for long UI inspection.
+              </p>
+            </div>
+            <span class="font-mono text-[11px] font-bold text-ink/50 uppercase">SCROLL INSIDE PHONES / CLICK TO ZOOM 🔍</span>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div
               v-for="j in project.journeyFlow"
               :key="j.step"
-              @click="openLightbox(j.screen, 'WeCare Step ' + j.step + ': ' + j.label)"
-              class="border border-ink bg-[#f4f8fb] p-4 space-y-3 text-center group cursor-zoom-in relative self-start h-auto"
+              class="border-2 border-ink bg-[#0f172a] p-3 rounded-[36px] shadow-xl space-y-3 relative flex flex-col mx-auto w-full max-w-[380px]"
             >
-              <div class="flex items-center justify-between border-b border-ink/20 pb-2 font-mono text-[11px] font-bold">
-                <span class="bg-[#1e8dc1] text-paper px-2 py-0.5 rounded-sm">{{ j.step }}</span>
-                <span class="text-ink uppercase">{{ j.label }}</span>
+              <!-- Phone Header Bar -->
+              <div class="flex items-center justify-between border-b border-white/10 pb-2 px-3 font-mono text-[11px] font-bold text-white shrink-0">
+                <span class="bg-[#1e8dc1] text-paper px-2 py-0.5 rounded-sm text-[10px] uppercase">STEP {{ j.step }}</span>
+                <span class="text-white/90 uppercase text-[12px] tracking-wider">{{ j.label }}</span>
+                <span class="text-white/50 text-[10px]">9:41 AM</span>
               </div>
-              <div class="overflow-hidden border border-ink bg-paper max-h-[480px]">
-                <img :src="j.screen" :alt="j.label" class="w-full h-auto max-h-[480px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+
+              <!-- Fixed 829px Visible Height Screen Viewport (Scrollable Internal UI) -->
+              <div
+                @click="openLightbox(j.screen, 'WeCare Step ' + j.step + ': ' + j.label)"
+                class="w-full h-[829px] overflow-y-auto overflow-x-hidden bg-paper rounded-[20px] cursor-zoom-in relative group/scroll scrollbar-thin scroll-smooth"
+              >
+                <img
+                  :src="j.screen"
+                  :alt="j.label"
+                  class="w-full h-auto block"
+                  loading="lazy"
+                />
+
+                <!-- Subtle Scroll Affordance Overlay -->
+                <div class="pointer-events-none sticky bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-black/40 via-black/10 to-transparent flex items-end justify-center pb-2 opacity-90 group-hover/scroll:opacity-100 transition-opacity">
+                  <span class="bg-ink/90 text-paper text-[10px] font-mono px-3 py-1 rounded-full backdrop-blur-md shadow-md border border-paper/20">
+                    ↕ Scroll screen
+                  </span>
+                </div>
               </div>
-              <p class="text-[13px] leading-[1.5] text-ink/80 font-medium m-0 text-left px-1">{{ j.caption }}</p>
+
+              <!-- Caption Footer -->
+              <div class="bg-paper border border-ink/20 p-3.5 rounded-xl space-y-1 text-left shrink-0">
+                <span class="font-mono text-[10px] font-extrabold text-[#1e8dc1] uppercase block">
+                  FLOW STAGE {{ j.step }}: {{ j.label }}
+                </span>
+                <p class="text-[13px] leading-[1.5] text-ink/85 font-medium m-0">{{ j.caption }}</p>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- WeCare Ecosystem Gallery -->
-        <div v-if="project.galleryScreens && project.galleryScreens.length" class="space-y-6 pt-6 border-t border-ink/20">
-          <span class="font-mono text-[11px] font-extrabold uppercase text-[#1e8dc1] block">PATIENT ECOSYSTEM GALLERY (CLICK TO ZOOM)</span>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 items-start">
+        <div v-if="project.galleryScreens && project.galleryScreens.length" class="space-y-6 pt-8 border-t border-ink/20">
+          <div class="flex items-center justify-between border-b border-ink/20 pb-3">
+            <span class="font-mono text-[12px] font-extrabold uppercase text-[#1e8dc1]">
+              PATIENT ECOSYSTEM GALLERY (10 MOBILE SCREENS)
+            </span>
+            <span class="font-mono text-[10px] text-ink/50 uppercase">SCROLL OR CLICK TO LIGHTBOX</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 items-start">
             <div
               v-for="s in project.galleryScreens"
               :key="s.name"
-              @click="openLightbox(s.path, 'WeCare Screen: ' + s.name)"
-              class="border border-ink bg-paper p-2 space-y-2 group cursor-zoom-in relative self-start h-auto"
+              class="border-2 border-ink bg-[#0f172a] p-2.5 rounded-[28px] shadow-md space-y-2 group relative flex flex-col"
             >
-              <div class="overflow-hidden border border-ink/20 bg-ink/5 max-h-[380px]">
-                <img :src="s.path" :alt="s.name" class="w-full h-auto max-h-[380px] object-cover object-top block group-hover:scale-[1.03] transition-transform" />
+              <div class="flex items-center justify-between font-mono text-[9px] text-white/70 px-2 pb-1 border-b border-white/10 shrink-0">
+                <span class="truncate pr-1 text-[#38bdf8] font-bold">{{ s.name }}</span>
+                <span>9:41</span>
               </div>
-              <span class="font-mono text-[10px] font-extrabold text-ink block text-center truncate">{{ s.name }}</span>
+              <div
+                @click="openLightbox(s.path, 'WeCare Screen: ' + s.name)"
+                class="w-full h-[460px] overflow-y-auto overflow-x-hidden bg-paper rounded-[16px] cursor-zoom-in relative scrollbar-thin scroll-smooth"
+              >
+                <img :src="s.path" :alt="s.name" class="w-full h-auto block" loading="lazy" />
+              </div>
+              <span class="font-mono text-[10px] font-bold text-white/90 block text-center truncate px-1 pt-1">{{ s.name }}</span>
             </div>
           </div>
         </div>

@@ -32,15 +32,18 @@ const smartmeetTabs = [
   { id: "community", label: "06 Community Chat", image: "/smartmeet-pages/community-chat.jpg", caption: "Team Discussion & Post-Meeting Notes" }
 ];
 
-// 6+ Interactive Hero Tabs for WeCare
+// 9 Interactive Hero Tabs for WeCare
 const activeWeCareTab = ref("discover");
 const wecareTabs = [
-  { id: "discover", label: "01 Discover", image: "/WeCare/Screens/Doctor’s Info.png", caption: "Specialist credentials, ratings, and upfront consultation pricing." },
-  { id: "schedule", label: "02 Schedule", image: "/WeCare/Screens/Second.png", caption: "Progressive date and time selection calendar wizard." },
-  { id: "confirm", label: "03 Confirm", image: "/WeCare/Screens/Appointment Details.png", caption: "Direct booking confirmation & payment breakdown." },
-  { id: "chat", label: "04 Telehealth Chat", image: "/WeCare/Screens/Chat option.png", caption: "Post-appointment doctor messaging." },
-  { id: "audio", label: "05 Audio Consultation", image: "/WeCare/Screens/Audio call.png", caption: "Live audio telehealth consultation screen." },
-  { id: "payment", label: "06 Payment Methods", image: "/WeCare/Screens/Payment methods.png", caption: "Secure checkout & insurance integration." }
+  { id: "discover", label: "01 Discover", image: "/WeCare/Home.png", caption: "Patient home dashboard & doctor search with category filters, upcoming appointments, and top-rated specialists." },
+  { id: "search", label: "02 Doctor Search", image: "/WeCare/Search.png", caption: "Specialist & medical service search with active category pills and quick filters." },
+  { id: "schedule", label: "03 Doctor & Schedule", image: "/WeCare/Doctor’s Info.png", caption: "Specialist profile with credentials, verified 4.8 rating, upfront fee ($25), and calendar date & time slot selector." },
+  { id: "details", label: "04 Booking Details", image: "/WeCare/Appointment Details.png", caption: "Appointment summary, scheduled date & time, and note to doctor." },
+  { id: "payment", label: "05 Payment Methods", image: "/WeCare/Payment methods.png", caption: "Multiple payment options including Cash, Mastercard, InstaPay, and PayPal." },
+  { id: "confirm", label: "06 Confirmed", image: "/WeCare/Checkout.png", caption: "Instant booking confirmation with clinic location map, payment summary, and direct navigation instructions." },
+  { id: "chat", label: "07 Telehealth List", image: "/WeCare/Chat option.png", caption: "Doctor messaging directory with video & audio consultation shortcuts." },
+  { id: "audio", label: "08 Audio Call", image: "/WeCare/Audio call.png", caption: "Live audio consultation screen with in-call controls." },
+  { id: "profile", label: "09 Patient Profile", image: "/WeCare/Chat option-1.png", caption: "Patient account hub with medical reports, appointments history, and settings." }
 ];
 
 // 6+ Interactive Hero Tabs for GolderaPharm
@@ -192,14 +195,14 @@ const imdbTabs = [
         </div>
       </div>
 
-      <!-- HERO 02: WECARE (6 INTERACTIVE TABS) -->
+      <!-- HERO 02: WECARE (9 INTERACTIVE TABS & SCROLLABLE PHONE) -->
       <div v-else-if="project.id === 'wecare'" class="border border-ink bg-[#eef7fc] p-5 md:p-8 overflow-hidden shadow-[12px_12px_0_rgba(21,21,21,0.08)] relative space-y-4">
         <div class="flex max-sm:flex-col items-start sm:items-center justify-between gap-4 border-b border-[#1e8dc1]/30 pb-3 font-mono text-[11px]">
           <span class="font-mono text-[11px] font-extrabold uppercase text-[#1e8dc1]">
-            6 MOBILE APPOINTMENT SCREENS
+            9 NATIVE MOBILE SCREENS (INTERACTIVE PREVIEW)
           </span>
 
-          <div class="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto">
+          <div class="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
             <button
               v-for="t in wecareTabs"
               :key="t.id"
@@ -214,31 +217,59 @@ const imdbTabs = [
           </div>
         </div>
 
-        <div class="max-w-[780px] mx-auto grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6 items-center bg-paper border border-ink p-5 rounded-xl shadow-md max-h-[580px]">
-          <div
-            template v-for="t in wecareTabs"
-            :key="t.id"
-            v-show="activeWeCareTab === t.id"
-            @click="openLightbox(t.image, t.caption)"
-            class="border-2 border-ink bg-paper p-2.5 rounded-xl shadow-sm max-h-[480px] overflow-hidden cursor-zoom-in group/zoom relative"
-          >
-            <div class="h-4 flex items-center justify-between font-mono text-[8px] text-ink/50 mb-1 border-b border-ink/10 pb-1">
-              <span>9:41 AM</span>
-              <span class="uppercase text-[#1e8dc1] font-bold">{{ t.id }}</span>
+        <div class="max-w-[820px] mx-auto grid grid-cols-1 md:grid-cols-[310px_1fr] gap-6 items-center bg-paper border border-ink p-5 rounded-xl shadow-md">
+          <div class="relative w-full max-w-[310px] mx-auto">
+            <div
+              v-for="t in wecareTabs"
+              :key="t.id"
+              v-show="activeWeCareTab === t.id"
+              class="border-2 border-ink bg-[#0f172a] rounded-[32px] p-2.5 shadow-xl overflow-hidden group/zoom relative flex flex-col"
+            >
+              <!-- Phone Notch Header -->
+              <div class="h-5 flex items-center justify-between font-mono text-[9px] text-white/70 px-3 pb-1 border-b border-white/10 shrink-0">
+                <span>9:41</span>
+                <span class="uppercase text-[#38bdf8] font-extrabold text-[8px]">{{ t.id }}</span>
+                <div class="flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-white/70"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-white/70"></span>
+                </div>
+              </div>
+              
+              <!-- Scrollable Phone Viewport -->
+              <div
+                @click="openLightbox(t.image, t.caption)"
+                class="w-full h-[520px] overflow-y-auto overflow-x-hidden bg-paper rounded-b-[24px] cursor-zoom-in relative scrollbar-thin scroll-smooth"
+              >
+                <img
+                  :src="t.image"
+                  :alt="t.label"
+                  class="w-full h-auto block"
+                  loading="eager"
+                />
+              </div>
+
+              <!-- Subtle Scroll Affordance Indicator -->
+              <div class="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 bg-ink/80 text-paper text-[9px] font-mono px-2.5 py-0.5 rounded-full backdrop-blur-sm opacity-90 transition-opacity">
+                ↕ Scroll screen
+              </div>
             </div>
-            <img :src="t.image" :alt="t.label" class="w-full h-auto max-h-[440px] object-cover object-top block rounded animate-fade" loading="eager" />
           </div>
 
           <div class="space-y-3 font-sans text-ink">
-            <span class="font-mono text-[11px] font-extrabold uppercase bg-[#1e8dc1] text-paper px-2.5 py-0.5 rounded-sm">
-              ACTIVE STEP: {{ wecareTabs.find(t => t.id === activeWeCareTab)?.label }}
+            <span class="font-mono text-[11px] font-extrabold uppercase bg-[#1e8dc1] text-paper px-2.5 py-0.5 rounded-sm inline-block">
+              ACTIVE SCREEN: {{ wecareTabs.find(t => t.id === activeWeCareTab)?.label }}
             </span>
             <p class="text-[15px] leading-[1.55] font-bold text-ink m-0">
               {{ wecareTabs.find(t => t.id === activeWeCareTab)?.caption }}
             </p>
-            <p class="text-[12px] text-ink/60 font-mono m-0 pt-2 border-t border-ink/20">
-              Click screen to view in full resolution modal preview.
-            </p>
+            <div class="pt-3 border-t border-ink/20 space-y-1">
+              <p class="text-[12px] text-ink/70 font-mono m-0">
+                💡 <strong>Interactive Phone:</strong> Scroll vertically inside the phone frame to inspect full long-page UI.
+              </p>
+              <p class="text-[11px] text-ink/50 font-mono m-0">
+                Click image to open full resolution lightbox modal.
+              </p>
+            </div>
           </div>
         </div>
       </div>
