@@ -65,23 +65,26 @@ const hmzTabs = [
   { id: "services", label: "06 Platform Services", image: "/HMZ/Services.png", caption: "EdTech learning tools & community features." }
 ];
 
-// 6 Interactive Hero Tabs for 212 Franchise
+// 6 Interactive Hero Tabs for 212 Franchise (Desktop + Mobile Evidence)
 const activeFranchiseTab = ref("home");
 const franchiseTabs = [
-  { id: "home", label: "01 Home Platform", image: "/212/Home.jpg", caption: "Editorial 212° Franchise homepage introduction." },
-  { id: "about", label: "02 About Story", image: "/212/About us.jpg", caption: "Company origin story & commercial philosophy." },
-  { id: "products", label: "03 Products Grid", image: "/212/Products.jpg", caption: "Franchise product category exploration grid." },
-  { id: "contact", label: "04 Contact Inquiry", image: "/212/Contact us.jpg", caption: "Direct 1-step prospective investor inquiry form." },
-  { id: "solar", label: "05 Solar Concept", image: "/212/solar.jpg", caption: "Clean energy franchise category showcase." },
-  { id: "villa", label: "06 Villa Concept", image: "/212/villa.jpg", caption: "Luxury architectural franchise concept." }
+  { id: "home", label: "01 Desktop Home", image: "/212/Home.jpg", caption: "Editorial 212° Franchise desktop homepage with concept navigation." },
+  { id: "mobHome", label: "02 Mobile Home", image: "/212/mob home.jpg", caption: "Mobile-optimized responsive home layout with touch-friendly cards." },
+  { id: "products", label: "03 Products Catalog", image: "/212/Products.jpg", caption: "Commercial franchise multi-category product exploration grid." },
+  { id: "mobProducts", label: "04 Mobile Products", image: "/212/mob prod.jpg", caption: "Stacked mobile product specification cards & direct action button." },
+  { id: "burger", label: "05 Mobile Navigation", image: "/212/Burger menu.jpg", caption: "Full-height mobile navigation drawer with quick section jumps." },
+  { id: "solar", label: "06 Clean Energy Concept", image: "/212/solar.jpg", caption: "Clean energy / solar commercial franchise vertical showcase." }
 ];
 
-// 3 Interactive Hero Tabs for IMDb
-const activeImdbTab = ref("frame");
+// 6 Interactive Hero Tabs for IMDb
+const activeImdbTab = ref("redesign");
 const imdbTabs = [
-  { id: "frame", label: "01 Dark Mode Frame", image: "/IMDB Redesign/Frame.png", caption: "Full dark mode entertainment database system layout." },
-  { id: "redesign", label: "02 Movie Details & Ratings", image: "/IMDB Redesign/IMDB 2Redesign.jpg", caption: "Cinematic movie detail page, ratings & cast grid." },
-  { id: "cover", label: "03 Poster Showcase", image: "/IMDB Redesign/Cover - Light.jpg", caption: "High-contrast editorial cover poster view." }
+  { id: "redesign", label: "01 Movie Details", image: "/IMDB Redesign/IMDB 2Redesign.jpg", caption: "Cinematic movie detail page, ratings & cast grid." },
+  { id: "multiFrame", label: "02 System Overview", image: "/IMDB Redesign/Frame 1948755426.png", caption: "Complete dark mode media database system overview." },
+  { id: "feed", label: "03 Home Discovery", image: "/IMDB Redesign/S6.png", caption: "Trending releases, editorial staff picks & trailer feed." },
+  { id: "watchlist", label: "04 Watchlist & Media", image: "/IMDB Redesign/S7.png", caption: "User watchlist, photo galleries & user ratings." },
+  { id: "search", label: "05 Search & Filter", image: "/IMDB Redesign/S8.png", caption: "Advanced genre filter, celebrity index & awards search." },
+  { id: "cover", label: "06 Light & Dark System", image: "/IMDB Redesign/Cover - Light.jpg", caption: "High-contrast editorial cover poster view." }
 ];
 </script>
 
@@ -107,27 +110,32 @@ const imdbTabs = [
 
       <!-- Compact Recruiter Headline Row -->
       <div class="space-y-4">
-        <div class="flex max-md:flex-col md:items-end justify-between gap-4">
-          <div class="space-y-1">
-            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50">
-              {{ project.kind }}
-            </span>
-            <h1 class="text-[clamp(30px,4.5vw,56px)] leading-[1.08] tracking-[-0.035em] font-extrabold text-ink m-0">
-              {{ project.name }}
-            </h1>
-          </div>
+        <div>
+          <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50 block mb-1">
+            {{ project.kind }}
+          </span>
+          <h1 class="text-[clamp(30px,4.5vw,56px)] leading-[1.08] tracking-[-0.035em] font-extrabold text-ink m-0">
+            {{ project.name }}
+          </h1>
+        </div>
 
-          <!-- Quick Recruiter Badges -->
-          <div v-if="project.meta" class="flex flex-wrap items-center gap-2 text-[12px] font-mono font-bold">
-            <span class="px-3 py-1 bg-story-bg border border-ink rounded-full text-ink">
-              {{ project.meta.context }}
-            </span>
-            <span class="px-3 py-1 bg-ink text-paper border border-ink rounded-full">
-              {{ project.meta.ownership }}
-            </span>
-            <span class="px-3 py-1 bg-story-bg border border-ink rounded-full text-ink/80">
-              {{ project.meta.status }}
-            </span>
+        <!-- Restrained Typographic Project Metadata Strip -->
+        <div v-if="project.meta" class="grid grid-cols-2 md:grid-cols-4 gap-4 py-3.5 px-4 border-y border-ink/20 bg-story-bg font-sans text-ink">
+          <div>
+            <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block">PROJECT TYPE</span>
+            <span class="text-[13px] font-extrabold text-ink">{{ project.meta.context }}</span>
+          </div>
+          <div>
+            <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block">ROLE</span>
+            <span class="text-[13px] font-extrabold text-ink">{{ project.meta.roleTitle || project.meta.ownership }}</span>
+          </div>
+          <div>
+            <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block">STATUS</span>
+            <span class="text-[13px] font-extrabold text-ink">{{ project.meta.statusShort || project.meta.status }}</span>
+          </div>
+          <div>
+            <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block">TECH / TOOLS</span>
+            <span class="text-[13px] font-extrabold text-ink">{{ project.meta.techStack || 'Figma' }}</span>
           </div>
         </div>
       </div>

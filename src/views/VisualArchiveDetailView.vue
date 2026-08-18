@@ -1,7 +1,8 @@
 <script setup>
-import { computed } from "vue";
-import { RouterLink, useRouter } from "vue-router";
-import { archiveProjects, archiveKeys } from "@/data/gallery.js";
+import { ref, computed } from "vue";
+import { RouterLink } from "vue-router";
+import { archiveProjects, archiveKeys, gallery } from "@/data/gallery.js";
+import ImageLightboxModal from "@/components/shared/ImageLightboxModal.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
 
 const props = defineProps({
@@ -11,8 +12,18 @@ const props = defineProps({
   }
 });
 
-const router = useRouter();
 const project = computed(() => archiveProjects[props.slug]);
+
+// Modal State
+const lightboxOpen = ref(false);
+const lightboxSrc = ref("");
+const lightboxCaption = ref("");
+
+function openLightbox(src, caption = "") {
+  lightboxSrc.value = src;
+  lightboxCaption.value = caption;
+  lightboxOpen.value = true;
+}
 
 const prevProject = computed(() => {
   if (!project.value) return null;
@@ -30,184 +41,214 @@ const nextProject = computed(() => {
 </script>
 
 <template>
-  <main v-if="project" class="bg-paper w-full min-h-[calc(100vh-82px)] font-sans">
-    <!-- Breadcrumb & Top Controls Bar -->
-    <div class="py-6 px-5 md:px-[7vw] border-b border-line flex flex-wrap items-center justify-between gap-4 font-sans text-[12px] font-medium text-ink/80">
+  <main v-if="project" class="bg-paper w-full min-h-[calc(100vh-82px)] font-sans text-ink">
+    <!-- Top Breadcrumb & Quick Archive Jump Bar -->
+    <div class="py-4 px-5 md:px-[7vw] border-b border-ink flex flex-wrap items-center justify-between gap-4 font-mono text-[12px] font-bold text-ink">
       <nav aria-label="Breadcrumb" class="flex items-center gap-2">
-        <RouterLink to="/" class="hover:underline">Home</RouterLink>
+        <RouterLink to="/projects" class="hover:underline">Work</RouterLink>
         <span class="text-ink/40">/</span>
-        <RouterLink to="/" class="hover:underline">Visual Archive</RouterLink>
+        <RouterLink to="/projects#creative-archive" class="hover:underline">Creative Archive</RouterLink>
         <span class="text-ink/40">/</span>
-        <span class="text-ink font-bold">{{ project.name }}</span>
+        <span class="text-ink font-black">{{ project.name }}</span>
       </nav>
-      <RouterLink
-        to="/"
-        class="border-b border-ink inline-flex items-center gap-1.5 hover:opacity-80 transition-opacity font-bold"
-      >
-        <font-awesome-icon icon="fa-solid fa-arrow-left" class="text-[10px]" />
-        Back to Visual Archive
-      </RouterLink>
+
+      <!-- Understated Textual Index (01 IEEE · 02 Cela · 03 Moon) -->
+      <div class="flex items-center gap-4 text-[11px] uppercase tracking-wider">
+        <RouterLink
+          v-for="item in gallery"
+          :key="item.id"
+          :to="`/archive/${item.id}`"
+          :class="[
+            'hover:underline transition-colors',
+            item.id === project.id ? 'font-black text-ink underline' : 'text-ink/50'
+          ]"
+        >
+          {{ item.num }} {{ item.name }}
+        </RouterLink>
+      </div>
     </div>
 
-    <!-- Hero Header -->
-    <section class="pt-12 md:pt-16 pb-10 px-5 md:px-[7vw]">
-      <div class="flex items-center gap-3 font-sans text-[12px] mb-4 font-bold">
-        <span class="bg-ink text-paper px-3 py-1 rounded-full uppercase tracking-wider">
-          {{ project.num }}
-        </span>
-        <span class="border border-ink px-3 py-1 rounded-full text-ink">
-          {{ project.year }}
-        </span>
-        <span class="text-ink/70 uppercase tracking-wider">
-          {{ project.category }}
-        </span>
-      </div>
-
-      <h1 class="text-[clamp(44px,7vw,96px)] tracking-[-0.03em] leading-[1.05] my-6 font-extrabold text-ink">
-        {{ project.name }}
-      </h1>
-
-      <p class="text-[18px] md:text-[20px] leading-[1.55] max-w-[680px] tracking-[-0.01em] text-ink/90 font-medium m-0 mb-10">
-        {{ project.summary }}
-      </p>
-
-      <!-- Structured Metadata Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 pt-8 border-t border-ink font-sans text-[13px]">
-        <div>
-          <span class="block text-ink/60 text-[11px] uppercase mb-1 font-bold">Role</span>
-          <span class="font-sans font-extrabold text-ink text-[16px]">{{ project.role }}</span>
+    <!-- Opening Identity & Leadership Header -->
+    <section class="pt-8 md:pt-12 pb-8 px-5 md:px-[7vw] border-b border-ink bg-paper">
+      <div class="max-w-[1240px] mx-auto space-y-6">
+        <div class="flex flex-wrap items-center gap-3 font-mono text-[11px] font-bold">
+          <span class="bg-ink text-paper px-2.5 py-0.5 rounded-sm uppercase tracking-widest font-black">
+            {{ project.num }} / 03
+          </span>
+          <span class="border border-ink px-2.5 py-0.5 rounded-sm uppercase">
+            {{ project.year }}
+          </span>
+          <span class="text-ink/60 uppercase tracking-wider">
+            {{ project.category }}
+          </span>
         </div>
 
-        <div>
-          <span class="block text-ink/60 text-[11px] uppercase mb-2 font-bold">Deliverables</span>
-          <div class="flex flex-wrap gap-1.5">
-            <span
-              v-for="item in project.deliverables"
-              :key="item"
-              class="border border-ink bg-paper px-3 py-1 rounded-full text-[12px] font-bold"
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-end">
+          <div>
+            <h1 class="text-[clamp(36px,5.5vw,72px)] tracking-[-0.035em] leading-[1.05] font-extrabold text-ink m-0">
+              {{ project.name }}
+            </h1>
+            <p class="text-[17px] md:text-[20px] leading-[1.5] text-ink/85 font-medium m-0 mt-3 max-w-[760px]">
+              {{ project.summary }}
+            </p>
+          </div>
+
+          <!-- Compact Leadership Context Box -->
+          <div class="p-5 border border-ink bg-story-bg space-y-2 font-sans text-[13px]">
+            <div>
+              <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block">ROLE &amp; LEADERSHIP</span>
+              <strong class="text-ink font-extrabold text-[15px] block">{{ project.role }}</strong>
+            </div>
+            <div>
+              <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block">RESPONSIBILITIES</span>
+              <p class="text-[12px] font-medium text-ink/80 m-0">{{ project.responsibilities }}</p>
+            </div>
+            <div class="pt-2 border-t border-ink/20 flex flex-wrap gap-1.5 font-mono text-[10px]">
+              <span v-for="tool in project.tools" :key="tool" class="bg-paper border border-ink px-2 py-0.5 font-bold">
+                {{ tool }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IEEE SPECIALIZED: 4 COMPREHENSIVE VISUAL GROUPS -->
+    <template v-if="project.id === 'ieee'">
+      <section
+        v-for="grp in project.groups"
+        :key="grp.id"
+        class="py-12 md:py-16 px-5 md:px-[7vw] border-b border-ink bg-paper"
+      >
+        <div class="max-w-[1240px] mx-auto space-y-8">
+          <!-- Group Title & Editorial Context -->
+          <div class="flex max-md:flex-col md:items-end justify-between gap-4 border-b border-ink pb-4">
+            <div>
+              <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-[#1e3a8a] block mb-1">
+                IEEE SCU MEDIA TRACK
+              </span>
+              <h2 class="text-[26px] md:text-[36px] font-extrabold text-ink m-0 tracking-[-0.03em]">
+                {{ grp.title }}
+              </h2>
+            </div>
+            <p class="text-[14px] text-ink/75 font-medium max-w-[480px] m-0">
+              {{ grp.description }}
+            </p>
+          </div>
+
+          <!-- Dynamic Editorial Image Grid (Wraps Content with Zero Trapped Empty Space) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+            <div
+              v-for="(item, idx) in grp.items"
+              :key="idx"
+              @click="openLightbox(item.image, item.title)"
+              :class="[
+                'border border-ink bg-paper p-3 space-y-2 shadow-sm group cursor-zoom-in relative self-start h-auto',
+                item.span === 'full' ? 'sm:col-span-2 lg:col-span-3' : item.span === 'large' ? 'sm:col-span-2 lg:col-span-2' : ''
+              ]"
             >
-              {{ item }}
+              <div class="overflow-hidden border border-ink/20 bg-ink/5 max-h-[560px]">
+                <img
+                  :src="item.image"
+                  :alt="item.title"
+                  class="w-full h-auto max-h-[560px] object-cover object-top block group-hover:scale-[1.015] transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-1 border-t border-ink/10">
+                <span class="truncate">{{ item.title }}</span>
+                <span class="text-ink/40 text-[10px] uppercase shrink-0">🔍 ZOOM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </template>
+
+    <!-- CELA & MOON SPECIALIZED EDITORIAL VISUAL ARCHIVES -->
+    <template v-else-if="project.items && project.items.length">
+      <section class="py-12 md:py-16 px-5 md:px-[7vw] border-b border-ink bg-paper">
+        <div class="max-w-[1240px] mx-auto space-y-8">
+          <div class="flex items-center justify-between border-b border-ink pb-4">
+            <div>
+              <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50 block mb-1">
+                CURATED DELIVERABLES
+              </span>
+              <h2 class="text-[26px] md:text-[36px] font-extrabold text-ink m-0 tracking-[-0.03em]">
+                Design Artifacts &amp; Visual Evidence
+              </h2>
+            </div>
+            <span class="font-mono text-[11px] font-bold text-ink/60 uppercase hidden sm:inline-block">
+              {{ project.items.length }} UNIQUE REAL ASSETS · CLICK TO ZOOM 🔍
             </span>
           </div>
-        </div>
 
-        <div>
-          <span class="block text-ink/60 text-[11px] uppercase mb-2 font-bold">Tools Used</span>
-          <div class="flex flex-wrap gap-1.5">
-            <span
-              v-for="tool in project.tools"
-              :key="tool"
-              class="border border-ink bg-lime px-3 py-1 rounded-full text-[12px] font-bold text-ink"
+          <!-- Dynamic Gallery Grid (Wraps Content with Zero Trapped Empty Space) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+            <div
+              v-for="(item, idx) in project.items"
+              :key="idx"
+              @click="openLightbox(item.image, item.title)"
+              :class="[
+                'border border-ink bg-paper p-3 space-y-2 shadow-sm group cursor-zoom-in relative self-start h-auto',
+                item.span === 'full' ? 'sm:col-span-2 lg:col-span-3' : item.span === 'large' ? 'sm:col-span-2 lg:col-span-2' : ''
+              ]"
             >
-              {{ tool }}
-            </span>
+              <div class="overflow-hidden border border-ink/20 bg-ink/5 max-h-[560px]">
+                <img
+                  :src="item.image"
+                  :alt="item.title"
+                  class="w-full h-auto max-h-[560px] object-cover object-top block group-hover:scale-[1.015] transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-1 border-t border-ink/10">
+                <span class="truncate">{{ item.title }}</span>
+                <span class="text-ink/40 text-[10px] uppercase shrink-0">🔍 ZOOM</span>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
+    </template>
 
-        <div>
-          <span class="block text-ink/60 text-[11px] uppercase mb-1 font-bold">Design Direction</span>
-          <p class="font-sans text-[14px] leading-[1.5] text-ink/85 m-0 font-medium">
-            {{ project.designDirection }}
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Main Showcase Image Frame -->
-    <section class="px-5 md:px-[7vw] pb-12">
-      <div class="border border-ink bg-gallery-bg rounded-lg overflow-hidden shadow-[12px_12px_0_rgba(21,21,21,0.14)]">
-        <img
-          :src="project.image"
-          :alt="project.name + ' primary artwork showcase'"
-          class="w-full max-h-[620px] object-cover object-center block"
-        />
-        <div class="p-4 bg-paper border-t border-ink font-sans text-[12px] font-bold text-ink/80 flex items-center justify-between">
-          <span>01 — Primary Showcase Artwork</span>
-          <span>{{ project.name }} / {{ project.category }}</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Responsive Work Gallery -->
-    <section class="py-12 px-5 md:px-[7vw] border-t border-ink bg-story-bg">
-      <div class="flex items-center justify-between mb-8">
-        <div>
-          <p class="font-sans font-bold text-[12px] tracking-[0.05em] uppercase m-0 text-ink/70">WORK GALLERY</p>
-          <h2 class="text-[24px] md:text-[32px] font-extrabold tracking-[-0.03em] text-ink m-0 mt-1">
-            Exploration, assets & collateral.
-          </h2>
-        </div>
-        <span class="font-sans text-[12px] font-bold border border-ink bg-paper px-3.5 py-1 rounded-full">
-          {{ project.gallery.length }} ASSETS
-        </span>
-      </div>
-
-      <!-- Gallery Grid supporting landscape, portrait, and square cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-        <div
-          v-for="(item, idx) in project.gallery"
-          :key="idx"
-          class="border border-ink bg-paper rounded-none overflow-hidden flex flex-col justify-between md:col-span-2"
-        >
-          <!-- Real image showcase -->
-          <div
-            v-if="item.image"
-            class="relative w-full overflow-hidden bg-gallery-bg border-b border-ink"
-          >
-            <img
-              :src="item.image"
-              :alt="item.caption || project.name + ' detail visual showcase'"
-              class="w-full h-full max-h-[560px] object-cover object-center block"
-              loading="lazy"
-            />
-          </div>
-
-          <!-- Caption Footer -->
-          <div class="p-4 font-sans text-[12px] font-bold text-ink/80 bg-paper flex items-center justify-between border-t border-line">
-            <span>0{{ idx + 1 }} — {{ item.caption }}</span>
-            <span class="uppercase text-ink/50 text-[11px] font-extrabold">{{ project.name }}</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Bottom Archive Navigation (Prev / Next) -->
-    <section class="py-12 px-5 md:px-[7vw] border-t border-ink bg-paper flex max-md:flex-col items-center justify-between gap-6">
+    <!-- Bottom Prev / Next Archive Loop -->
+    <section class="py-10 px-5 md:px-[7vw] border-b border-ink bg-story-bg flex max-md:flex-col items-center justify-between gap-6 font-mono text-[12px] font-bold">
       <RouterLink
         v-if="prevProject"
         :to="`/archive/${prevProject.id}`"
-        class="group inline-flex items-center gap-3 font-sans text-[13px] font-bold text-ink hover:underline"
+        class="inline-flex items-center gap-3 hover:underline text-ink"
       >
-        <span class="w-8 h-8 rounded-full border border-ink grid place-content-center group-hover:bg-ink group-hover:text-paper transition-colors">
-          <font-awesome-icon icon="fa-solid fa-arrow-left" class="text-[11px]" />
-        </span>
-        <div>
-          <span class="block text-[11px] text-ink/50 uppercase font-bold">PREVIOUS PIECE</span>
-          <span>{{ prevProject.name }} / {{ prevProject.category }}</span>
-        </div>
+        <span class="w-7 h-7 rounded-full border border-ink grid place-content-center bg-paper">←</span>
+        <span>PREVIOUS: {{ prevProject.name }}</span>
       </RouterLink>
 
       <RouterLink
-        to="/"
-        class="px-6 py-2.5 border border-ink bg-paper text-ink font-sans text-[13px] font-bold rounded-full hover:bg-ink hover:text-paper transition-colors"
+        to="/projects#creative-archive"
+        class="px-5 py-2.5 border border-ink bg-paper text-ink font-bold hover:bg-ink hover:text-paper transition-colors"
       >
-        All Archive Pieces ↗
+        View Full Archive Index ↗
       </RouterLink>
 
       <RouterLink
         v-if="nextProject"
         :to="`/archive/${nextProject.id}`"
-        class="group inline-flex items-center gap-3 font-sans text-[13px] font-bold text-ink hover:underline text-right"
+        class="inline-flex items-center gap-3 hover:underline text-ink"
       >
-        <div>
-          <span class="block text-[11px] text-ink/50 uppercase font-bold">NEXT PIECE</span>
-          <span>{{ nextProject.name }} / {{ nextProject.category }}</span>
-        </div>
-        <span class="w-8 h-8 rounded-full border border-ink grid place-content-center group-hover:bg-ink group-hover:text-paper transition-colors">
-          <font-awesome-icon icon="fa-solid fa-arrow-right" class="text-[11px]" />
-        </span>
+        <span>NEXT: {{ nextProject.name }}</span>
+        <span class="w-7 h-7 rounded-full border border-ink grid place-content-center bg-paper">→</span>
       </RouterLink>
     </section>
+
+    <!-- Global Fullscreen Image Lightbox Modal -->
+    <ImageLightboxModal
+      :is-open="lightboxOpen"
+      :src="lightboxSrc"
+      :caption="lightboxCaption"
+      @close="lightboxOpen = false"
+    />
   </main>
   <NotFoundView v-else />
 </template>

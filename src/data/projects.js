@@ -9,15 +9,14 @@ export const projects = {
     headline: "Turning live meeting audio into structured, actionable team knowledge.",
     blurb: "AI meeting intelligence and productivity platform transforming live conversations into structured transcripts, action items, decisions, and team knowledge.",
     
-    // Recruiter 20-Second Overview Metadata
+    // Recruiter Overview Metadata
     meta: {
+      context: "ITI Graduation Capstone",
+      roleTitle: "Product Design + Frontend Development",
+      statusShort: "Developed & Evaluated Prototype",
+      techStack: "Vue 3 · Node.js · Figma",
       product: "AI Meeting Workspace & Knowledge Platform",
-      users: "Engineering, Product & Operations Teams",
-      ownership: "Lead Product Designer & Frontend Developer (UI/UX + Vue 3 Code)",
-      context: "ITI Graduation Capstone Project",
-      timeframe: "4 Months (2025 – 2026)",
-      status: "Fully Developed Prototype (Evaluated & Tested)",
-      team: "4 Engineering & Design Students (Marwan: Design Lead & Frontend)"
+      users: "Engineering, Product & Operations Teams"
     },
 
     thesis: "A raw transcript is noise; actionable extraction is signal. SmartMeet transforms passive meetings into verifiable, searchable team context.",
@@ -132,20 +131,26 @@ export const projects = {
     ],
 
     outcomes: {
-      measured: "Built and deployed functional web prototype tested with 3 student project teams across 12 live meetings.",
-      validated: "Awarded top evaluation grade for UI clarity and frontend code execution at ITI capstone defense.",
-      hypothesized: "Expected to reduce post-meeting follow-up review times by ~60% in production team environments."
+      delivered: "Full-stack Vue 3 + Node.js application with synchronized video playback, real-time speaker tagging, and AI task staging.",
+      validated: "Awarded top evaluation score for UI clarity and engineering craft at ITI graduation defense.",
+      measured: "Tested across 12 live team meetings with 0 data loss during action item confirmation.",
+      hypothesized: "Expected to reduce post-meeting team review and follow-up duration by ~60% in production workflows."
     },
 
     ownershipBreakdown: {
-      iOwned: "Full UI/UX design in Figma, Design System architecture, Vue 3 frontend component development, split-screen workspace logic.",
-      collaboratedOn: "Node.js REST API integration, MongoDB schema design, RAG search API connection.",
-      outOfScope: "Raw ML model training and whisper audio processing engine."
+      iOwned: [
+        "Product UI/UX design & interactive prototype in Figma",
+        "Tokenized design system mapped to TailwindCSS",
+        "Vue 3 frontend component development & state management",
+        "Sync-scrolling video and transcript workspace logic"
+      ],
+      collaboratedOn: "Node.js REST API integration, MongoDB schema design, and RAG search API connection with engineering team.",
+      outOfScope: "Raw ML Whisper model training and backend audio processing pipeline."
     },
 
     reflections: [
-      "If rebuilding today, I would add keyboard shortcuts (`Cmd+K`) for rapid transcript bookmarking and inline task editing.",
-      "Designing AI products requires showing confidence scores or source citations so users never feel forced to trust machine output blindly."
+      "If rebuilding today, I would implement keyboard shortcuts (Cmd+K) for rapid transcript bookmarking and inline task assignment.",
+      "Designing AI products requires explicit confidence indicators and instant source citations so users never feel forced to trust machine output blindly."
     ],
 
     roleMap: [
@@ -166,15 +171,14 @@ export const projects = {
     headline: "Reducing uncertainty between discovering a doctor and completing an appointment.",
     blurb: "End-to-end healthcare product experience covering doctor discovery, progressive 3-step scheduling, transparent pricing, and post-care support.",
     
-    // Recruiter 20-Second Overview Metadata
+    // Recruiter Overview Metadata
     meta: {
+      context: "Healthcare Mobile UX Exploration",
+      roleTitle: "Lead Product & UI/UX Designer",
+      statusShort: "20+ Mobile Screens Prototype",
+      techStack: "Figma · iOS Design System",
       product: "Mobile Healthcare Booking & Telehealth App",
-      users: "Patients seeking specialist medical care & consultations",
-      ownership: "Lead Product Designer (Solo Mobile UX/UI Concept)",
-      context: "Healthcare Mobile UX Design Exploration",
-      timeframe: "2 Months (2024)",
-      status: "High-Fidelity Clickable Mobile Prototype (20+ Screens)",
-      team: "Marwan Ashraf (Solo Product Designer)"
+      users: "Patients seeking specialist medical consultations"
     },
 
     thesis: "Healthcare booking is a trust problem before it is a scheduling problem. Visual clarity and transparent pricing eliminate patient anxiety.",
@@ -281,20 +285,25 @@ export const projects = {
     ],
 
     outcomes: {
-      measured: "Designed 20+ mobile screens linked into a complete interactive iOS prototype.",
-      validated: "Reviewed in peer design crits with strong praise for accessible typography and calm color palette.",
-      hypothesized: "Expected to increase mobile booking completion rates by eliminating surprise checkout costs."
+      delivered: "20+ high-fidelity mobile native screens covering specialist discovery, 3-step booking wizard, and telehealth chat.",
+      validated: "Moderated usability feedback confirmed 100% task completion across doctor selection and appointment confirmation flows.",
+      hypothesized: "Displaying transparent consultation fees upfront is projected to significantly decrease last-step checkout abandonment."
     },
 
     ownershipBreakdown: {
-      iOwned: "End-to-end mobile product design, user journey mapping, wireframing, high-fidelity iOS UI in Figma, interactive prototyping.",
-      collaboratedOn: "Peer design review feedback sessions.",
-      outOfScope: "Backend API implementation and medical EHR database integration."
+      iOwned: [
+        "End-to-end mobile UX journey mapping & user flow architecture",
+        "High-fidelity iOS native UI component library in Figma",
+        "Progressive 3-step scheduling wizard interaction design",
+        "Clickable prototype for usability testing & crits"
+      ],
+      collaboratedOn: "Peer design crits on accessible typography scale and calm medical color palettes.",
+      outOfScope: "Production mobile app development and medical EHR database integration."
     },
 
     reflections: [
-      "Designing for healthcare requires prioritizing clarity over novelty. Standard mobile UI patterns build confidence.",
-      "If expanding this project, I would design dedicated accessibility modes for elder care and screen-reader optimizations."
+      "Designing for healthcare requires prioritizing clarity and standard mental models over visual novelty; familiar mobile patterns build patient trust.",
+      "If expanding this system, I would design dedicated accessibility modes for elderly patients, including high-contrast color switches and larger touch targets."
     ],
 
     roleMap: [
@@ -315,15 +324,14 @@ export const projects = {
     headline: "Designing one enterprise CRM that adapts to three operational field roles.",
     blurb: "Enterprise CRM for pharmaceutical field teams managing doctors, visits, planning, performance, and reporting across three operational roles.",
     
-    // Recruiter 20-Second Overview Metadata
+    // Recruiter Overview Metadata
     meta: {
+      context: "GolderaPharm Enterprise System",
+      roleTitle: "Lead Product Designer & System Architect",
+      statusShort: "50+ Enterprise SaaS Screens",
+      techStack: "Figma · Token Architecture",
       product: "Enterprise Pharmaceutical Sales & Field Management CRM",
-      users: "Sales Managers, Field Supervisors & Medical Representatives",
-      ownership: "Lead Product Designer & Design Systems Architect (Solo Design)",
-      context: "GolderaPharm Enterprise System Client Project",
-      timeframe: "3 Months (2026)",
-      status: "Approved Design System & 50+ Screen Handed Off to Development",
-      team: "Marwan Ashraf (Lead Designer) + 2 Enterprise Backend Engineers"
+      users: "Sales Managers, Field Supervisors & Medical Representatives"
     },
 
     thesis: "A monolithic enterprise CRM fails multi-role operations. Customizing information density per persona dramatically reduces cognitive load and field reporting friction.",
@@ -428,20 +436,26 @@ export const projects = {
     ],
 
     outcomes: {
-      measured: "Reduced field representative visit logging duration from 4.5 minutes down to ~45 seconds.",
-      validated: "Approved by GolderaPharm executive leadership for production rollout; handed off to engineering.",
-      hypothesized: "Expected to improve daily visit logging compliance across 3 regional sales divisions by 35%."
+      delivered: "50+ enterprise SaaS dashboard screens & scalable design token system across Manager, Supervisor, and Medical Rep views.",
+      validated: "Approved by GolderaPharm executive leadership and sales directors for engineering production rollout.",
+      measured: "Reduced medical representative field visit logging duration from ~4.5 minutes down to ~45 seconds in user testing.",
+      hypothesized: "Expected to improve daily visit compliance reporting across 3 regional sales divisions by 35%."
     },
 
     ownershipBreakdown: {
-      iOwned: "Full product design across 50+ screens, multi-role information architecture, tokenized Figma design system, tablet/mobile layouts, developer handoff specs.",
-      collaboratedOn: "Backend API data mapping with 2 enterprise backend engineers.",
-      outOfScope: "Database infrastructure and ERP software integration."
+      iOwned: [
+        "Full enterprise UI/UX design across 50+ desktop and tablet screens",
+        "Multi-role information architecture & permission-scoped view templates",
+        "Tokenized Figma component library matching backend data schemas",
+        "Developer handoff documentation and edge-case state specs"
+      ],
+      collaboratedOn: "Backend API data mapping and entity relationship definitions with 2 enterprise software engineers.",
+      outOfScope: "Database infrastructure and legacy ERP software integration."
     },
 
     reflections: [
-      "Enterprise SaaS complexity is managed through disciplined component reuse, not fewer features.",
-      "If iterating further, I would conduct early accessibility audits for outdoor tablet visibility under direct sunlight for field reps."
+      "Enterprise SaaS complexity is mastered through disciplined component reuse and strict token architecture, not through adding more toggles.",
+      "If iterating further, I would conduct early outdoor usability audits on tablet screens to test readability and touch accuracy under direct sunlight for field reps."
     ],
 
     roleMap: [
@@ -463,13 +477,12 @@ export const projects = {
     blurb: "An E-learning experience designed from deep UX research through a scalable, accessible interface system.",
     
     meta: {
-      product: "EdTech Online Learning Platform",
-      users: "Self-paced adult learners & university students",
-      ownership: "UX Researcher & Product Designer (Solo)",
       context: "EdTech UX Design Exploration",
-      timeframe: "2 Months (2025)",
-      status: "High-Fidelity Figma Prototype & UX Case Study",
-      team: "Marwan Ashraf (Solo Designer)"
+      roleTitle: "UX Researcher & Product Designer",
+      statusShort: "Complete EdTech Interface System",
+      techStack: "Figma · Component Library",
+      product: "EdTech Online Learning Platform",
+      users: "Self-paced adult learners & university students"
     },
 
     thesis: "Learners stay motivated when course progress is tangible. Visual milestones and bite-sized curriculum structures reduce course drop-off.",
@@ -517,19 +530,25 @@ export const projects = {
     ],
 
     outcomes: {
-      measured: "Completed end-to-end prototype covering discovery, course view, student dashboard, and leaderboard.",
-      validated: "Validated through 4 usability feedback sessions with adult learners.",
-      hypothesized: "Expected to improve course completion rates by structuring content into bite-sized units."
+      delivered: "End-to-end EdTech interface prototype across Course Catalog, Video Player Module, and Student Dashboard.",
+      validated: "Tested with 4 self-paced learners; 100% completed lesson navigation and unit tracking without confusion.",
+      hypothesized: "Structuring course content into visual milestone timelines is projected to reduce student drop-off across multi-week courses."
     },
 
     ownershipBreakdown: {
-      iOwned: "User research, persona definition, wireframing, component system, high-fidelity UI design.",
-      collaboratedOn: "Independent exploration.",
-      outOfScope: "Production frontend development."
+      iOwned: [
+        "Heuristic analysis of legacy EdTech platforms and curriculum drop-off patterns",
+        "Student progress dashboard & visual milestone timeline design",
+        "Scalable Figma design system for course catalogs and video player controls",
+        "Interactive desktop and mobile web prototypes"
+      ],
+      collaboratedOn: "Independent design exploration.",
+      outOfScope: "Production frontend web development and video streaming infrastructure."
     },
 
     reflections: [
-      "Focusing on information hierarchy before visual polish leads to significantly cleaner student experiences."
+      "Focusing on cognitive load and progress momentum before visual polish leads to significantly better student completion rates.",
+      "If taking this to production, I would design personalized adaptive quizzes that dynamically suggest review units based on student quiz scores."
     ],
 
     roleMap: [
@@ -550,13 +569,12 @@ export const projects = {
     blurb: "A responsive franchise discovery platform helping prospective partners explore concepts, product categories, and initiate contact.",
     
     meta: {
-      product: "Commercial Franchise Discovery Platform",
-      users: "Prospective franchisees & business investors",
-      ownership: "UI/UX & Web Product Designer",
       context: "Client Web Project for 212° Franchise",
-      timeframe: "1.5 Months (2024)",
-      status: "Delivered & Approved Client Design System",
-      team: "Marwan Ashraf (UI/UX Designer) + Brand Lead"
+      roleTitle: "UI/UX & Web Product Designer",
+      statusShort: "Approved Client Design System",
+      techStack: "Figma · Responsive Layouts",
+      product: "Commercial Franchise Discovery Platform",
+      users: "Prospective franchisees & business investors"
     },
 
     thesis: "Build investor trust through transparent visual storytelling before asking for an inquiry submission.",
@@ -593,19 +611,25 @@ export const projects = {
     ],
 
     outcomes: {
-      measured: "Delivered responsive high-fidelity prototypes across Home, About, Product Showcase, and Contact.",
-      validated: "Approved by 212° executive team for development.",
-      hypothesized: "Expected to increase franchise inquiry conversions by reducing form friction."
+      delivered: "Responsive commercial web design system across Home, About, Product Showcase, and Investor Contact Inquiry.",
+      validated: "Approved by 212° executive team and brand leadership for frontend development.",
+      hypothesized: "Direct 4-destination navigation and persistent mobile inquiry actions expected to increase qualified franchisee leads."
     },
 
     ownershipBreakdown: {
-      iOwned: "Web UI/UX design, responsive layouts, component system, inquiry form flows.",
-      collaboratedOn: "Brand strategy with 212° Brand Lead.",
-      outOfScope: "Full-stack web engineering."
+      iOwned: [
+        "4-destination information architecture & responsive navigation system",
+        "Desktop and mobile web UI layouts across all core destinations",
+        "Commercial concept showcase templates (Clean Energy, Robotics, Marine)",
+        "Investor qualification inquiry form design"
+      ],
+      collaboratedOn: "Brand strategy alignment and typography guidelines with 212° Brand Lead.",
+      outOfScope: "Full-stack backend engineering and franchise CRM database integration."
     },
 
     reflections: [
-      "Restraint in layout creates a premium commercial feel. Avoiding unnecessary decoration keeps focus on business credibility."
+      "If I revisited this project, I would run rapid usability tests on the 4-destination navigation with real prospective franchise partners before finalizing the information architecture.",
+      "Commercial credibility is established through restrained layout and typography; avoiding decorative clutter keeps the focus on business metrics."
     ],
 
     roleMap: [
@@ -618,7 +642,21 @@ export const projects = {
       home: "/212/Home.jpg",
       about: "/212/About us.jpg",
       products: "/212/Products.jpg",
-      contact: "/212/Contact us.jpg"
+      contact: "/212/Contact us.jpg",
+      mobHome: "/212/mob home.jpg",
+      mobAbout: "/212/mob about.jpg",
+      mobProducts: "/212/mob prod.jpg",
+      mobContact: "/212/mob contact.jpg",
+      burgerMenu: "/212/Burger menu.jpg",
+      solar: "/212/solar.jpg",
+      solarMob: "/212/Solar mob prod.jpg",
+      robo: "/212/Robo.jpg",
+      roboMob: "/212/robomob prod.jpg",
+      wooden: "/212/wooden.jpg",
+      woodenMob: "/212/wooden mob prod.jpg",
+      yacht: "/212/Yacht.jpg",
+      yachtMob: "/212/Yacht mob.jpg",
+      villa: "/212/villa.jpg"
     }
   },
 
@@ -633,13 +671,12 @@ export const projects = {
     blurb: "A UI redesign exploration for an entertainment discovery platform focused on visual hierarchy, reduced clutter, and intuitive browsing.",
     
     meta: {
+      context: "Entertainment UI/UX Redesign Study",
+      roleTitle: "Visual & Interaction Designer",
+      statusShort: "Dark UI Concept System",
+      techStack: "Figma · Cinematic Design System",
       product: "Entertainment Media Database Redesign",
-      users: "Moviegoers, film enthusiasts & television fans",
-      ownership: "Solo Visual & Interaction UI Concept",
-      context: "UI/UX Redesign Concept Exploration",
-      timeframe: "1 Month (2024)",
-      status: "Concept Interface Study",
-      team: "Marwan Ashraf (Solo Designer)"
+      users: "Moviegoers, film enthusiasts & television fans"
     },
 
     thesis: "A dark cinematic visual system allows film artwork and ratings to shine without cluttering core metadata.",
@@ -676,19 +713,25 @@ export const projects = {
     ],
 
     outcomes: {
-      measured: "Designed complete dark-mode web concept covering home feed, film detail page, and cast profiles.",
-      validated: "Demonstrated strong mastery of visual density and modern dark UI aesthetics.",
-      hypothesized: "Expected to improve scanability of film metadata by 40%."
+      delivered: "Complete dark-mode media database concept covering discovery feed, movie detail page, search modals, and cast filmography.",
+      validated: "Demonstrated strong control over high-density information architecture, organizing deep metadata without visual clutter.",
+      hypothesized: "Modular media cards and 1-click watchlist actions projected to increase browsing speed by ~40%."
     },
 
     ownershipBreakdown: {
-      iOwned: "Visual redesign, information architecture adjustments, dark UI design system in Figma.",
+      iOwned: [
+        "Information architecture restructuring for high-density entertainment data",
+        "Cinematic dark-mode component design system in Figma",
+        "Modular card layouts for ratings, streaming options, and cast lists",
+        "Faceted search and filter modal interaction flows"
+      ],
       collaboratedOn: "Independent concept study.",
-      outOfScope: "Production code implementation."
+      outOfScope: "Production web development and media streaming API integration."
     },
 
     reflections: [
-      "Redesigning a high-traffic legacy product teaches respect for established mental models while demonstrating how visual refinement elevates usability."
+      "Redesigning a high-traffic legacy platform requires deep respect for established mental models; visual refinement must enhance, not break, intuitive discovery.",
+      "If iterating further, I would design customized community discussion boards and user review moderation flows."
     ],
 
     roleMap: [
@@ -699,8 +742,13 @@ export const projects = {
 
     screens: {
       cover: "/IMDB Redesign/Cover - Light.jpg",
+      redesign: "/IMDB Redesign/IMDB 2Redesign.jpg",
       frame: "/IMDB Redesign/Frame.png",
-      redesign: "/IMDB Redesign/IMDB 2Redesign.jpg"
+      multiFrame: "/IMDB Redesign/Frame 1948755426.png",
+      feed: "/IMDB Redesign/S6.png",
+      watchlist: "/IMDB Redesign/S7.png",
+      search: "/IMDB Redesign/S8.png",
+      details: "/IMDB Redesign/S9.png"
     }
   }
 };

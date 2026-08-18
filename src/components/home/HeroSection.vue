@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import { RouterLink } from "vue-router";
 
 const tiltX = ref(0);
 const tiltY = ref(0);
@@ -18,6 +17,24 @@ function handleMouseLeave() {
   tiltX.value = 0;
   tiltY.value = 0;
 }
+
+// Easily expandable tools array for the continuous ticker
+const toolsList = ref([
+  "Figma",
+  "Photoshop",
+  "Antigravity",
+  "Visual Studio",
+  "Anghami",
+  "Vue.js",
+  "TailwindCSS",
+  "Git",
+  "Illustrator",
+  "Figma",
+  "Photoshop",
+  "Antigravity",
+  "Visual Studio",
+  "Anghami"
+]);
 </script>
 
 <template>
@@ -102,10 +119,35 @@ function handleMouseLeave() {
       </div>
     </div>
 
-    <!-- Bottom Dark Ticker (Provides depth layer underneath portrait) -->
-    <div class="absolute bottom-0 left-0 w-full overflow-hidden bg-ink text-paper h-[40px] flex whitespace-nowrap items-center font-sans font-semibold text-[11px] tracking-[0.05em] z-20" aria-hidden="true">
-      <span class="block animate-marquee">SYSTEMS THINKING · SaaS WORKFLOWS · FIGMA DESIGN SYSTEMS · VUE 3 FRONTEND · ACCESSIBLE UX · PRODUCT DESIGNER · UI/UX DESIGNER · UX Researcher · Engineering Background · </span>
-      <span class="block animate-marquee">SYSTEMS THINKING · SaaS WORKFLOWS · FIGMA DESIGN SYSTEMS · VUE 3 FRONTEND · ACCESSIBLE UX · PRODUCT DESIGNER · UI/UX DESIGNER · UX Researcher · Engineering Background ·</span>
+    <!-- Sleek & Editorial Dark Tools Marquee Ticker -->
+    <div class="absolute bottom-0 left-0 w-full h-[44px] bg-ink text-paper flex items-center z-20 overflow-hidden border-t border-ink font-mono text-[12px] select-none shadow-lg">
+      <!-- Sleek Integrated Left Badge -->
+      <div class="h-full bg-[#161616] text-paper px-4 flex items-center gap-2.5 font-mono font-extrabold uppercase tracking-widest shrink-0 z-30 border-r border-paper/20 text-[11px]">
+        <span class="w-2 h-2 rounded-full bg-[#27c93f] animate-pulse block"></span>
+        <span class="text-paper/90">TOOLS &amp; STACK</span>
+        <span class="text-paper/40 font-normal">//</span>
+      </div>
+
+      <!-- Continuous Marquee Loop -->
+      <div class="relative w-full overflow-hidden flex items-center h-full">
+        <div class="flex whitespace-nowrap animate-marquee items-center">
+          <template v-for="(tool, idx) in toolsList" :key="'a-' + idx">
+            <span class="px-3 py-0.5 rounded border border-paper/20 bg-paper/5 text-paper/90 hover:bg-paper hover:text-ink hover:scale-105 transition-all cursor-default font-extrabold uppercase tracking-widest text-[11px] mx-1.5 shadow-sm">
+              {{ tool }}
+            </span>
+            <span class="text-paper/30 font-sans font-bold text-[10px] mx-1">✦</span>
+          </template>
+        </div>
+
+        <div class="flex whitespace-nowrap animate-marquee items-center" aria-hidden="true">
+          <template v-for="(tool, idx) in toolsList" :key="'b-' + idx">
+            <span class="px-3 py-0.5 rounded border border-paper/20 bg-paper/5 text-paper/90 hover:bg-paper hover:text-ink hover:scale-105 transition-all cursor-default font-extrabold uppercase tracking-widest text-[11px] mx-1.5 shadow-sm">
+              {{ tool }}
+            </span>
+            <span class="text-paper/30 font-sans font-bold text-[10px] mx-1">✦</span>
+          </template>
+        </div>
+      </div>
     </div>
   </section>
 </template>

@@ -329,7 +329,7 @@ onUnmounted(() => {
             </div>
 
             <div class="pt-4 border-t border-ink/20 flex items-center justify-between">
-              <span class="text-[12px] font-bold text-ink/60">{{ project.meta?.status || 'Case Study' }}</span>
+              <span class="text-[12px] font-bold text-ink/60">{{ project.meta?.statusShort || project.meta?.status || 'Case Study' }}</span>
               <RouterLink
                 :to="`/projects/${project.id}`"
                 class="text-[12px] font-extrabold text-ink hover:underline inline-flex items-center gap-1"
