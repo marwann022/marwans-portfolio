@@ -3,7 +3,6 @@ import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
 import { archiveProjects, archiveKeys, gallery } from "@/data/gallery.js";
 import ImageLightboxModal from "@/components/shared/ImageLightboxModal.vue";
-import NotFoundView from "@/views/NotFoundView.vue";
 
 const props = defineProps({
   slug: {
@@ -14,15 +13,39 @@ const props = defineProps({
 
 const project = computed(() => archiveProjects[props.slug]);
 
-// Modal State
+// Modal State & Navigation
 const lightboxOpen = ref(false);
-const lightboxSrc = ref("");
-const lightboxCaption = ref("");
+const lightboxItems = ref([]);
+const lightboxIndex = ref(0);
 
-function openLightbox(src, caption = "") {
-  lightboxSrc.value = src;
-  lightboxCaption.value = caption;
+const currentLightboxItem = computed(() => {
+  if (lightboxItems.value.length === 0 || lightboxIndex.value < 0) return null;
+  return lightboxItems.value[lightboxIndex.value];
+});
+
+const hasPrevLightbox = computed(() => lightboxIndex.value > 0);
+const hasNextLightbox = computed(() => lightboxIndex.value < lightboxItems.value.length - 1);
+const lightboxCounter = computed(() => {
+  if (lightboxItems.value.length === 0) return "";
+  return `ITEM ${lightboxIndex.value + 1} OF ${lightboxItems.value.length}`;
+});
+
+function openLightbox(itemList, index) {
+  lightboxItems.value = itemList;
+  lightboxIndex.value = index;
   lightboxOpen.value = true;
+}
+
+function prevLightbox() {
+  if (hasPrevLightbox.value) {
+    lightboxIndex.value--;
+  }
+}
+
+function nextLightbox() {
+  if (hasNextLightbox.value) {
+    lightboxIndex.value++;
+  }
 }
 
 const prevProject = computed(() => {
@@ -38,6 +61,21 @@ const nextProject = computed(() => {
   const nextIndex = (index + 1) % archiveKeys.length;
   return archiveProjects[archiveKeys[nextIndex]];
 });
+
+// Aspect Ratio utility mapping
+function getAspectClass(ratio) {
+  switch (ratio) {
+    case "1/1":
+      return "aspect-[1/1]";
+    case "4/5":
+      return "aspect-[4/5]";
+    case "16/9":
+      return "aspect-[16/9]";
+    case "16/10":
+    default:
+      return "aspect-[16/10]";
+  }
+}
 </script>
 
 <template>
@@ -73,7 +111,7 @@ const nextProject = computed(() => {
       <div class="max-w-[1240px] mx-auto space-y-6">
         <div class="flex flex-wrap items-center gap-3 font-mono text-[11px] font-bold">
           <span class="bg-ink text-paper px-2.5 py-0.5 rounded-sm uppercase tracking-widest font-black">
-            {{ project.num }} / 03
+            {{ project.num }} / 03 ARCHIVE
           </span>
           <span class="border border-ink px-2.5 py-0.5 rounded-sm uppercase">
             {{ project.year }}
@@ -113,7 +151,7 @@ const nextProject = computed(() => {
       </div>
     </section>
 
-    <!-- IEEE SPECIALIZED: 4 COMPREHENSIVE VISUAL GROUPS -->
+    <!-- IEEE SPECIALIZED: 4 COMPREHENSIVE VISUAL GROUPS WITH SYMMETRICAL GRIDS -->
     <template v-if="project.id === 'ieee'">
       <section
         v-for="grp in project.groups"
@@ -136,29 +174,71 @@ const nextProject = computed(() => {
             </p>
           </div>
 
-          <!-- Dynamic Editorial Image Grid (Wraps Content with Zero Trapped Empty Space) -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+          <!-- Hero Feature Banner (If specified) -->
+          <div v-if="grp.hero" class="w-full">
             <div
-              v-for="(item, idx) in grp.items"
-              :key="idx"
-              @click="openLightbox(item.image, item.title)"
-              :class="[
-                'border border-ink bg-paper p-3 space-y-2 shadow-sm group cursor-zoom-in relative self-start h-auto',
-                item.span === 'full' ? 'sm:col-span-2 lg:col-span-3' : item.span === 'large' ? 'sm:col-span-2 lg:col-span-2' : ''
-              ]"
+              @click="openLightbox([grp.hero], 0)"
+              class="border border-ink bg-paper p-3 md:p-4 shadow-xs hover:shadow-md transition-all duration-300 group cursor-zoom-in relative"
             >
-              <div class="overflow-hidden border border-ink/20 bg-ink/5 max-h-[560px]">
+              <div
+                :class="[
+                  'w-full aspect-[21/9] sm:aspect-[2.4/1] overflow-hidden border border-ink/20 flex items-center justify-center p-3 md:p-4',
+                  grp.hero.bg || 'bg-[#0f172a]'
+                ]"
+              >
                 <img
-                  :src="item.image"
-                  :alt="item.title"
-                  class="w-full h-auto max-h-[560px] object-cover object-top block group-hover:scale-[1.015] transition-transform duration-500"
-                  loading="lazy"
+                  :src="grp.hero.image"
+                  :alt="grp.hero.title"
+                  class="w-full h-full object-contain object-center block group-hover:scale-[1.01] transition-transform duration-500"
                 />
               </div>
+              <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-2.5 mt-3 border-t border-ink/10">
+                <span>{{ grp.hero.title }}</span>
+                <span class="text-ink/50 text-[10px] uppercase font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT FEATURE</span>
+              </div>
+            </div>
+          </div>
 
-              <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-1 border-t border-ink/10">
-                <span class="truncate">{{ item.title }}</span>
-                <span class="text-ink/40 text-[10px] uppercase shrink-0">🔍 ZOOM</span>
+          <!-- Symmetrical Regular Grid Rows -->
+          <div class="space-y-6">
+            <div
+              v-for="(row, rIdx) in grp.rows"
+              :key="rIdx"
+              :class="[
+                'grid gap-6 items-stretch',
+                row.cols === 2 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+              ]"
+            >
+              <div
+                v-for="(item, idx) in row.items"
+                :key="idx"
+                @click="openLightbox(row.items, idx)"
+                class="border border-ink bg-paper p-3.5 flex flex-col justify-between h-full shadow-xs hover:shadow-md hover:border-ink transition-all duration-300 group cursor-zoom-in relative"
+              >
+                <div class="w-full">
+                  <div
+                    :class="[
+                      'w-full overflow-hidden border border-ink/20 flex items-center justify-center transition-colors duration-300',
+                      getAspectClass(row.ratio),
+                      item.fit === 'contain' ? (item.bg || 'bg-story-bg/70 p-3 md:p-4') : 'bg-ink/5 p-0'
+                    ]"
+                  >
+                    <img
+                      :src="item.image"
+                      :alt="item.title"
+                      :class="[
+                        'w-full h-full block transition-transform duration-500 group-hover:scale-[1.02]',
+                        item.fit === 'cover' ? 'object-cover object-top' : 'object-contain object-center'
+                      ]"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-2.5 mt-3 border-t border-ink/10">
+                  <span class="truncate pr-2">{{ item.title }}</span>
+                  <span class="text-ink/50 text-[10px] uppercase shrink-0 font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT</span>
+                </div>
               </div>
             </div>
           </div>
@@ -167,7 +247,7 @@ const nextProject = computed(() => {
     </template>
 
     <!-- CELA & MOON SPECIALIZED EDITORIAL VISUAL ARCHIVES -->
-    <template v-else-if="project.items && project.items.length">
+    <template v-else-if="project.rows && project.rows.length">
       <section class="py-12 md:py-16 px-5 md:px-[7vw] border-b border-ink bg-paper">
         <div class="max-w-[1240px] mx-auto space-y-8">
           <div class="flex items-center justify-between border-b border-ink pb-4">
@@ -180,33 +260,75 @@ const nextProject = computed(() => {
               </h2>
             </div>
             <span class="font-mono text-[11px] font-bold text-ink/60 uppercase hidden sm:inline-block">
-              {{ project.items.length }} UNIQUE REAL ASSETS · CLICK TO ZOOM 🔍
+              CLICK ANY ARTWORK TO INSPECT 🔍
             </span>
           </div>
 
-          <!-- Dynamic Gallery Grid (Wraps Content with Zero Trapped Empty Space) -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+          <!-- Hero Feature Banner (If specified) -->
+          <div v-if="project.hero" class="w-full">
             <div
-              v-for="(item, idx) in project.items"
-              :key="idx"
-              @click="openLightbox(item.image, item.title)"
-              :class="[
-                'border border-ink bg-paper p-3 space-y-2 shadow-sm group cursor-zoom-in relative self-start h-auto',
-                item.span === 'full' ? 'sm:col-span-2 lg:col-span-3' : item.span === 'large' ? 'sm:col-span-2 lg:col-span-2' : ''
-              ]"
+              @click="openLightbox([project.hero], 0)"
+              class="border border-ink bg-paper p-3 md:p-4 shadow-xs hover:shadow-md transition-all duration-300 group cursor-zoom-in relative"
             >
-              <div class="overflow-hidden border border-ink/20 bg-ink/5 max-h-[560px]">
+              <div
+                :class="[
+                  'w-full aspect-[21/9] sm:aspect-[2.4/1] overflow-hidden border border-ink/20 flex items-center justify-center p-3 md:p-4',
+                  project.hero.bg || 'bg-[#18181b]'
+                ]"
+              >
                 <img
-                  :src="item.image"
-                  :alt="item.title"
-                  class="w-full h-auto max-h-[560px] object-cover object-top block group-hover:scale-[1.015] transition-transform duration-500"
-                  loading="lazy"
+                  :src="project.hero.image"
+                  :alt="project.hero.title"
+                  class="w-full h-full object-contain object-center block group-hover:scale-[1.01] transition-transform duration-500"
                 />
               </div>
+              <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-2.5 mt-3 border-t border-ink/10">
+                <span>{{ project.hero.title }}</span>
+                <span class="text-ink/50 text-[10px] uppercase font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT FEATURE</span>
+              </div>
+            </div>
+          </div>
 
-              <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-1 border-t border-ink/10">
-                <span class="truncate">{{ item.title }}</span>
-                <span class="text-ink/40 text-[10px] uppercase shrink-0">🔍 ZOOM</span>
+          <!-- Symmetrical Regular Grid Rows -->
+          <div class="space-y-6">
+            <div
+              v-for="(row, rIdx) in project.rows"
+              :key="rIdx"
+              :class="[
+                'grid gap-6 items-stretch',
+                row.cols === 2 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+              ]"
+            >
+              <div
+                v-for="(item, idx) in row.items"
+                :key="idx"
+                @click="openLightbox(row.items, idx)"
+                class="border border-ink bg-paper p-3.5 flex flex-col justify-between h-full shadow-xs hover:shadow-md hover:border-ink transition-all duration-300 group cursor-zoom-in relative"
+              >
+                <div class="w-full">
+                  <div
+                    :class="[
+                      'w-full overflow-hidden border border-ink/20 flex items-center justify-center transition-colors duration-300',
+                      getAspectClass(row.ratio),
+                      item.fit === 'contain' ? (item.bg || 'bg-story-bg/70 p-3 md:p-4') : 'bg-ink/5 p-0'
+                    ]"
+                  >
+                    <img
+                      :src="item.image"
+                      :alt="item.title"
+                      :class="[
+                        'w-full h-full block transition-transform duration-500 group-hover:scale-[1.02]',
+                        item.fit === 'cover' ? 'object-cover object-top' : 'object-contain object-center'
+                      ]"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-2.5 mt-3 border-t border-ink/10">
+                  <span class="truncate pr-2">{{ item.title }}</span>
+                  <span class="text-ink/50 text-[10px] uppercase shrink-0 font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT</span>
+                </div>
               </div>
             </div>
           </div>
@@ -242,13 +364,19 @@ const nextProject = computed(() => {
       </RouterLink>
     </section>
 
-    <!-- Global Fullscreen Image Lightbox Modal -->
+    <!-- Global Fullscreen Image Lightbox Modal with Navigation -->
     <ImageLightboxModal
       :is-open="lightboxOpen"
-      :src="lightboxSrc"
-      :caption="lightboxCaption"
+      :src="currentLightboxItem ? currentLightboxItem.image : ''"
+      :caption="currentLightboxItem ? currentLightboxItem.title : ''"
+      :has-prev="hasPrevLightbox"
+      :has-next="hasNextLightbox"
+      :counter-text="lightboxCounter"
+      @prev="prevLightbox"
+      @next="nextLightbox"
       @close="lightboxOpen = false"
     />
   </main>
+
   <NotFoundView v-else />
 </template>

@@ -73,12 +73,12 @@ const storyMap = {
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-[14px] leading-[1.55] items-start">
-          <div class="p-5 border-l-4 border-ink bg-story-bg border-t border-r border-b border-ink/20 space-y-1.5 self-start h-auto">
+          <div class="p-5 border-l-4 border-l-ink bg-story-bg border-t border-r border-b border-ink/20 space-y-1.5 self-start h-auto">
             <span class="font-mono text-[11px] font-extrabold uppercase text-ink/60 block">THE PROBLEM</span>
             <p class="font-medium text-ink/90 m-0">{{ storyMap[project.id].problem }}</p>
           </div>
 
-          <div class="p-5 border-l-4 border-ink bg-paper border-t border-r border-b border-ink/20 space-y-1.5 shadow-sm self-start h-auto">
+          <div class="p-5 border-l-4 border-l-ink bg-paper border-t border-r border-b border-ink/20 space-y-1.5 shadow-sm self-start h-auto">
             <span class="font-mono text-[11px] font-extrabold uppercase text-ink block">THE DESIGN SOLUTION</span>
             <p class="font-bold text-ink m-0">{{ storyMap[project.id].solution }}</p>
           </div>
@@ -99,81 +99,89 @@ const storyMap = {
           <span class="font-mono text-[11px] font-bold text-ink/50 uppercase hidden sm:inline-block">CLICK SCREENS TO ZOOM 🔍</span>
         </div>
 
-        <!-- 4-Stage Visual Product Flow (Tight Content-Wrapped Cards) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
+        <!-- 4-Stage Visual Product Flow (Tight Content-Wrapped Bento Cards) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
           <div
             @click="openLightbox('/smartmeet-pages/live-meeting.jpg', '01 Live Meeting: Real-time audio stream & speaker tagging')"
-            class="border border-ink bg-paper p-3 space-y-2 shadow-sm group cursor-zoom-in relative self-start h-auto"
+            class="border border-ink bg-paper p-3.5 flex flex-col justify-between h-full shadow-xs hover:shadow-md hover:border-ink transition-all duration-300 group cursor-zoom-in relative"
           >
-            <span class="font-mono text-[10px] font-extrabold bg-[#1e3a8a] text-paper px-2 py-0.5 rounded-sm block w-fit">
-              01 LIVE MEETING
-            </span>
-            <div class="overflow-hidden border border-ink/20 bg-ink">
-              <img src="/smartmeet-pages/live-meeting.jpg" alt="SmartMeet Live Meeting screen" class="w-full h-auto max-h-[360px] object-cover object-top block group-hover:scale-[1.03] transition-transform" />
+            <div class="space-y-2.5">
+              <span class="font-mono text-[10px] font-extrabold bg-[#1e3a8a] text-paper px-2 py-0.5 rounded-sm block w-fit">
+                01 LIVE MEETING
+              </span>
+              <div class="overflow-hidden border border-ink/20 bg-ink/5 aspect-[16/10] w-full">
+                <img src="/smartmeet-pages/live-meeting.jpg" alt="SmartMeet Live Meeting screen" class="w-full h-full object-cover object-top block group-hover:scale-[1.03] transition-transform duration-500" />
+              </div>
             </div>
-            <p class="text-[12px] font-bold text-ink m-0">Real-time audio stream &amp; speaker tagging.</p>
+            <p class="text-[12px] font-bold text-ink m-0 mt-3 pt-2 border-t border-ink/10 leading-snug">Real-time audio stream &amp; speaker tagging.</p>
           </div>
 
           <div
-            @click="openLightbox('/Thumbnail.png', '02 AI Transcript: Automated summary & timestamped notes')"
-            class="border border-ink bg-paper p-3 space-y-2 shadow-sm group cursor-zoom-in relative self-start h-auto"
+            @click="openLightbox('/smartmeet-pages/Codex Image Aug 17, 2026, 06_29_53 PM.png', '02 AI Transcript: Automated summary & timestamped notes')"
+            class="border border-ink bg-paper p-3.5 flex flex-col justify-between h-full shadow-xs hover:shadow-md hover:border-ink transition-all duration-300 group cursor-zoom-in relative"
           >
-            <span class="font-mono text-[10px] font-extrabold bg-[#1e3a8a] text-paper px-2 py-0.5 rounded-sm block w-fit">
-              02 AI TRANSCRIPT
-            </span>
-            <div class="overflow-hidden border border-ink/20 bg-ink">
-              <img src="/Thumbnail.png" alt="SmartMeet Transcript &amp; Summary view" class="w-full h-auto max-h-[360px] object-cover object-top block group-hover:scale-[1.03] transition-transform" />
+            <div class="space-y-2.5">
+              <span class="font-mono text-[10px] font-extrabold bg-[#1e3a8a] text-paper px-2 py-0.5 rounded-sm block w-fit">
+                02 AI TRANSCRIPT
+              </span>
+              <div class="overflow-hidden border border-ink/20 bg-ink/5 aspect-[16/10] w-full">
+                <img src="/smartmeet-pages/Codex Image Aug 17, 2026, 06_29_53 PM.png" alt="SmartMeet Transcript &amp; Summary view" class="w-full h-full object-cover object-top block group-hover:scale-[1.03] transition-transform duration-500" />
+              </div>
             </div>
-            <p class="text-[12px] font-bold text-ink m-0">Automated summary &amp; timestamped notes.</p>
+            <p class="text-[12px] font-bold text-ink m-0 mt-3 pt-2 border-t border-ink/10 leading-snug">Automated summary &amp; timestamped notes.</p>
           </div>
 
           <div
             @click="openLightbox('/smartmeet-pages/tasks.jpg', '03 Action Items & Tasks: Human verification before board sync')"
-            class="border border-ink bg-paper p-3 space-y-2 shadow-sm group cursor-zoom-in relative self-start h-auto"
+            class="border border-ink bg-paper p-3.5 flex flex-col justify-between h-full shadow-xs hover:shadow-md hover:border-ink transition-all duration-300 group cursor-zoom-in relative"
           >
-            <span class="font-mono text-[10px] font-extrabold bg-[#1e3a8a] text-paper px-2 py-0.5 rounded-sm block w-fit">
-              03 DECISIONS &amp; TASKS
-            </span>
-            <div class="overflow-hidden border border-ink/20 bg-ink">
-              <img src="/smartmeet-pages/tasks.jpg" alt="SmartMeet Action Items &amp; Tasks screen" class="w-full h-auto max-h-[360px] object-cover object-top block group-hover:scale-[1.03] transition-transform" />
+            <div class="space-y-2.5">
+              <span class="font-mono text-[10px] font-extrabold bg-[#1e3a8a] text-paper px-2 py-0.5 rounded-sm block w-fit">
+                03 DECISIONS &amp; TASKS
+              </span>
+              <div class="overflow-hidden border border-ink/20 bg-ink/5 aspect-[16/10] w-full">
+                <img src="/smartmeet-pages/tasks.jpg" alt="SmartMeet Action Items &amp; Tasks screen" class="w-full h-full object-cover object-top block group-hover:scale-[1.03] transition-transform duration-500" />
+              </div>
             </div>
-            <p class="text-[12px] font-bold text-ink m-0">Human verification before board sync.</p>
+            <p class="text-[12px] font-bold text-ink m-0 mt-3 pt-2 border-t border-ink/10 leading-snug">Human verification before board sync.</p>
           </div>
 
           <div
             @click="openLightbox('/smartmeet-pages/knowledge-ai.jpg', '04 RAG Search: Semantic search across past transcripts')"
-            class="border border-ink bg-paper p-3 space-y-2 shadow-sm group cursor-zoom-in relative self-start h-auto"
+            class="border border-ink bg-paper p-3.5 flex flex-col justify-between h-full shadow-xs hover:shadow-md hover:border-ink transition-all duration-300 group cursor-zoom-in relative"
           >
-            <span class="font-mono text-[10px] font-extrabold bg-[#1e3a8a] text-paper px-2 py-0.5 rounded-sm block w-fit">
-              04 RAG SEARCH
-            </span>
-            <div class="overflow-hidden border border-ink/20 bg-ink">
-              <img src="/smartmeet-pages/knowledge-ai.jpg" alt="SmartMeet Knowledge AI vector search" class="w-full h-auto max-h-[360px] object-cover object-top block group-hover:scale-[1.03] transition-transform" />
+            <div class="space-y-2.5">
+              <span class="font-mono text-[10px] font-extrabold bg-[#1e3a8a] text-paper px-2 py-0.5 rounded-sm block w-fit">
+                04 RAG SEARCH
+              </span>
+              <div class="overflow-hidden border border-ink/20 bg-ink/5 aspect-[16/10] w-full">
+                <img src="/smartmeet-pages/knowledge-ai.jpg" alt="SmartMeet Knowledge AI vector search" class="w-full h-full object-cover object-top block group-hover:scale-[1.03] transition-transform duration-500" />
+              </div>
             </div>
-            <p class="text-[12px] font-bold text-ink m-0">Semantic search across past transcripts.</p>
+            <p class="text-[12px] font-bold text-ink m-0 mt-3 pt-2 border-t border-ink/10 leading-snug">Semantic search across past transcripts.</p>
           </div>
         </div>
 
-        <!-- 4 Annotated Callouts -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-sans text-ink items-start">
-          <div class="p-4 border-l-4 border-[#1e3a8a] bg-story-bg border-t border-r border-b border-ink/20 space-y-1 self-start h-auto">
+        <!-- 4 Annotated Callouts (Equal Height Aligned Bento Grid) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-sans text-ink items-stretch">
+          <div class="p-4 border-l-4 border-l-[#1e3a8a] bg-story-bg border-t border-r border-b border-ink/20 flex flex-col justify-between h-full shadow-xs hover:shadow-sm transition-all duration-200">
             <span class="font-mono text-[11px] font-extrabold text-[#1e3a8a] block">01 EXECUTIVE SUMMARY</span>
-            <p class="text-[13px] font-bold text-ink m-0">Quick understanding of what happened.</p>
+            <p class="text-[13px] font-bold text-ink m-0 mt-1">Quick understanding of what happened.</p>
           </div>
 
-          <div class="p-4 border-l-4 border-[#1e3a8a] bg-story-bg border-t border-r border-b border-ink/20 space-y-1 self-start h-auto">
+          <div class="p-4 border-l-4 border-l-[#1e3a8a] bg-story-bg border-t border-r border-b border-ink/20 flex flex-col justify-between h-full shadow-xs hover:shadow-sm transition-all duration-200">
             <span class="font-mono text-[11px] font-extrabold text-[#1e3a8a] block">02 DECISION TRACKER</span>
-            <p class="text-[13px] font-bold text-ink m-0">Separates commitments from conversation.</p>
+            <p class="text-[13px] font-bold text-ink m-0 mt-1">Separates commitments from conversation.</p>
           </div>
 
-          <div class="p-4 border-l-4 border-[#1e3a8a] bg-story-bg border-t border-r border-b border-ink/20 space-y-1 self-start h-auto">
+          <div class="p-4 border-l-4 border-l-[#1e3a8a] bg-story-bg border-t border-r border-b border-ink/20 flex flex-col justify-between h-full shadow-xs hover:shadow-sm transition-all duration-200">
             <span class="font-mono text-[11px] font-extrabold text-[#1e3a8a] block">03 ACTION ITEMS</span>
-            <p class="text-[13px] font-bold text-ink m-0">Turns discussion into assigned work.</p>
+            <p class="text-[13px] font-bold text-ink m-0 mt-1">Turns discussion into assigned work.</p>
           </div>
 
-          <div class="p-4 border-l-4 border-[#1e3a8a] bg-story-bg border-t border-r border-b border-ink/20 space-y-1 self-start h-auto">
+          <div class="p-4 border-l-4 border-l-[#1e3a8a] bg-story-bg border-t border-r border-b border-ink/20 flex flex-col justify-between h-full shadow-xs hover:shadow-sm transition-all duration-200">
             <span class="font-mono text-[11px] font-extrabold text-[#1e3a8a] block">04 SMART TRANSCRIPT</span>
-            <p class="text-[13px] font-bold text-ink m-0">Keeps original context available for verification.</p>
+            <p class="text-[13px] font-bold text-ink m-0 mt-1">Keeps original context available for verification.</p>
           </div>
         </div>
 
@@ -301,17 +309,17 @@ const storyMap = {
           </div>
 
           <div class="space-y-4 font-sans text-ink">
-            <div class="p-4 border-l-4 border-ink bg-story-bg border-t border-r border-b border-ink/20 space-y-1">
+            <div class="p-4 border-l-4 border-l-ink bg-story-bg border-t border-r border-b border-ink/20 space-y-1">
               <span class="font-mono text-[11px] font-bold uppercase text-ink/60">01 / CINEMATIC BACKDROP</span>
               <p class="text-[13px] font-bold text-ink m-0">Full-bleed movie backdrop graphics establish immediate visual context without crowding cast details.</p>
             </div>
 
-            <div class="p-4 border-l-4 border-ink bg-story-bg border-t border-r border-b border-ink/20 space-y-1">
+            <div class="p-4 border-l-4 border-l-ink bg-story-bg border-t border-r border-b border-ink/20 space-y-1">
               <span class="font-mono text-[11px] font-bold uppercase text-ink/60">02 / MODULAR METADATA CARDS</span>
               <p class="text-[13px] font-bold text-ink m-0">Replaced legacy text tables with high-contrast modular cards for ratings, cast, trivia, and streaming options.</p>
             </div>
 
-            <div class="p-4 border-l-4 border-ink bg-story-bg border-t border-r border-b border-ink/20 space-y-1">
+            <div class="p-4 border-l-4 border-l-ink bg-story-bg border-t border-r border-b border-ink/20 space-y-1">
               <span class="font-mono text-[11px] font-bold uppercase text-ink/60">03 / STREAMING &amp; WATCHLIST</span>
               <p class="text-[13px] font-bold text-ink m-0">Direct 1-click watchlist bookmarking and streaming provider availability badges.</p>
             </div>
@@ -825,7 +833,7 @@ const storyMap = {
               <!-- 01 Problem & 02 Options Grid -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
                 <!-- Problem Card -->
-                <div class="p-4 border-l-4 border-[#e11d48] bg-[#fff1f2]/50 border-t border-r border-b border-ink/15 space-y-1.5 self-start h-auto">
+                <div class="p-4 border-l-4 border-l-[#e11d48] bg-[#fff1f2]/50 border-t border-r border-b border-ink/15 space-y-1.5 self-start h-auto">
                   <div class="flex items-center gap-1.5">
                     <span class="font-mono text-[12px] font-extrabold text-[#e11d48]">!</span>
                     <span class="font-mono text-[11px] font-extrabold uppercase text-[#e11d48] tracking-wider">THE PROBLEM</span>
@@ -834,7 +842,7 @@ const storyMap = {
                 </div>
 
                 <!-- Options Considered Card -->
-                <div class="p-4 border-l-4 border-ink/40 bg-story-bg border-t border-r border-b border-ink/15 space-y-1.5 self-start h-auto">
+                <div class="p-4 border-l-4 border-l-ink/40 bg-story-bg border-t border-r border-b border-ink/15 space-y-1.5 self-start h-auto">
                   <div class="flex items-center gap-1.5">
                     <span class="font-mono text-[12px] font-extrabold text-ink/60">↔</span>
                     <span class="font-mono text-[11px] font-extrabold uppercase text-ink/60 tracking-wider">OPTIONS CONSIDERED</span>
@@ -844,7 +852,7 @@ const storyMap = {
               </div>
 
               <!-- 03 Decision & Why (Dominant Main Action) -->
-              <div class="p-5 border-l-4 border-ink bg-paper border-t border-r border-b border-ink shadow-xs space-y-2">
+              <div class="p-5 border-l-4 border-ink bg-paper border-t border-r border-b shadow-xs space-y-2">
                 <div class="flex items-center gap-1.5">
                   <span class="font-mono text-[13px] font-black text-ink">→</span>
                   <span class="font-mono text-[11px] font-extrabold uppercase text-ink tracking-wider">CHOSEN DECISION</span>
@@ -858,7 +866,7 @@ const storyMap = {
               <!-- 04 Tradeoff Accepted & 05 Result Grid -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
                 <!-- Tradeoff -->
-                <div class="p-4 border-l-4 border-[#d97706] bg-[#fffbeb]/50 border-t border-r border-b border-ink/15 space-y-1 self-start h-auto">
+                <div class="p-4 border-l-4 border-l-[#d97706] bg-[#fffbeb]/50 border-t border-r border-b border-ink/15 space-y-1 self-start h-auto">
                   <div class="flex items-center gap-1.5">
                     <span class="font-mono text-[12px] font-extrabold text-[#d97706]">±</span>
                     <span class="font-mono text-[11px] font-extrabold uppercase text-[#d97706] tracking-wider">TRADEOFF ACCEPTED</span>
@@ -867,7 +875,7 @@ const storyMap = {
                 </div>
 
                 <!-- Result -->
-                <div class="p-4 border-l-4 border-[#16a34a] bg-[#f0fdf4]/50 border-t border-r border-b border-ink/15 space-y-1 self-start h-auto">
+                <div class="p-4 border-l-4 border-l-[#16a34a] bg-[#f0fdf4]/50 border-t border-r border-b border-ink/15 space-y-1 self-start h-auto">
                   <div class="flex items-center gap-1.5">
                     <span class="font-mono text-[12px] font-extrabold text-[#16a34a]">↑</span>
                     <span class="font-mono text-[11px] font-extrabold uppercase text-[#16a34a] tracking-wider">MEASURED RESULT</span>
@@ -899,7 +907,7 @@ const storyMap = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start font-sans">
           <!-- Delivered Output -->
-          <div v-if="project.outcomes.delivered" class="p-5 border-l-4 border-ink bg-paper border-t border-r border-b border-ink/20 space-y-2 self-start h-auto shadow-xs">
+          <div v-if="project.outcomes.delivered" class="p-5 border-l-4 border-l-ink bg-paper border-t border-r border-b border-ink/20 space-y-2 self-start h-auto shadow-xs">
             <div class="flex items-center gap-1.5">
               <span class="font-mono text-[12px] font-extrabold text-ink">📦</span>
               <span class="font-mono text-[11px] font-extrabold uppercase text-ink tracking-wider">SHIPPED DELIVERABLE</span>
@@ -908,7 +916,7 @@ const storyMap = {
           </div>
 
           <!-- Validated Feedback -->
-          <div v-if="project.outcomes.validated" class="p-5 border-l-4 border-[#2563eb] bg-[#eff6ff]/50 border-t border-r border-b border-ink/20 space-y-2 self-start h-auto shadow-xs">
+          <div v-if="project.outcomes.validated" class="p-5 border-l-4 border-l-[#2563eb] bg-[#eff6ff]/50 border-t border-r border-b border-ink/20 space-y-2 self-start h-auto shadow-xs">
             <div class="flex items-center gap-1.5">
               <span class="font-mono text-[12px] font-extrabold text-[#2563eb]">✓</span>
               <span class="font-mono text-[11px] font-extrabold uppercase text-[#2563eb] tracking-wider">VALIDATED FEEDBACK</span>
@@ -917,7 +925,7 @@ const storyMap = {
           </div>
 
           <!-- Measured Metric (Only if real) -->
-          <div v-if="project.outcomes.measured" class="p-5 border-l-4 border-[#16a34a] bg-[#f0fdf4]/60 border-t border-r border-b border-ink/20 space-y-2 self-start h-auto shadow-xs">
+          <div v-if="project.outcomes.measured" class="p-5 border-l-4 border-l-[#16a34a] bg-[#f0fdf4]/60 border-t border-r border-b border-ink/20 space-y-2 self-start h-auto shadow-xs">
             <div class="flex items-center gap-1.5">
               <span class="font-mono text-[12px] font-extrabold text-[#16a34a]">●</span>
               <span class="font-mono text-[11px] font-extrabold uppercase text-[#16a34a] tracking-wider">MEASURED METRIC</span>
@@ -926,7 +934,7 @@ const storyMap = {
           </div>
 
           <!-- Hypothesized Projection -->
-          <div v-if="project.outcomes.hypothesized" class="p-5 border-l-4 border-ink/40 bg-story-bg border-t border-r border-b border-ink/20 space-y-2 self-start h-auto shadow-xs">
+          <div v-if="project.outcomes.hypothesized" class="p-5 border-l-4 border-l-ink/40 bg-story-bg border-t border-r border-b border-ink/20 space-y-2 self-start h-auto shadow-xs">
             <div class="flex items-center gap-1.5">
               <span class="font-mono text-[12px] font-extrabold text-ink/50">?</span>
               <span class="font-mono text-[11px] font-extrabold uppercase text-ink/60 tracking-wider">HYPOTHESIZED PROJECTION</span>
@@ -1023,7 +1031,7 @@ const storyMap = {
           <div
             v-for="(ref, idx) in project.reflections"
             :key="idx"
-            class="p-5 border-l-4 border-ink bg-paper border-t border-r border-b border-ink/20 flex items-start gap-4 shadow-xs"
+            class="p-5 border-l-4 border-l-ink bg-paper border-t border-r border-b border-ink/20 flex items-start gap-4 shadow-xs"
           >
             <span class="font-mono text-[14px] font-black text-ink mt-0.5">↺</span>
             <div class="space-y-1">
