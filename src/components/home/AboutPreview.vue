@@ -50,16 +50,18 @@ import { RouterLink } from "vue-router";
       <div class="flex flex-wrap items-center gap-4">
         <RouterLink
           to="/contact"
-          class="px-6 py-3 bg-ink text-paper rounded-full font-bold text-[13px] hover:bg-ink/85 transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
+          class="px-6 py-3 bg-ink text-paper rounded-full font-bold text-[13px] hover:bg-ink/85 transition-colors inline-flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
         >
-          Initiate Contact ↗
+          <span>Initiate Contact</span>
+          <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
         </RouterLink>
         <a
-          href="/Marwan-Ashraf-Product-Designer-CV.pdf"
-          download="Marwan-Ashraf-Product-Designer-CV.pdf"
-          class="px-5 py-3 border border-ink text-ink rounded-full font-bold text-[13px] hover:bg-ink hover:text-paper transition-colors"
+          href="/Marwan-Ashraf-uiux%20design-CV.pdf"
+          download="Marwan-Ashraf-uiux design-CV.pdf"
+          class="px-5 py-3 border border-ink text-ink rounded-full font-bold text-[13px] hover:bg-ink hover:text-paper transition-colors inline-flex items-center gap-1.5"
         >
-          Download CV ↗
+          <span>Download CV</span>
+          <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
         </a>
       </div>
     </div>

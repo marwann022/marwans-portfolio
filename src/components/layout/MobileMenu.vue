@@ -98,13 +98,13 @@ onUnmounted(() => {
 
       <div class="pt-4">
         <a
-          href="/Marwan-Ashraf-Product-Designer-CV.pdf"
-          download="Marwan-Ashraf-Product-Designer-CV.pdf"
+          href="/Marwan-Ashraf-uiux%20design-CV.pdf"
+          download="Marwan-Ashraf-uiux design-CV.pdf"
           class="min-h-[48px] px-5 bg-ink text-paper rounded-full font-bold flex items-center justify-between text-[14px] hover:bg-ink/85 transition-colors focus-visible:ring-2 focus-visible:ring-ink"
           @click="handleNavClick"
         >
           <span>Download CV / Résumé</span>
-          <span>↗</span>
+          <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
         </a>
       </div>
     </div>
@@ -112,11 +112,13 @@ onUnmounted(() => {
     <!-- Mobile Menu Bottom Meta Bar -->
     <div class="pt-6 border-t border-line text-[13px] font-semibold text-ink/80 flex flex-col gap-3 font-sans">
       <div class="flex items-center gap-5">
-        <a href="https://www.linkedin.com/in/marwan-ashraf-ibrahim/" target="_blank" rel="noopener" class="hover:underline font-bold text-ink">
-          LinkedIn ↗
+        <a href="https://www.linkedin.com/in/marwan-ashraf-ibrahim/" target="_blank" rel="noopener" class="hover:underline font-bold text-ink inline-flex items-center gap-1">
+          <span>LinkedIn</span>
+          <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.8em]" />
         </a>
-        <a href="https://github.com/marwann022" target="_blank" rel="noopener" class="hover:underline font-bold text-ink">
-          GitHub ↗
+        <a href="https://github.com/marwann022" target="_blank" rel="noopener" class="hover:underline font-bold text-ink inline-flex items-center gap-1">
+          <span>GitHub</span>
+          <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.8em]" />
         </a>
       </div>
       <a href="mailto:marwanelgammal0@gmail.com" class="hover:underline flex items-center gap-2 text-ink/90 font-bold">

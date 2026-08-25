@@ -57,8 +57,9 @@ const prevProject = computed(() => getPrevProject(props.currentId));
               <span class="font-mono text-[12px] font-extrabold uppercase text-[#0d244a] block">
                 {{ nextProject.kind }}
               </span>
-              <h2 class="text-[clamp(36px,5vw,72px)] leading-[1.02] tracking-[-0.04em] font-extrabold text-ink group-hover:underline underline-offset-8 transition-all m-0">
-                {{ nextProject.name }} ↗
+              <h2 class="text-[clamp(36px,5vw,72px)] leading-[1.02] tracking-[-0.04em] font-extrabold text-ink group-hover:underline underline-offset-8 transition-all m-0 flex items-center gap-3">
+                <span>{{ nextProject.name }}</span>
+                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.6em]" />
               </h2>
               <p class="text-[17px] md:text-[19px] leading-[1.5] text-ink/80 font-medium m-0 max-w-[540px]">
                 {{ nextProject.thesis || nextProject.blurb }}

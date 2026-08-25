@@ -39,9 +39,10 @@ useScrollReveal();
 
         <RouterLink
           :to="`/projects/${smartmeet.id}`"
-          class="inline-flex items-center gap-2 px-6 py-3.5 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-[#1e3a8a] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink whitespace-nowrap group-hover:translate-x-1 transition-all"
+          class="inline-flex items-center gap-2 px-6 py-3.5 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-[#1e3a8a] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink whitespace-nowrap transition-all"
         >
-          View case study ↗
+          <span>View case study</span>
+          <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
         </RouterLink>
       </div>
 
@@ -126,7 +127,8 @@ useScrollReveal();
               :to="`/projects/${wecare.id}`"
               class="inline-flex items-center gap-2 px-6 py-3 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-[#991b1b] transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
             >
-              View case study ↗
+              <span>View case study</span>
+              <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
             </RouterLink>
           </div>
         </div>
@@ -171,7 +173,8 @@ useScrollReveal();
               :to="`/projects/${goldera.id}`"
               class="inline-flex items-center gap-2 px-6 py-3 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-[#14532d] transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
             >
-              View case study ↗
+              <span>View case study</span>
+              <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
             </RouterLink>
           </div>
         </div>
@@ -207,9 +210,10 @@ useScrollReveal();
 
       <RouterLink
         to="/projects"
-        class="px-7 py-4 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-ink/85 transition-colors whitespace-nowrap focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
+        class="px-7 py-4 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-ink/85 transition-colors whitespace-nowrap inline-flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
       >
-        View all projects ↗
+        <span>View all projects</span>
+        <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
       </RouterLink>
     </div>
   </section>

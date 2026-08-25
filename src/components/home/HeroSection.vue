@@ -80,9 +80,10 @@ const toolsList = ref([
           <a
             href="/Marwan-Ashraf-uiux%20design-CV.pdf"
             download="Marwan-Ashraf-uiux design-CV.pdf"
-            class="px-5 py-3.5 border border-ink text-ink rounded-full font-bold text-[13px] hover:bg-ink hover:text-paper active:scale-[0.98] transition-all"
+            class="px-5 py-3.5 border border-ink text-ink rounded-full font-bold text-[13px] hover:bg-ink hover:text-paper active:scale-[0.98] transition-all inline-flex items-center gap-1.5"
           >
-            Download CV ↗
+            <span>Download CV</span>
+            <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.8em]" />
           </a>
         </div>
       </div>

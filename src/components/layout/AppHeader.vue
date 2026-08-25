@@ -72,9 +72,10 @@ const isContactActive = computed(() => route.path === "/contact");
       <a
         href="/Marwan-Ashraf-uiux%20design-CV.pdf"
         download="Marwan-Ashraf-uiux design-CV.pdf"
-        class="ml-2 px-4 py-1.5 border border-ink rounded-full font-bold text-[12px] text-ink hover:bg-ink hover:text-paper transition-colors focus-visible:ring-2 focus-visible:ring-ink"
+        class="ml-2 px-4 py-1.5 border border-ink rounded-full font-bold text-[12px] text-ink hover:bg-ink hover:text-paper transition-colors inline-flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-ink"
       >
-        Download CV ↗
+        <span>Download CV</span>
+        <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.8em]" />
       </a>
     </nav>
 

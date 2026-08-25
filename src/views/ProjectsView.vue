@@ -144,7 +144,8 @@ onUnmounted(() => {
                 to="/projects/smartmeet"
                 class="inline-flex items-center gap-2 px-6 py-3 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-[#1e3a8a] transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink whitespace-nowrap"
               >
-                View case study ↗
+                <span>View case study</span>
+                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
               </RouterLink>
             </div>
           </div>
@@ -215,7 +216,8 @@ onUnmounted(() => {
                 to="/projects/wecare"
                 class="inline-flex items-center gap-2 px-6 py-3.5 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-[#1e8dc1] transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
               >
-                View case study ↗
+                <span>View case study</span>
+                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
               </RouterLink>
             </div>
           </div>
@@ -259,7 +261,8 @@ onUnmounted(() => {
                 to="/projects/goldera"
                 class="inline-flex items-center gap-2 px-6 py-3.5 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-[#be9e1c] hover:text-paper transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
               >
-                View case study ↗
+                <span>View case study</span>
+                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
               </RouterLink>
             </div>
           </div>
@@ -296,11 +299,11 @@ onUnmounted(() => {
           <span class="hidden sm:inline-block text-[12px] font-mono font-extrabold uppercase text-ink/50">SECONDARY PROJECTS</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           <article
             v-for="project in secondaryProjects"
             :key="project.id"
-            class="border border-ink bg-paper p-6 space-y-5 flex flex-col justify-between shadow-sm hover:-translate-y-1 transition-all duration-300 group"
+            class="border border-ink bg-paper p-6 flex flex-col justify-between h-full shadow-sm hover:-translate-y-1 transition-all duration-300 group"
           >
             <div class="space-y-4">
               <div class="flex items-center justify-between border-b border-ink/20 pb-3">
@@ -328,13 +331,14 @@ onUnmounted(() => {
               </p>
             </div>
 
-            <div class="pt-4 border-t border-ink/20 flex items-center justify-between">
+            <div class="pt-4 mt-6 border-t border-ink/20 flex items-center justify-between">
               <span class="text-[12px] font-bold text-ink/60">{{ project.meta?.statusShort || project.meta?.status || 'Case Study' }}</span>
               <RouterLink
                 :to="`/projects/${project.id}`"
-                class="text-[12px] font-extrabold text-ink hover:underline inline-flex items-center gap-1"
+                class="text-[12px] font-extrabold text-ink hover:underline inline-flex items-center gap-1.5"
               >
-                View project ↗
+                <span>View project</span>
+                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.8em]" />
               </RouterLink>
             </div>
           </article>
@@ -357,29 +361,46 @@ onUnmounted(() => {
           <span class="hidden sm:inline-block text-[12px] font-mono font-extrabold uppercase text-ink/50">BRAND SYSTEMS &amp; GRAPHICS</span>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
           <article
             v-for="item in gallery"
             :key="item.id"
-            class="border border-ink bg-paper p-5 space-y-4 shadow-sm hover:border-[#1e3a8a] transition-colors group"
+            class="border border-ink bg-paper p-5 flex flex-col justify-between h-full shadow-sm hover:border-[#1e3a8a] transition-all duration-300 group"
           >
-            <div class="aspect-[4/3] border border-ink overflow-hidden bg-ink/5">
+            <!-- Graphic Design Containment Box -->
+            <div class="aspect-[4/3] border border-ink overflow-hidden bg-story-bg p-1 md:p-1.5 flex items-center justify-center relative">
               <img
                 :src="item.image"
-                :alt="item.name"
-                class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                :alt="item.name + ' visual identity artwork preview'"
+                class="w-full h-full object-contain object-center group-hover:scale-[1.02] transition-transform duration-500"
                 loading="lazy"
               />
             </div>
-            <div>
-              <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block mb-0.5">{{ item.category }}</span>
-              <h3 class="text-[18px] font-extrabold text-ink m-0">{{ item.name }}</h3>
-              <p class="text-[13px] text-ink/75 font-medium m-0 mt-1">{{ item.summary }}</p>
-            </div>
-            <div class="pt-3 border-t border-ink/20 flex justify-end">
-              <RouterLink :to="`/archive/${item.id}`" class="text-[12px] font-extrabold text-ink hover:underline">
-                View Identity System ↗
-              </RouterLink>
+
+            <!-- Content Area (Structured height + mt-auto CTA pin) -->
+            <div class="flex-grow flex flex-col justify-between pt-4">
+              <div>
+                <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block mb-1">
+                  {{ item.category }}
+                </span>
+                <h3 class="text-[20px] font-extrabold text-ink m-0 group-hover:text-[#1e3a8a] transition-colors">
+                  {{ item.name }}
+                </h3>
+                <p class="text-[13px] text-ink/75 font-medium m-0 mt-2 leading-[1.5] line-clamp-3">
+                  {{ item.summary }}
+                </p>
+              </div>
+
+              <div class="mt-5 pt-3.5 border-t border-ink/20 flex items-center justify-between">
+                <span class="font-mono text-[11px] font-bold text-ink/50">{{ item.year }}</span>
+                <RouterLink
+                  :to="`/archive/${item.id}`"
+                  class="text-[12px] font-extrabold text-ink group-hover:text-[#1e3a8a] hover:underline inline-flex items-center gap-1.5"
+                >
+                  <span>View Identity System</span>
+                  <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.8em]" />
+                </RouterLink>
+              </div>
             </div>
           </article>
         </div>

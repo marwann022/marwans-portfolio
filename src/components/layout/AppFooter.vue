@@ -26,24 +26,27 @@ import { RouterLink } from "vue-router";
             href="https://www.linkedin.com/in/marwan-ashraf-ibrahim/"
             target="_blank"
             rel="noopener"
-            class="hover:underline text-ink"
+            class="hover:underline text-ink inline-flex items-center gap-1"
           >
-            LinkedIn ↗
+            <span>LinkedIn</span>
+            <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.8em]" />
           </a>
           <a
             href="https://github.com/marwann022"
             target="_blank"
             rel="noopener"
-            class="hover:underline text-ink"
+            class="hover:underline text-ink inline-flex items-center gap-1"
           >
-            GitHub ↗
+            <span>GitHub</span>
+            <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.8em]" />
           </a>
           <a
-            href="/Marwan-Ashraf-Product-Designer-CV.pdf"
-            download="Marwan-Ashraf-Product-Designer-CV.pdf"
-            class="hover:underline text-ink font-extrabold"
+            href="/Marwan-Ashraf-uiux%20design-CV.pdf"
+            download="Marwan-Ashraf-uiux design-CV.pdf"
+            class="hover:underline text-ink font-extrabold inline-flex items-center gap-1"
           >
-            CV ↗
+            <span>CV</span>
+            <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.8em]" />
           </a>
         </nav>
       </div>

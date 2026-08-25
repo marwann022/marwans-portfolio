@@ -21,22 +21,21 @@ import { gallery } from "@/data/gallery.js";
     </div>
 
     <!-- Clean Equal 3-Column Desktop Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
       <RouterLink
         v-for="item in gallery"
         :key="item.id"
         :to="`/archive/${item.id}`"
-        class="group border border-ink bg-paper overflow-hidden flex flex-col justify-between transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-ink focus-visible:outline-none"
+        class="group border border-ink bg-paper overflow-hidden flex flex-col justify-between h-full transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-ink focus-visible:outline-none"
       >
-        <!-- Full-bleed Artwork Frame -->
-        <div class="relative w-full aspect-[4/3] overflow-hidden bg-gallery-bg border-b border-ink">
+        <!-- Full-bleed Artwork Frame with Contain Fit -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden bg-story-bg p-1 md:p-1.5 border-b border-ink flex items-center justify-center">
           <img
             :src="item.image"
             :alt="item.name + ' visual archive artwork preview'"
-            class="w-full h-full object-cover saturate-[0.95] transition-opacity duration-300 group-hover:opacity-90"
+            class="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.02]"
             loading="lazy"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent"></div>
           
           <!-- Top Badges -->
           <div class="absolute top-3 left-3 right-3 flex items-center justify-between font-sans text-[11px] text-paper z-10 font-bold">
@@ -47,26 +46,29 @@ import { gallery } from "@/data/gallery.js";
               {{ item.year }}
             </span>
           </div>
-
-          <!-- Title Overlay -->
-          <div class="absolute bottom-3 left-3 right-3 text-paper z-10">
-            <h3 class="text-[20px] md:text-[22px] font-extrabold tracking-[-0.03em] text-paper m-0 group-hover:underline underline-offset-4">
-              {{ item.name }}
-            </h3>
-            <p class="font-sans text-[12px] text-paper/85 font-medium m-0 mt-0.5">
-              {{ item.category }}
-            </p>
-          </div>
         </div>
 
-        <!-- Caption & Action Bar -->
-        <div class="p-3.5 flex items-center justify-between font-sans text-[12px] font-semibold text-ink bg-paper">
-          <span class="text-ink/80 font-medium truncate max-w-[80%]">
-            {{ item.num }} — {{ item.name }} / {{ item.category }}
-          </span>
-          <span class="text-ink font-bold flex items-center gap-1">
-            View ↗
-          </span>
+        <!-- Content & Action Area (Fixed height rhythm + mt-auto CTA pin) -->
+        <div class="p-4 flex-grow flex flex-col justify-between bg-paper">
+          <div>
+            <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block mb-1">
+              {{ item.category }}
+            </span>
+            <h3 class="text-[20px] font-extrabold tracking-[-0.03em] text-ink m-0 group-hover:underline underline-offset-4">
+              {{ item.name }}
+            </h3>
+            <p class="text-[13px] text-ink/75 font-medium m-0 mt-1.5 line-clamp-2">
+              {{ item.summary }}
+            </p>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-ink/20 flex items-center justify-between font-sans text-[12px] font-bold text-ink">
+            <span class="text-ink/60 font-mono text-[11px]">{{ item.num }} — {{ item.year }}</span>
+            <span class="text-ink font-extrabold inline-flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+              <span>View System</span>
+              <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.8em]" />
+            </span>
+          </div>
         </div>
       </RouterLink>
     </div>

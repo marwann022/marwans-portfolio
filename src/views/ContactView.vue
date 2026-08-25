@@ -50,17 +50,20 @@ function copyEmail() {
           </div>
 
           <!-- The Visual Hero Element: Large Direct Email Component -->
-          <div class="pt-4 space-y-4">
+          <div class="pt-4 space-y-4 max-w-full">
             <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50 block">
               PRIMARY INBOX
             </span>
             
             <a
               href="mailto:marwanelgammal0@gmail.com"
-              class="group relative inline-block text-[clamp(22px,3.5vw,40px)] font-extrabold tracking-[-0.035em] text-ink border-b-2 border-ink pb-1 transition-colors hover:text-[#0d244a]"
+              class="group relative inline-flex items-center gap-2 text-[clamp(15px,2.6vw,36px)] font-extrabold tracking-[-0.035em] text-ink border-b-2 border-ink pb-1 transition-colors hover:text-[#0d244a] whitespace-nowrap max-w-full"
+              aria-label="Email Marwan Elgammal at marwanelgammal0@gmail.com"
             >
-              <span class="break-all">marwanelgammal0@gmail.com</span>
-              <span class="inline-block ml-2 text-[0.7em] transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1">↗</span>
+              <span>marwanelgammal0@gmail.com</span>
+              <span class="inline-flex items-center transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5 shrink-0">
+                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.65em]" />
+              </span>
             </a>
 
             <div class="pt-4 flex flex-wrap items-center gap-4">
@@ -69,7 +72,8 @@ function copyEmail() {
                 download="Marwan-Ashraf-uiux design-CV.pdf"
                 class="px-7 py-3.5 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-ink/85 active:scale-[0.98] transition-all inline-flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
               >
-                Download Résumé / CV ↗
+                <span>Download Résumé / CV</span>
+                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
               </a>
               
               <a
@@ -78,7 +82,8 @@ function copyEmail() {
                 rel="noopener"
                 class="px-6 py-3.5 border border-ink text-ink rounded-full font-bold text-[13px] hover:bg-ink hover:text-paper transition-all inline-flex items-center gap-2"
               >
-                LinkedIn Profile ↗
+                <span>LinkedIn Profile</span>
+                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
               </a>
             </div>
           </div>
@@ -138,17 +143,19 @@ function copyEmail() {
               href="https://www.linkedin.com/in/marwan-ashraf-ibrahim/"
               target="_blank"
               rel="noopener"
-              class="text-ink hover:underline"
+              class="text-ink hover:underline inline-flex items-center gap-1"
             >
-              LinkedIn ↗
+              <span>LinkedIn</span>
+              <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.8em]" />
             </a>
             <a
               href="https://github.com/marwann022"
               target="_blank"
               rel="noopener"
-              class="text-ink hover:underline"
+              class="text-ink hover:underline inline-flex items-center gap-1"
             >
-              GitHub ↗
+              <span>GitHub</span>
+              <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.8em]" />
             </a>
           </div>
 

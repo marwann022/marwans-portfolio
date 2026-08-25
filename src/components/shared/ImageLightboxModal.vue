@@ -107,7 +107,7 @@ onUnmounted(() => {
             <img
               :src="src"
               :alt="alt"
-              class="max-w-full max-h-[78vh] w-auto h-auto object-contain border border-paper/20 rounded shadow-2xl block select-none bg-ink/50"
+              class="max-w-full max-h-[80vh] w-auto h-auto object-contain border border-paper/20 rounded shadow-2xl block select-none bg-[#141416]"
             />
             <p v-if="caption" class="mt-3 font-mono text-[12px] text-paper/90 text-center max-w-[840px] m-0 bg-ink/90 px-4 py-2 rounded border border-paper/15 shadow-md">
               {{ caption }}

@@ -174,38 +174,31 @@ function getAspectClass(ratio) {
             </p>
           </div>
 
-          <!-- Hero Feature Banner (If specified) -->
+          <!-- Hero Feature Banner (Direct Hugging Artwork Container) -->
           <div v-if="grp.hero" class="w-full">
             <div
               @click="openLightbox([grp.hero], 0)"
-              class="border border-ink bg-paper p-3 md:p-4 shadow-xs hover:shadow-md transition-all duration-300 group cursor-zoom-in relative"
+              class="border border-ink bg-paper p-4 md:p-6 shadow-xs hover:shadow-md transition-all duration-300 group cursor-zoom-in relative rounded-sm"
             >
-              <div
-                :class="[
-                  'w-full aspect-[21/9] sm:aspect-[2.4/1] overflow-hidden border border-ink/20 flex items-center justify-center p-3 md:p-4',
-                  grp.hero.bg || 'bg-[#0f172a]'
-                ]"
-              >
-                <img
-                  :src="grp.hero.image"
-                  :alt="grp.hero.title"
-                  class="w-full h-full object-contain object-center block group-hover:scale-[1.01] transition-transform duration-500"
-                />
-              </div>
-              <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-2.5 mt-3 border-t border-ink/10">
+              <img
+                :src="grp.hero.image"
+                :alt="grp.hero.title"
+                class="block mx-auto max-w-full h-auto max-h-[75vh] object-contain transition-transform duration-500 group-hover:scale-[1.01]"
+              />
+              <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-3.5 mt-4 border-t border-ink/15">
                 <span>{{ grp.hero.title }}</span>
-                <span class="text-ink/50 text-[10px] uppercase font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT FEATURE</span>
+                <span class="text-ink/60 text-[10px] uppercase font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT FEATURE</span>
               </div>
             </div>
           </div>
 
-          <!-- Symmetrical Regular Grid Rows -->
+          <!-- Natural Aspect Ratio Grid Rows -->
           <div class="space-y-6">
             <div
               v-for="(row, rIdx) in grp.rows"
               :key="rIdx"
               :class="[
-                'grid gap-6 items-stretch',
+                'grid gap-6 items-start',
                 row.cols === 2 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
               ]"
             >
@@ -213,31 +206,20 @@ function getAspectClass(ratio) {
                 v-for="(item, idx) in row.items"
                 :key="idx"
                 @click="openLightbox(row.items, idx)"
-                class="border border-ink bg-paper p-3.5 flex flex-col justify-between h-full shadow-xs hover:shadow-md hover:border-ink transition-all duration-300 group cursor-zoom-in relative"
+                class="border border-ink bg-paper p-4 flex flex-col justify-between shadow-xs hover:shadow-md hover:border-ink transition-all duration-300 group cursor-zoom-in relative rounded-sm"
               >
-                <div class="w-full">
-                  <div
-                    :class="[
-                      'w-full overflow-hidden border border-ink/20 flex items-center justify-center transition-colors duration-300',
-                      getAspectClass(row.ratio),
-                      item.fit === 'contain' ? (item.bg || 'bg-story-bg/70 p-3 md:p-4') : 'bg-ink/5 p-0'
-                    ]"
-                  >
-                    <img
-                      :src="item.image"
-                      :alt="item.title"
-                      :class="[
-                        'w-full h-full block transition-transform duration-500 group-hover:scale-[1.02]',
-                        item.fit === 'cover' ? 'object-cover object-top' : 'object-contain object-center'
-                      ]"
-                      loading="lazy"
-                    />
-                  </div>
+                <div class="w-full flex items-center justify-center">
+                  <img
+                    :src="item.image"
+                    :alt="item.title"
+                    class="block mx-auto max-w-full h-auto max-h-[70vh] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
                 </div>
 
-                <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-2.5 mt-3 border-t border-ink/10">
+                <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-3 mt-4 border-t border-ink/15">
                   <span class="truncate pr-2">{{ item.title }}</span>
-                  <span class="text-ink/50 text-[10px] uppercase shrink-0 font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT</span>
+                  <span class="text-ink/60 text-[10px] uppercase shrink-0 font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT</span>
                 </div>
               </div>
             </div>
@@ -264,38 +246,31 @@ function getAspectClass(ratio) {
             </span>
           </div>
 
-          <!-- Hero Feature Banner (If specified) -->
+          <!-- Hero Feature Banner (Direct Hugging Artwork Container) -->
           <div v-if="project.hero" class="w-full">
             <div
               @click="openLightbox([project.hero], 0)"
-              class="border border-ink bg-paper p-3 md:p-4 shadow-xs hover:shadow-md transition-all duration-300 group cursor-zoom-in relative"
+              class="border border-ink bg-paper p-4 md:p-6 shadow-xs hover:shadow-md transition-all duration-300 group cursor-zoom-in relative rounded-sm"
             >
-              <div
-                :class="[
-                  'w-full aspect-[21/9] sm:aspect-[2.4/1] overflow-hidden border border-ink/20 flex items-center justify-center p-3 md:p-4',
-                  project.hero.bg || 'bg-[#18181b]'
-                ]"
-              >
-                <img
-                  :src="project.hero.image"
-                  :alt="project.hero.title"
-                  class="w-full h-full object-contain object-center block group-hover:scale-[1.01] transition-transform duration-500"
-                />
-              </div>
-              <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-2.5 mt-3 border-t border-ink/10">
+              <img
+                :src="project.hero.image"
+                :alt="project.hero.title"
+                class="block mx-auto max-w-full h-auto max-h-[75vh] object-contain transition-transform duration-500 group-hover:scale-[1.01]"
+              />
+              <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-3.5 mt-4 border-t border-ink/15">
                 <span>{{ project.hero.title }}</span>
-                <span class="text-ink/50 text-[10px] uppercase font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT FEATURE</span>
+                <span class="text-ink/60 text-[10px] uppercase font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT FEATURE</span>
               </div>
             </div>
           </div>
 
-          <!-- Symmetrical Regular Grid Rows -->
+          <!-- Natural Aspect Ratio Grid Rows -->
           <div class="space-y-6">
             <div
               v-for="(row, rIdx) in project.rows"
               :key="rIdx"
               :class="[
-                'grid gap-6 items-stretch',
+                'grid gap-6 items-start',
                 row.cols === 2 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
               ]"
             >
@@ -303,31 +278,20 @@ function getAspectClass(ratio) {
                 v-for="(item, idx) in row.items"
                 :key="idx"
                 @click="openLightbox(row.items, idx)"
-                class="border border-ink bg-paper p-3.5 flex flex-col justify-between h-full shadow-xs hover:shadow-md hover:border-ink transition-all duration-300 group cursor-zoom-in relative"
+                class="border border-ink bg-paper p-4 flex flex-col justify-between shadow-xs hover:shadow-md hover:border-ink transition-all duration-300 group cursor-zoom-in relative rounded-sm"
               >
-                <div class="w-full">
-                  <div
-                    :class="[
-                      'w-full overflow-hidden border border-ink/20 flex items-center justify-center transition-colors duration-300',
-                      getAspectClass(row.ratio),
-                      item.fit === 'contain' ? (item.bg || 'bg-story-bg/70 p-3 md:p-4') : 'bg-ink/5 p-0'
-                    ]"
-                  >
-                    <img
-                      :src="item.image"
-                      :alt="item.title"
-                      :class="[
-                        'w-full h-full block transition-transform duration-500 group-hover:scale-[1.02]',
-                        item.fit === 'cover' ? 'object-cover object-top' : 'object-contain object-center'
-                      ]"
-                      loading="lazy"
-                    />
-                  </div>
+                <div class="w-full flex items-center justify-center">
+                  <img
+                    :src="item.image"
+                    :alt="item.title"
+                    class="block mx-auto max-w-full h-auto max-h-[70vh] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
                 </div>
 
-                <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-2.5 mt-3 border-t border-ink/10">
+                <div class="flex items-center justify-between font-mono text-[11px] font-bold text-ink pt-3 mt-4 border-t border-ink/15">
                   <span class="truncate pr-2">{{ item.title }}</span>
-                  <span class="text-ink/50 text-[10px] uppercase shrink-0 font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT</span>
+                  <span class="text-ink/60 text-[10px] uppercase shrink-0 font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT</span>
                 </div>
               </div>
             </div>
