@@ -122,3 +122,27 @@ marwans-portfolio/
 ---
 
 *Designed and engineered with care by Marwan Ashraf.*
+
+## Sharing and deployment
+
+`npm run build` generates standalone HTML metadata for all 12 public routes, including case studies and the creative archive. WhatsApp, LinkedIn, and other crawlers can read each project's title, description, image, and canonical URL without running JavaScript. Vue still renders the page content in the browser.
+
+The public origin defaults to `https://marwans-portfolio-wine.vercel.app`. Set `VITE_SITE_URL` to a verified HTTPS domain when changing domains. The build generates the sitemap and robots file from the same route data, so they stay consistent. Only `VITE_` variables are public; never put secrets in them.
+
+`vercel.json` preserves direct navigation and refresh for client routes. Existing static files are served normally, and missing requests for files such as `.js` and `.png` remain real 404 responses. Unknown application paths show the portfolio's 404 screen and `noindex` metadata. The deployment sets CSP, clickjacking protection, MIME sniffing protection, referrer policy, and permission restrictions. Fonts are served locally. Inline styles remain allowed for Vue's dynamic styling; inline executable scripts and eval are blocked.
+
+The build excludes editable `.psd`/`.ai` sources, source maps, logs, and `.DS_Store` files from the public output; originals stay in the workspace. Below-the-fold case study images load lazily. Project and archive navigation remounts the view, resetting image tabs and closing modals. Unexpected component errors show recovery controls instead of a blank screen.
+
+Validate before publishing:
+
+```bash
+npm ci --include=dev
+npm run build
+npm test
+npm audit --omit=dev
+npm run preview
+```
+
+Test `/projects/goldera` by opening it directly, refreshing, switching tabs, and using back/forward. Repeat on mobile and verify an invalid archive link shows the 404 screen. After deployment, check project-specific Open Graph tags in the raw HTML, security response headers, and that an absent image returns 404 rather than HTML. Local Vite preview does not apply Vercel headers; they must also be checked on Vercel.
+
+The October 2026 audit reports no runtime advisories and five high-severity advisory entries in the Tailwind 3 build-tool dependency tree (`braces` and its dependents). No patched compatible `braces` version was available during this review. Resolving those entries through the suggested Tailwind 4 upgrade requires a separate CSS migration and visual verification. These tools are development dependencies and are not shipped as executable dependencies of this static site.

@@ -110,7 +110,7 @@ const storyMap = {
                 01 LIVE MEETING
               </span>
               <div class="overflow-hidden border border-ink/20 bg-ink/5 aspect-[16/10] w-full">
-                <img src="/smartmeet-pages/live-meeting.jpg" alt="SmartMeet Live Meeting screen" class="w-full h-full object-cover object-top block group-hover:scale-[1.03] transition-transform duration-500" />
+                <img loading="lazy" decoding="async" src="/smartmeet-pages/live-meeting.jpg" alt="SmartMeet Live Meeting screen" class="w-full h-full object-cover object-top block group-hover:scale-[1.03] transition-transform duration-500" />
               </div>
             </div>
             <p class="text-[12px] font-bold text-ink m-0 mt-3 pt-2 border-t border-ink/10 leading-snug">Real-time audio stream &amp; speaker tagging.</p>
@@ -125,7 +125,7 @@ const storyMap = {
                 02 AI TRANSCRIPT
               </span>
               <div class="overflow-hidden border border-ink/20 bg-ink/5 aspect-[16/10] w-full">
-                <img src="/smartmeet-pages/Codex Image Aug 17, 2026, 06_29_53 PM.png" alt="SmartMeet Transcript &amp; Summary view" class="w-full h-full object-cover object-top block group-hover:scale-[1.03] transition-transform duration-500" />
+                <img loading="lazy" decoding="async" src="/smartmeet-pages/Codex Image Aug 17, 2026, 06_29_53 PM.png" alt="SmartMeet Transcript &amp; Summary view" class="w-full h-full object-cover object-top block group-hover:scale-[1.03] transition-transform duration-500" />
               </div>
             </div>
             <p class="text-[12px] font-bold text-ink m-0 mt-3 pt-2 border-t border-ink/10 leading-snug">Automated summary &amp; timestamped notes.</p>
@@ -140,7 +140,7 @@ const storyMap = {
                 03 DECISIONS &amp; TASKS
               </span>
               <div class="overflow-hidden border border-ink/20 bg-ink/5 aspect-[16/10] w-full">
-                <img src="/smartmeet-pages/tasks.jpg" alt="SmartMeet Action Items &amp; Tasks screen" class="w-full h-full object-cover object-top block group-hover:scale-[1.03] transition-transform duration-500" />
+                <img loading="lazy" decoding="async" src="/smartmeet-pages/tasks.jpg" alt="SmartMeet Action Items &amp; Tasks screen" class="w-full h-full object-cover object-top block group-hover:scale-[1.03] transition-transform duration-500" />
               </div>
             </div>
             <p class="text-[12px] font-bold text-ink m-0 mt-3 pt-2 border-t border-ink/10 leading-snug">Human verification before board sync.</p>
@@ -155,7 +155,7 @@ const storyMap = {
                 04 RAG SEARCH
               </span>
               <div class="overflow-hidden border border-ink/20 bg-ink/5 aspect-[16/10] w-full">
-                <img src="/smartmeet-pages/knowledge-ai.jpg" alt="SmartMeet Knowledge AI vector search" class="w-full h-full object-cover object-top block group-hover:scale-[1.03] transition-transform duration-500" />
+                <img loading="lazy" decoding="async" src="/smartmeet-pages/knowledge-ai.jpg" alt="SmartMeet Knowledge AI vector search" class="w-full h-full object-cover object-top block group-hover:scale-[1.03] transition-transform duration-500" />
               </div>
             </div>
             <p class="text-[12px] font-bold text-ink m-0 mt-3 pt-2 border-t border-ink/10 leading-snug">Semantic search across past transcripts.</p>
@@ -237,7 +237,7 @@ const storyMap = {
               01 COURSE DISCOVERY
             </span>
             <div class="overflow-hidden border border-ink/20 bg-ink/5">
-              <img src="/HMZ/Courses.png" alt="HMZ Course Discovery screen" class="w-full h-auto max-h-[380px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+              <img loading="lazy" decoding="async" src="/HMZ/Courses.png" alt="HMZ Course Discovery screen" class="w-full h-auto max-h-[380px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
             </div>
             <p class="text-[13px] font-bold text-ink m-0 pt-1">Catalog with filtering by skill level &amp; estimated hours.</p>
           </div>
@@ -250,7 +250,7 @@ const storyMap = {
               02 MODULE VIEW
             </span>
             <div class="overflow-hidden border border-ink/20 bg-ink/5">
-              <img src="/HMZ/Course Info.png" alt="HMZ Course Info module view" class="w-full h-auto max-h-[380px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+              <img loading="lazy" decoding="async" src="/HMZ/Course Info.png" alt="HMZ Course Info module view" class="w-full h-auto max-h-[380px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
             </div>
             <p class="text-[13px] font-bold text-ink m-0 pt-1">Structured unit timeline &amp; video player integration.</p>
           </div>
@@ -263,7 +263,7 @@ const storyMap = {
               03 STUDENT DASHBOARD
             </span>
             <div class="overflow-hidden border border-ink/20 bg-ink/5">
-              <img src="/HMZ/Dashboard.png" alt="HMZ Student Dashboard screen" class="w-full h-auto max-h-[380px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+              <img loading="lazy" decoding="async" src="/HMZ/Dashboard.png" alt="HMZ Student Dashboard screen" class="w-full h-auto max-h-[380px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
             </div>
             <p class="text-[13px] font-bold text-ink m-0 pt-1">Visual streak tracking, certificates &amp; active units.</p>
           </div>
@@ -275,7 +275,7 @@ const storyMap = {
           class="border border-ink bg-paper p-4 space-y-2 shadow-md overflow-hidden cursor-zoom-in relative group"
         >
           <span class="font-mono text-[11px] font-bold uppercase text-ink/60 block">HMZ LEARNING HUB — HOME LANDING &amp; AI ROADMAP</span>
-          <img src="/HMZ/Home.png" alt="HMZ Home Landing page" class="w-full h-auto max-h-[540px] object-cover object-top border border-paper/20 block group-hover:scale-[1.005] transition-transform" />
+          <img loading="lazy" decoding="async" src="/HMZ/Home.png" alt="HMZ Home Landing page" class="w-full h-auto max-h-[540px] object-cover object-top border border-paper/20 block group-hover:scale-[1.005] transition-transform" />
         </div>
       </div>
 
@@ -303,7 +303,7 @@ const storyMap = {
               01 MOVIE DETAIL &amp; RATINGS VIEW
             </span>
             <div class="overflow-hidden border border-paper/20">
-              <img src="/IMDB Redesign/IMDB 2Redesign.jpg" alt="IMDb Redesign Movie detail page" class="w-full h-auto max-h-[480px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
+              <img loading="lazy" decoding="async" src="/IMDB Redesign/IMDB 2Redesign.jpg" alt="IMDb Redesign Movie detail page" class="w-full h-auto max-h-[480px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
             </div>
             <p class="font-mono text-[11px] text-paper/80 font-bold m-0 pt-1">Cinematic movie backdrop &amp; modular metadata cards.</p>
           </div>
@@ -341,7 +341,7 @@ const storyMap = {
                 02 HOME FEED &amp; EDITORIAL PICKS
               </span>
               <div class="overflow-hidden border border-paper/20 bg-ink/50">
-                <img src="/IMDB Redesign/S6.png" alt="IMDb Redesign Home Discovery Feed" class="w-full h-auto max-h-[440px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
+                <img loading="lazy" decoding="async" src="/IMDB Redesign/S6.png" alt="IMDb Redesign Home Discovery Feed" class="w-full h-auto max-h-[440px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
               </div>
               <p class="font-mono text-[11px] text-paper/80 font-bold m-0 pt-1">Trending trailers, box office rankings &amp; curated staff lists.</p>
             </div>
@@ -354,7 +354,7 @@ const storyMap = {
                 03 WATCHLIST &amp; USER MEDIA
               </span>
               <div class="overflow-hidden border border-paper/20 bg-ink/50">
-                <img src="/IMDB Redesign/S7.png" alt="IMDb Redesign Watchlist &amp; Media View" class="w-full h-auto max-h-[440px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
+                <img loading="lazy" decoding="async" src="/IMDB Redesign/S7.png" alt="IMDb Redesign Watchlist &amp; Media View" class="w-full h-auto max-h-[440px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
               </div>
               <p class="font-mono text-[11px] text-paper/80 font-bold m-0 pt-1">Custom collection tracking, user ratings &amp; photo stream.</p>
             </div>
@@ -376,7 +376,7 @@ const storyMap = {
                 04 ADVANCED SEARCH &amp; FILTERS
               </span>
               <div class="overflow-hidden border border-paper/20 bg-ink/50">
-                <img src="/IMDB Redesign/S8.png" alt="IMDb Search &amp; Filter screen" class="w-full h-auto max-h-[440px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
+                <img loading="lazy" decoding="async" src="/IMDB Redesign/S8.png" alt="IMDb Search &amp; Filter screen" class="w-full h-auto max-h-[440px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
               </div>
               <p class="font-mono text-[11px] text-paper/80 font-bold m-0 pt-1">Real-time faceted genre, release year &amp; streaming provider filters.</p>
             </div>
@@ -389,7 +389,7 @@ const storyMap = {
                 05 CAST PROFILES &amp; AWARDS
               </span>
               <div class="overflow-hidden border border-paper/20 bg-ink/50">
-                <img src="/IMDB Redesign/S9.png" alt="IMDb Cast Filmography breakdown" class="w-full h-auto max-h-[440px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
+                <img loading="lazy" decoding="async" src="/IMDB Redesign/S9.png" alt="IMDb Cast Filmography breakdown" class="w-full h-auto max-h-[440px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
               </div>
               <p class="font-mono text-[11px] text-paper/80 font-bold m-0 pt-1">Structured career filmography, biography highlights &amp; trivia.</p>
             </div>
@@ -402,7 +402,7 @@ const storyMap = {
           class="border border-ink bg-ink p-4 space-y-2 shadow-md overflow-hidden cursor-zoom-in relative group"
         >
           <span class="font-mono text-[11px] font-bold uppercase text-paper/70 block">COMPLETE MULTI-SCREEN SYSTEM ARCHITECTURE (CLICK TO ZOOM)</span>
-          <img src="/IMDB Redesign/Frame 1948755426.png" alt="IMDb Redesign Full Multi-Screen Architecture Frame" class="w-full h-auto max-h-[540px] object-cover object-top border border-paper/20 block group-hover:scale-[1.005] transition-transform" />
+          <img loading="lazy" decoding="async" src="/IMDB Redesign/Frame 1948755426.png" alt="IMDb Redesign Full Multi-Screen Architecture Frame" class="w-full h-auto max-h-[540px] object-cover object-top border border-paper/20 block group-hover:scale-[1.005] transition-transform" />
         </div>
       </div>
 
@@ -430,7 +430,7 @@ const storyMap = {
             >
               <span class="font-mono text-[10px] font-extrabold bg-ink text-paper px-2 py-0.5 rounded-sm block w-fit">01 HOME LANDING</span>
               <div class="overflow-hidden border border-ink/20 bg-ink/5">
-                <img src="/212/Home.jpg" alt="212 Franchise Home Landing page" class="w-full h-auto max-h-[360px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" src="/212/Home.jpg" alt="212 Franchise Home Landing page" class="w-full h-auto max-h-[360px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
               <p class="font-mono text-[11px] font-bold text-ink m-0 pt-1">Commercial value proposition &amp; franchise concept overview.</p>
             </div>
@@ -441,7 +441,7 @@ const storyMap = {
             >
               <span class="font-mono text-[10px] font-extrabold bg-ink text-paper px-2 py-0.5 rounded-sm block w-fit">02 ABOUT &amp; ORIGIN</span>
               <div class="overflow-hidden border border-ink/20 bg-ink/5">
-                <img src="/212/About us.jpg" alt="212 Franchise About us page" class="w-full h-auto max-h-[360px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" src="/212/About us.jpg" alt="212 Franchise About us page" class="w-full h-auto max-h-[360px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
               <p class="font-mono text-[11px] font-bold text-ink m-0 pt-1">Brand origin, leadership philosophy &amp; trust credentials.</p>
             </div>
@@ -452,7 +452,7 @@ const storyMap = {
             >
               <span class="font-mono text-[10px] font-extrabold bg-ink text-paper px-2 py-0.5 rounded-sm block w-fit">03 PRODUCTS CATALOG</span>
               <div class="overflow-hidden border border-ink/20 bg-ink/5">
-                <img src="/212/Products.jpg" alt="212 Franchise Products catalog" class="w-full h-auto max-h-[360px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" src="/212/Products.jpg" alt="212 Franchise Products catalog" class="w-full h-auto max-h-[360px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
               <p class="font-mono text-[11px] font-bold text-ink m-0 pt-1">Multi-category franchise concepts with financial requirements.</p>
             </div>
@@ -463,7 +463,7 @@ const storyMap = {
             >
               <span class="font-mono text-[10px] font-extrabold bg-ink text-paper px-2 py-0.5 rounded-sm block w-fit">04 INVESTOR INQUIRY</span>
               <div class="overflow-hidden border border-ink/20 bg-ink/5">
-                <img src="/212/Contact us.jpg" alt="212 Franchise Contact page" class="w-full h-auto max-h-[360px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" src="/212/Contact us.jpg" alt="212 Franchise Contact page" class="w-full h-auto max-h-[360px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
               <p class="font-mono text-[11px] font-bold text-ink m-0 pt-1">Direct 1-step partner qualification &amp; consultation request.</p>
             </div>
@@ -491,7 +491,7 @@ const storyMap = {
             >
               <span class="font-mono text-[10px] font-extrabold bg-ink text-paper px-2 py-0.5 rounded-sm block mx-auto w-fit">01 MOB HOME</span>
               <div class="overflow-hidden border border-ink bg-[#fbf9f1] max-h-[460px]">
-                <img src="/212/mob home.jpg" alt="212 Mobile Home screen" class="w-full h-auto max-h-[460px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" src="/212/mob home.jpg" alt="212 Mobile Home screen" class="w-full h-auto max-h-[460px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
               <p class="font-mono text-[10px] font-bold text-ink m-0 pt-1 text-left">Mobile vertical hero.</p>
             </div>
@@ -502,7 +502,7 @@ const storyMap = {
             >
               <span class="font-mono text-[10px] font-extrabold bg-ink text-paper px-2 py-0.5 rounded-sm block mx-auto w-fit">02 MOB MENU</span>
               <div class="overflow-hidden border border-ink bg-[#fbf9f1] max-h-[460px]">
-                <img src="/212/Burger menu.jpg" alt="212 Mobile Navigation drawer" class="w-full h-auto max-h-[460px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" src="/212/Burger menu.jpg" alt="212 Mobile Navigation drawer" class="w-full h-auto max-h-[460px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
               <p class="font-mono text-[10px] font-bold text-ink m-0 pt-1 text-left">Navigation drawer.</p>
             </div>
@@ -513,7 +513,7 @@ const storyMap = {
             >
               <span class="font-mono text-[10px] font-extrabold bg-ink text-paper px-2 py-0.5 rounded-sm block mx-auto w-fit">03 MOB PRODUCTS</span>
               <div class="overflow-hidden border border-ink bg-[#fbf9f1] max-h-[460px]">
-                <img src="/212/mob prod.jpg" alt="212 Mobile Products catalog" class="w-full h-auto max-h-[460px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" src="/212/mob prod.jpg" alt="212 Mobile Products catalog" class="w-full h-auto max-h-[460px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
               <p class="font-mono text-[10px] font-bold text-ink m-0 pt-1 text-left">Stacked product sheets.</p>
             </div>
@@ -524,7 +524,7 @@ const storyMap = {
             >
               <span class="font-mono text-[10px] font-extrabold bg-ink text-paper px-2 py-0.5 rounded-sm block mx-auto w-fit">04 MOB INQUIRY</span>
               <div class="overflow-hidden border border-ink bg-[#fbf9f1] max-h-[460px]">
-                <img src="/212/mob contact.jpg" alt="212 Mobile Contact form" class="w-full h-auto max-h-[460px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" src="/212/mob contact.jpg" alt="212 Mobile Contact form" class="w-full h-auto max-h-[460px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
               <p class="font-mono text-[10px] font-bold text-ink m-0 pt-1 text-left">1-tap inquiry action.</p>
             </div>
@@ -553,7 +553,7 @@ const storyMap = {
             >
               <span class="font-mono text-[10px] font-extrabold uppercase bg-ink text-paper px-2 py-0.5 rounded-sm block w-fit">DESKTOP EXPERIENCE</span>
               <div class="overflow-hidden border border-ink/20 bg-ink/5">
-                <img src="/212/Products.jpg" alt="Desktop Products screen" class="w-full h-auto max-h-[460px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
+                <img loading="lazy" decoding="async" src="/212/Products.jpg" alt="Desktop Products screen" class="w-full h-auto max-h-[460px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
               </div>
               <p class="font-mono text-[11px] text-ink/80 font-bold m-0 pt-1">Multi-column layout with horizontal exploration and persistent top navigation.</p>
             </div>
@@ -566,7 +566,7 @@ const storyMap = {
               >
                 <span class="font-mono text-[10px] font-extrabold uppercase bg-ink text-paper px-2 py-0.5 rounded-sm block w-fit">MOBILE EXPERIENCE</span>
                 <div class="overflow-hidden border border-ink/20 bg-ink/5 max-h-[320px]">
-                  <img src="/212/mob prod.jpg" alt="Mobile Products screen" class="w-full h-auto max-h-[320px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
+                  <img loading="lazy" decoding="async" src="/212/mob prod.jpg" alt="Mobile Products screen" class="w-full h-auto max-h-[320px] object-cover object-top block group-hover:scale-[1.01] transition-transform" />
                 </div>
               </div>
 
@@ -604,7 +604,7 @@ const storyMap = {
             >
               <span class="font-mono text-[10px] font-extrabold uppercase bg-ink text-paper px-2 py-0.5 rounded-sm block w-fit">CLEAN ENERGY CONCEPT</span>
               <div class="overflow-hidden border border-ink/20 bg-ink/5 max-h-[320px]">
-                <img src="/212/solar.jpg" alt="212 Solar concept" class="w-full h-auto max-h-[320px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" src="/212/solar.jpg" alt="212 Solar concept" class="w-full h-auto max-h-[320px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
               <span class="font-mono text-[11px] font-bold text-ink block border-t border-ink/10 pt-2">Solar Commercial Vertical</span>
             </div>
@@ -616,7 +616,7 @@ const storyMap = {
             >
               <span class="font-mono text-[10px] font-extrabold uppercase bg-ink text-paper px-2 py-0.5 rounded-sm block w-fit">ROBOTICS CONCEPT</span>
               <div class="overflow-hidden border border-ink/20 bg-ink/5 max-h-[320px]">
-                <img src="/212/Robo.jpg" alt="212 Robotics concept" class="w-full h-auto max-h-[320px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" src="/212/Robo.jpg" alt="212 Robotics concept" class="w-full h-auto max-h-[320px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
               <span class="font-mono text-[11px] font-bold text-ink block border-t border-ink/10 pt-2">Automation &amp; Robotics Vertical</span>
             </div>
@@ -628,7 +628,7 @@ const storyMap = {
             >
               <span class="font-mono text-[10px] font-extrabold uppercase bg-ink text-paper px-2 py-0.5 rounded-sm block w-fit">MARINE CONCEPT</span>
               <div class="overflow-hidden border border-ink/20 bg-ink/5 max-h-[320px]">
-                <img src="/212/Yacht.jpg" alt="212 Yacht concept" class="w-full h-auto max-h-[320px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" src="/212/Yacht.jpg" alt="212 Yacht concept" class="w-full h-auto max-h-[320px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
               <span class="font-mono text-[11px] font-bold text-ink block border-t border-ink/10 pt-2">Marine &amp; Yachting Vertical</span>
             </div>
@@ -767,7 +767,7 @@ const storyMap = {
               <h4 class="text-[16px] font-extrabold text-ink m-0">{{ r.focus }}</h4>
               <p class="text-[13px] leading-[1.5] text-ink/80 font-medium m-0">{{ r.duties }}</p>
               <div v-if="r.screen" class="border border-ink overflow-hidden bg-ink/5 max-h-[340px]">
-                <img :src="r.screen" :alt="r.name" class="w-full h-auto max-h-[340px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" :src="r.screen" :alt="r.name" class="w-full h-auto max-h-[340px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
             </div>
           </div>
@@ -784,7 +784,7 @@ const storyMap = {
               class="border border-ink bg-paper p-3 space-y-2 group cursor-zoom-in relative self-start h-auto"
             >
               <div class="overflow-hidden border border-ink/20 bg-ink/5 max-h-[340px]">
-                <img :src="mod.screen" :alt="mod.title" class="w-full h-auto max-h-[340px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
+                <img loading="lazy" decoding="async" :src="mod.screen" :alt="mod.title" class="w-full h-auto max-h-[340px] object-cover object-top block group-hover:scale-[1.02] transition-transform" />
               </div>
               <span class="font-mono text-[11px] font-extrabold text-ink block border-t border-ink/10 pt-2">{{ mod.title }}</span>
             </div>

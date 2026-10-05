@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
 import { archiveProjects, archiveKeys, gallery } from "@/data/gallery.js";
+import NotFoundView from "@/views/NotFoundView.vue";
 import ImageLightboxModal from "@/components/shared/ImageLightboxModal.vue";
 
 const props = defineProps({
@@ -11,7 +12,7 @@ const props = defineProps({
   }
 });
 
-const project = computed(() => archiveProjects[props.slug]);
+const project = computed(() => Object.hasOwn(archiveProjects, props.slug) ? archiveProjects[props.slug] : null);
 
 // Modal State & Navigation
 const lightboxOpen = ref(false);

@@ -55,14 +55,14 @@ const project = computed(() => getProject(props.slug));
             <i class="block w-2.5 h-2.5 rounded-full bg-[#dcd8d0] not-italic"></i>
             <span class="ml-3.5 opacity-70">212franchise.com</span>
           </div>
-          <img :src="project.screens?.home" alt="212 Franchise Home page interface preview" class="w-full block max-h-[340px] md:max-h-[670px] object-cover object-top" />
+          <img loading="lazy" decoding="async" :src="project.screens?.home" alt="212 Franchise Home page interface preview" class="w-full block max-h-[340px] md:max-h-[670px] object-cover object-top" />
         </div>
       </section>
 
       <section class="py-16 md:py-24 px-5 md:px-[7vw] grid grid-cols-1 md:grid-cols-3 gap-8 bg-ink text-paper border-t border-ink font-sans">
         <article class="min-w-0 space-y-4">
           <div class="bg-paper p-2 rounded-t-lg border border-paper/20">
-            <img :src="project.screens?.about" alt="212 Franchise About page preview" class="h-[310px] md:h-[390px] w-full object-cover object-top block" />
+            <img loading="lazy" decoding="async" :src="project.screens?.about" alt="212 Franchise About page preview" class="h-[310px] md:h-[390px] w-full object-cover object-top block" />
           </div>
           <p class="font-mono text-[11px] uppercase tracking-[0.02em] text-paper/60 m-0">02 / ABOUT</p>
           <h3 class="text-[20px] md:text-[24px] leading-[1.15] tracking-[-0.035em] m-0 font-extrabold text-paper">
@@ -72,7 +72,7 @@ const project = computed(() => getProject(props.slug));
 
         <article class="min-w-0 space-y-4">
           <div class="bg-paper p-2 rounded-t-lg border border-paper/20">
-            <img :src="project.screens?.products" alt="212 Franchise Products page preview" class="h-[310px] md:h-[390px] w-full object-cover object-top block" />
+            <img loading="lazy" decoding="async" :src="project.screens?.products" alt="212 Franchise Products page preview" class="h-[310px] md:h-[390px] w-full object-cover object-top block" />
           </div>
           <p class="font-mono text-[11px] uppercase tracking-[0.02em] text-paper/60 m-0">03 / PRODUCTS</p>
           <h3 class="text-[20px] md:text-[24px] leading-[1.15] tracking-[-0.035em] m-0 font-extrabold text-paper">
@@ -82,7 +82,7 @@ const project = computed(() => getProject(props.slug));
 
         <article class="min-w-0 space-y-4">
           <div class="bg-paper p-2 rounded-t-lg border border-paper/20">
-            <img :src="project.screens?.contact" alt="212 Franchise Contact page preview" class="h-[310px] md:h-[390px] w-full object-cover object-top block" />
+            <img loading="lazy" decoding="async" :src="project.screens?.contact" alt="212 Franchise Contact page preview" class="h-[310px] md:h-[390px] w-full object-cover object-top block" />
           </div>
           <p class="font-mono text-[11px] uppercase tracking-[0.02em] text-paper/60 m-0">04 / CONTACT</p>
           <h3 class="text-[20px] md:text-[24px] leading-[1.15] tracking-[-0.035em] m-0 font-extrabold text-paper">
