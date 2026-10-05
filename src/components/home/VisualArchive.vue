@@ -51,7 +51,7 @@ import { gallery } from "@/data/gallery.js";
         <!-- Content & Action Area (Fixed height rhythm + mt-auto CTA pin) -->
         <div class="p-4 flex-grow flex flex-col justify-between bg-paper">
           <div>
-            <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block mb-1">
+            <span class="font-mono text-[10px] font-extrabold uppercase text-ink/70 block mb-1">
               {{ item.category }}
             </span>
             <h3 class="text-[20px] font-extrabold tracking-[-0.03em] text-ink m-0 group-hover:underline underline-offset-4">

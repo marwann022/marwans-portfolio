@@ -1,0 +1,23 @@
+{
+  "name": "Marwan Ashraf Elgammal",
+  "headline": "Product & UI/UX Designer",
+  "location": "Cairo, Egypt (Open to Relocate)",
+  "phone": "+20 101 690 6441",
+  "email": "marwanelgammal0@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/marwan-ashraf-ibrahim/",
+  "portfolio": "https://marwans-portfolio-wine.vercel.app",
+  "summary": "Product and UI/UX designer focused on SaaS interfaces, role-based CRM workflows, dashboards, and reusable design systems. Combines an engineering background with UX design, developer handoff, and Vue frontend implementation.",
+  "experience": [
+    {"title": "UI/UX Designer | GolderaPharm", "date": "Jan 2026 - May 2026", "context": "Remote, Full-time", "bullets": ["Designed role-based CRM workflows for Managers, Supervisors, and Medical Representatives, including approximately 50 interface screens.", "Created reusable dashboard components and a design system, and delivered organized Figma files and handoff documentation for frontend implementation."]},
+    {"title": "Graphic Designer | Cela", "date": "Jan 2024 - Jun 2024", "context": "Remote, Part-time", "bullets": ["Designed posters, logos, and campaign assets using Photoshop, Illustrator, and Canva."]}
+  ],
+  "projects": [
+    {"title": "SmartMeet | ITI Graduation Project", "context": "UI/UX Design & Frontend Development | Developed Prototype", "bullets": ["Designed meeting-review interfaces, summaries, decisions, and task-board workflows in Figma.", "Developed Vue frontend components and state management; collaborated with the team on API integration."]},
+    {"title": "WeCare | Healthcare UX Exploration", "context": "UI/UX Design | Figma Prototype", "bullets": ["Designed doctor discovery, appointment scheduling, and confirmation flows, with consultation prices visible before booking.", "Created reusable mobile components and a clickable Figma prototype."]},
+    {"title": "HMZ | E-learning Team Project", "context": "UI/UX Design | Figma Prototype", "bullets": ["Designed course discovery, course details, and learner-dashboard interfaces.", "Created personas, a site map, user flows, wireframes, and reusable Figma components with the project team."]}
+  ],
+  "training": {"title": "Information Technology Institute (ITI) | UI/UX Development, Round 2", "date": "Completed Jul 2026", "detail": "UI/UX design, user flows, wireframing, prototyping, responsive design, Figma, design systems, Vue.js, Node.js, MongoDB, REST APIs, Git, and GitHub."},
+  "education": {"title": "Suez Canal University | B.Sc. Computer and Control Engineering", "date": "Graduated Jul 2025", "detail": "Final Grade: Very Good"},
+  "skills": "Figma, Information Architecture, User Flows, Wireframing, Prototyping, Responsive Design, Dashboard Design, Design Systems, UI Components, Developer Handoff, Photoshop, Illustrator, Canva, HTML, CSS, JavaScript, TypeScript, Vue.js, Node.js, MongoDB, REST APIs, Git, GitHub.",
+  "additional": "Military Service: Exempted"
+}

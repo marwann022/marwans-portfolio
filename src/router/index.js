@@ -5,8 +5,8 @@ import ProjectsView from "@/views/ProjectsView.vue";
 import CaseStudyView from "@/views/CaseStudyView.vue";
 import VisualArchiveDetailView from "@/views/VisualArchiveDetailView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
-import { projects } from "@/data/projects.js";
-import { archiveProjects } from "@/data/gallery.js";
+import { nextTick } from "vue";
+import { applyPageMetadata, defaultSiteUrl } from "@/lib/pageMetadata.js";
 
 const routes = [
   {
@@ -14,8 +14,8 @@ const routes = [
     name: "home",
     component: HomeView,
     meta: {
-      title: "Marwan Elgammal — UI/UX Designer & Front-End Developer",
-      description: "Portfolio of Marwan Elgammal, Lead Product Designer & Frontend Developer specializing in SaaS systems, Vue 3 applications, and interaction design."
+      title: "Marwan Ashraf Elgammal — Product & UI/UX Designer",
+      description: "Portfolio of Marwan Ashraf Elgammal, Product & UI/UX Designer with frontend experience specializing in SaaS systems, Vue 3 applications, and interaction design."
     }
   },
   {
@@ -23,7 +23,7 @@ const routes = [
     name: "projects",
     component: ProjectsView,
     meta: {
-      title: "Selected Product Work & Case Studies — Marwan Elgammal",
+      title: "Selected Product Work & Case Studies — Marwan Ashraf Elgammal",
       description: "Explore flagship product design systems including SmartMeet AI workspace, WeCare Healthcare booking, and GolderaPharm enterprise CRM."
     }
   },
@@ -40,8 +40,8 @@ const routes = [
     name: "contact",
     component: ContactView,
     meta: {
-      title: "Contact & Primary Inbox — Marwan Elgammal",
-      description: "Get in touch with Marwan Elgammal for product design, design system architecture, or Vue 3 frontend development opportunities."
+      title: "Contact & Primary Inbox — Marwan Ashraf Elgammal",
+      description: "Get in touch with Marwan Ashraf Elgammal for product design, design system architecture, or Vue 3 frontend development opportunities."
     }
   },
   {
@@ -61,7 +61,7 @@ const routes = [
     name: "not-found",
     component: NotFoundView,
     meta: {
-      title: "404 Page Not Found — Marwan Elgammal"
+      title: "404 Page Not Found — Marwan Ashraf Elgammal"
     }
   }
 ];
@@ -69,51 +69,26 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(to) {
+  async scrollBehavior(to, from, savedPosition) {
+    await nextTick();
+    // The out-in page transition must finish before measuring anchors or restoring scroll.
+    if (from.matched.length && to.path !== from.path && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      await new Promise(resolve => setTimeout(resolve, 400));
+    }
+    if (savedPosition) return savedPosition;
     if (to.hash) {
-      return { el: to.hash, behavior: "smooth" };
+      // URL fragments are untrusted; getElementById avoids invalid CSS selectors.
+      let id;
+      try { id = decodeURIComponent(to.hash.slice(1)); } catch { return { top: 0 }; }
+      const element = document.getElementById(id);
+      if (element) return { el: element, top: 90 };
     }
-    return { top: 0, behavior: "smooth" };
+    return { top: 0 };
   }
 });
 
-router.afterEach((to) => {
-  if (to.meta && to.meta.title) {
-    document.title = to.meta.title;
-  } else if (to.name === "case-study" && to.params.slug) {
-    const project = projects[to.params.slug];
-    document.title = project
-      ? `${project.name} — Case Study | Marwan Elgammal`
-      : `${to.params.slug} Case Study — Marwan Elgammal`;
-  } else if (to.name === "archive-detail" && to.params.slug) {
-    const archiveItem = archiveProjects[to.params.slug];
-    document.title = archiveItem
-      ? `${archiveItem.name} — Visual Identity & Brand System | Marwan Elgammal`
-      : `${to.params.slug} Visual Archive — Marwan Elgammal`;
-  } else {
-    document.title = "Marwan Elgammal — UI/UX Designer & Front-End Developer";
-  }
-
-  if (to.meta && to.meta.description) {
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", to.meta.description);
-    }
-  }
-});
-
-router.beforeResolve((to, from, next) => {
-  if (
-    document.startViewTransition &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  ) {
-    document.startViewTransition(() => {
-      next();
-    });
-  } else {
-    next();
-  }
+router.afterEach((to, from, failure) => {
+  if (!failure) applyPageMetadata(to.path, import.meta.env.VITE_SITE_URL || defaultSiteUrl);
 });
 
 export default router;
-

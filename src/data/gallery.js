@@ -196,7 +196,7 @@ export const gallery = [
     year: "2024",
     image: "/Moon/2.jpg",
     summary: "Minimalist brand identity and luxury fragrance packaging system crafted for high-end lifestyle products.",
-    role: "Lead Brand & Packaging Designer",
+    role: "Brand & Packaging Designer",
     responsibilities: "Brand Strategy · Logo System · Packaging Architecture · Die-Cut Stickers · Label Typography",
     tools: ["Illustrator", "Photoshop", "Figma"],
     designDirection: "Tactile paper textures, geometric typography, and distinct aroma edition color palettes evoking timeless elegance.",

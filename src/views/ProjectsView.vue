@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import { RouterLink } from "vue-router";
 import { secondaryProjects } from "@/data/projects.js";
+import WorkSection from "@/components/home/WorkSection.vue";
 import { gallery } from "@/data/gallery.js";
 
 const activeSection = ref("selected-work");
@@ -50,12 +51,12 @@ onUnmounted(() => {
             <span class="font-mono text-[11px] font-black uppercase tracking-widest bg-ink text-paper px-2.5 py-0.5 rounded-sm">
               WORK
             </span>
-            <span class="font-mono text-[12px] font-bold text-ink/50 uppercase tracking-wider">
+            <span class="font-mono text-[12px] font-bold text-ink/70 uppercase tracking-wider">
               2026 INDEX
             </span>
           </div>
           <span class="text-[12px] font-mono font-bold text-ink/60 uppercase">
-            03 FLAGSHIP SYSTEMS · SAAS &amp; HEALTHCARE
+            03 SELECTED CASE STUDIES · SAAS &amp; HEALTHCARE
           </span>
         </div>
 
@@ -65,17 +66,17 @@ onUnmounted(() => {
               Selected Product Work
             </h1>
             <p class="mt-2 text-[15px] md:text-[17px] leading-[1.5] text-ink/75 font-medium m-0 max-w-[620px]">
-              Three production systems showing how I approach complex workflows, user research, and Vue 3 frontend implementation.
+              Client design work, an ITI graduation prototype, and independent UX exploration — each with its role, stage, and scope.
             </p>
           </div>
 
           <!-- Horizontal Spatial Navigation Index -->
-          <nav class="flex items-center gap-6 font-mono text-[12px] font-bold border-t md:border-t-0 pt-4 md:pt-0 border-ink/20 w-full md:w-auto" aria-label="Page Sections">
+          <nav class="flex flex-wrap items-center gap-4 font-mono text-[12px] font-bold border-t md:border-t-0 pt-4 md:pt-0 border-ink/20 w-full md:w-auto" aria-label="Page Sections">
             <button
               @click="scrollToSection('selected-work')"
               :class="[
-                'py-1 border-b-2 transition-all cursor-pointer whitespace-nowrap',
-                activeSection === 'selected-work' ? 'border-ink text-ink font-black' : 'border-transparent text-ink/50 hover:text-ink'
+                'min-h-[44px] py-2 border-b-2 transition-all cursor-pointer whitespace-nowrap',
+                activeSection === 'selected-work' ? 'border-ink text-ink font-black' : 'border-transparent text-ink/70 hover:text-ink'
               ]"
             >
               01 Selected Work
@@ -84,8 +85,8 @@ onUnmounted(() => {
             <button
               @click="scrollToSection('more-work')"
               :class="[
-                'py-1 border-b-2 transition-all cursor-pointer whitespace-nowrap',
-                activeSection === 'more-work' ? 'border-ink text-ink font-black' : 'border-transparent text-ink/50 hover:text-ink'
+                'min-h-[44px] py-2 border-b-2 transition-all cursor-pointer whitespace-nowrap',
+                activeSection === 'more-work' ? 'border-ink text-ink font-black' : 'border-transparent text-ink/70 hover:text-ink'
               ]"
             >
               02 More Products
@@ -94,8 +95,8 @@ onUnmounted(() => {
             <button
               @click="scrollToSection('creative-archive')"
               :class="[
-                'py-1 border-b-2 transition-all cursor-pointer whitespace-nowrap',
-                activeSection === 'creative-archive' ? 'border-ink text-ink font-black' : 'border-transparent text-ink/50 hover:text-ink'
+                'min-h-[44px] py-2 border-b-2 transition-all cursor-pointer whitespace-nowrap',
+                activeSection === 'creative-archive' ? 'border-ink text-ink font-black' : 'border-transparent text-ink/70 hover:text-ink'
               ]"
             >
               03 Creative Archive
@@ -105,184 +106,7 @@ onUnmounted(() => {
       </div>
     </header>
 
-    <!-- SECTION 01: SELECTED WORK (CINEMATIC & ASYMMETRICAL CHAPTERS) -->
-    <section id="selected-work" class="py-12 md:py-20 px-5 md:px-[7vw] border-b border-ink bg-paper">
-      <div class="max-w-[1240px] mx-auto space-y-24 md:space-y-32">
-
-        <!-- CHAPTER 01: SmartMeet (Cinematic: Text Above + Full-Width Media) -->
-        <article class="space-y-6 group">
-          <!-- Metadata Bar -->
-          <div class="flex items-center justify-between border-b border-[#1e3a8a]/30 pb-3">
-            <div class="flex items-center gap-3">
-              <span class="font-mono text-[11px] font-black uppercase bg-[#1e3a8a] text-paper px-2.5 py-0.5 rounded-sm">
-                01
-              </span>
-              <span class="font-mono text-[12px] font-bold text-[#1e3a8a] uppercase tracking-wider">
-                AI MEETING INTELLIGENCE &amp; WORKSPACE
-              </span>
-            </div>
-            <span class="text-[12px] font-mono font-bold text-ink/50 hidden sm:inline-block">Vue 3 · Node.js · RAG Search</span>
-          </div>
-
-          <!-- Content Top -->
-          <div class="grid grid-cols-1 md:grid-cols-[1fr_340px] gap-6 items-end">
-            <div>
-              <h2 class="text-[34px] md:text-[52px] font-extrabold text-ink m-0 tracking-[-0.035em] group-hover:text-[#1e3a8a] transition-colors">
-                SmartMeet
-              </h2>
-              <p class="mt-2 text-[16px] md:text-[18px] leading-[1.5] text-ink/85 font-medium m-0 max-w-[720px]">
-                AI meeting intelligence platform transforming live conversations into structured transcripts, action items, decisions, and searchable team knowledge.
-              </p>
-            </div>
-
-            <div class="flex flex-col md:items-end justify-between gap-3">
-              <div class="text-[12px] font-mono font-bold text-ink/60 space-y-1 text-left md:text-right">
-                <p class="m-0">Role: Lead Product Designer &amp; Frontend Engineer</p>
-                <p class="m-0 text-[#1e3a8a]">Outcome: Top Capstone Score at ITI</p>
-              </div>
-              <RouterLink
-                to="/projects/smartmeet"
-                class="inline-flex items-center gap-2 px-6 py-3 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-[#1e3a8a] transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink whitespace-nowrap"
-              >
-                <span>View case study</span>
-                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
-              </RouterLink>
-            </div>
-          </div>
-
-          <!-- Cinematic Full-Width Image Viewport -->
-          <RouterLink to="/projects/smartmeet" class="block border border-ink bg-[#edf4f8] overflow-hidden relative group/img">
-            <img
-              src="/Thumbnail.png"
-              alt="SmartMeet AI Meeting Intelligence Workspace interface"
-              class="w-full h-auto max-h-[640px] object-cover object-left block transition-transform duration-700 ease-out group-hover/img:scale-[1.015]"
-              loading="eager"
-            />
-            <div class="absolute bottom-4 left-4 bg-ink/90 text-paper text-[11px] font-mono font-bold px-3 py-1.5 rounded backdrop-blur-sm">
-              Vue 3 + Node.js + RAG Knowledge Search
-            </div>
-          </RouterLink>
-        </article>
-
-        <!-- CHAPTER 02: WeCare (Asymmetrical: Image Left + Content Right) -->
-        <article class="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-14 items-center pt-8 border-t border-ink/20 group">
-          <!-- Image Left (Mobile Dominant Visual) -->
-          <RouterLink to="/projects/wecare" class="block border border-ink bg-[#eef7fc] overflow-hidden relative group/img order-2 lg:order-1">
-            <img
-              src="/WeCare/Behance/WeCare Thumbnail .jpg"
-              alt="WeCare Healthcare mobile patient booking journey screens"
-              class="w-full h-auto max-h-[560px] object-cover object-center block transition-transform duration-700 ease-out group-hover/img:scale-[1.015]"
-              loading="lazy"
-            />
-            <div class="absolute bottom-4 left-4 bg-ink/90 text-paper text-[11px] font-mono font-bold px-3 py-1.5 rounded backdrop-blur-sm">
-              20+ Mobile Native Patient Screens
-            </div>
-          </RouterLink>
-
-          <!-- Content Right -->
-          <div class="space-y-6 order-1 lg:order-2">
-            <div class="flex items-center gap-3 border-b border-[#1e8dc1]/30 pb-3">
-              <span class="font-mono text-[11px] font-black uppercase bg-[#1e8dc1] text-paper px-2.5 py-0.5 rounded-sm">
-                02
-              </span>
-              <span class="font-mono text-[12px] font-bold text-[#1e8dc1] uppercase tracking-wider">
-                HEALTHCARE APPOINTMENT EXPERIENCE
-              </span>
-            </div>
-
-            <div>
-              <h2 class="text-[34px] md:text-[46px] font-extrabold text-ink m-0 tracking-[-0.035em] group-hover:text-[#1e8dc1] transition-colors">
-                WeCare
-              </h2>
-              <p class="mt-3 text-[16px] md:text-[18px] leading-[1.55] text-ink/85 font-medium m-0">
-                End-to-end healthcare booking experience covering doctor discovery, progressive 3-step scheduling, transparent pricing, and post-care support.
-              </p>
-            </div>
-
-            <div class="space-y-3 font-sans text-[13px] font-bold text-ink">
-              <div class="p-4 border-l-4 border-[#1e8dc1] border-t border-r border-b border-ink/20 bg-story-bg rounded-r">
-                <span class="text-[#1e8dc1] font-mono text-[11px] uppercase block mb-1 font-extrabold">PATIENT UX &amp; TRUST</span>
-                <span>Anxiety-reducing appointment workflows with transparent cost breakdowns before confirmation.</span>
-              </div>
-
-              <div class="p-4 border border-ink/20 bg-paper rounded">
-                <span class="text-ink/50 font-mono text-[11px] uppercase block mb-1 font-extrabold">KEY DELIVERABLE</span>
-                <span>Progressive 3-step appointment wizard (Doctor → Schedule → Confirmation).</span>
-              </div>
-            </div>
-
-            <div class="pt-2">
-              <RouterLink
-                to="/projects/wecare"
-                class="inline-flex items-center gap-2 px-6 py-3.5 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-[#1e8dc1] transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
-              >
-                <span>View case study</span>
-                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
-              </RouterLink>
-            </div>
-          </div>
-        </article>
-
-        <!-- CHAPTER 03: GolderaPharm (Asymmetrical: Content Left + Image Right) -->
-        <article class="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-14 items-center pt-8 border-t border-ink/20 group">
-          <!-- Content Left -->
-          <div class="space-y-6">
-            <div class="flex items-center gap-3 border-b border-[#be9e1c]/40 pb-3">
-              <span class="font-mono text-[11px] font-black uppercase bg-[#be9e1c] text-paper px-2.5 py-0.5 rounded-sm">
-                03
-              </span>
-              <span class="font-mono text-[12px] font-bold text-[#be9e1c] uppercase tracking-wider">
-                ENTERPRISE PHARMACEUTICAL SAAS CRM
-              </span>
-            </div>
-
-            <div>
-              <h2 class="text-[34px] md:text-[46px] font-extrabold text-ink m-0 tracking-[-0.035em] group-hover:text-[#be9e1c] transition-colors">
-                GolderaPharm
-              </h2>
-              <p class="mt-3 text-[16px] md:text-[18px] leading-[1.55] text-ink/85 font-medium m-0">
-                Enterprise CRM for pharmaceutical field teams managing doctors, visits, planning, performance, and reporting across three operational roles.
-              </p>
-            </div>
-
-            <!-- Role Adaptation Highlight -->
-            <div class="p-4 border-l-4 border-[#be9e1c] border-t border-r border-b border-ink/20 bg-story-bg rounded-r font-sans text-[13px] font-bold text-ink space-y-1">
-              <span class="text-[#be9e1c] font-mono text-[11px] uppercase block font-extrabold">MULTI-PERSONA ADAPTATION</span>
-              <p class="m-0">One core system adapted across three distinct roles: <strong>Manager, Supervisor, and Medical Rep</strong>.</p>
-            </div>
-
-            <div class="p-4 border border-ink/20 bg-paper rounded text-[13px] font-bold text-ink">
-              <span class="text-ink/50 font-mono text-[11px] uppercase block mb-1 font-extrabold">SCOPE &amp; SYSTEM</span>
-              <span>50+ Complex CRM screens + Figma Design Token System</span>
-            </div>
-
-            <div class="pt-2">
-              <RouterLink
-                to="/projects/goldera"
-                class="inline-flex items-center gap-2 px-6 py-3.5 bg-ink text-paper rounded-full font-extrabold text-[13px] hover:bg-[#be9e1c] hover:text-paper transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink"
-              >
-                <span>View case study</span>
-                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
-              </RouterLink>
-            </div>
-          </div>
-
-          <!-- Image Right (3-Role CRM Visual) -->
-          <RouterLink to="/projects/goldera" class="block border border-ink bg-[#fbf9f1] overflow-hidden relative group/img">
-            <img
-              src="/assets/golderapharm-cover.png"
-              alt="GolderaPharm multi-role CRM interface design"
-              class="w-full h-auto max-h-[560px] object-cover object-top block transition-transform duration-700 ease-out group-hover/img:scale-[1.015]"
-              loading="lazy"
-            />
-            <div class="absolute bottom-4 left-4 bg-ink/90 text-paper text-[11px] font-mono font-bold px-3 py-1.5 rounded backdrop-blur-sm">
-              Role-Based CRM Dashboard System
-            </div>
-          </RouterLink>
-        </article>
-
-      </div>
-    </section>
+    <div id="selected-work"><WorkSection :show-heading="false" :show-archive-link="false" /></div>
 
     <!-- SECTION 02: MORE PRODUCT WORK & SECONDARY CASE STUDIES -->
     <section id="more-work" class="py-16 md:py-24 px-5 md:px-[7vw] border-b border-ink bg-story-bg">
@@ -296,7 +120,7 @@ onUnmounted(() => {
               More Product &amp; UI Work
             </h2>
           </div>
-          <span class="hidden sm:inline-block text-[12px] font-mono font-extrabold uppercase text-ink/50">SECONDARY PROJECTS</span>
+          <span class="hidden sm:inline-block text-[12px] font-mono font-extrabold uppercase text-ink/70">SECONDARY PROJECTS</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
@@ -310,7 +134,7 @@ onUnmounted(() => {
                 <span class="font-mono text-[11px] font-extrabold uppercase text-ink/60">
                   {{ project.kind }}
                 </span>
-                <span class="font-mono text-[11px] font-bold text-ink/40">{{ project.num }}</span>
+                <span class="font-mono text-[11px] font-bold text-ink/70">{{ project.num }}</span>
               </div>
 
               <div class="aspect-[16/10] border border-ink overflow-hidden bg-ink/5">
@@ -358,7 +182,7 @@ onUnmounted(() => {
               Creative Brand Archive
             </h2>
           </div>
-          <span class="hidden sm:inline-block text-[12px] font-mono font-extrabold uppercase text-ink/50">BRAND SYSTEMS &amp; GRAPHICS</span>
+          <span class="hidden sm:inline-block text-[12px] font-mono font-extrabold uppercase text-ink/70">BRAND SYSTEMS &amp; GRAPHICS</span>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
@@ -380,7 +204,7 @@ onUnmounted(() => {
             <!-- Content Area (Structured height + mt-auto CTA pin) -->
             <div class="flex-grow flex flex-col justify-between pt-4">
               <div>
-                <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block mb-1">
+                <span class="font-mono text-[10px] font-extrabold uppercase text-ink/70 block mb-1">
                   {{ item.category }}
                 </span>
                 <h3 class="text-[20px] font-extrabold text-ink m-0 group-hover:text-[#1e3a8a] transition-colors">
@@ -392,7 +216,7 @@ onUnmounted(() => {
               </div>
 
               <div class="mt-5 pt-3.5 border-t border-ink/20 flex items-center justify-between">
-                <span class="font-mono text-[11px] font-bold text-ink/50">{{ item.year }}</span>
+                <span class="font-mono text-[11px] font-bold text-ink/70">{{ item.year }}</span>
                 <RouterLink
                   :to="`/archive/${item.id}`"
                   class="text-[12px] font-extrabold text-ink group-hover:text-[#1e3a8a] hover:underline inline-flex items-center gap-1.5"

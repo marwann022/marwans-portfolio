@@ -1,7 +1,7 @@
 import { projects, projectKeys } from "@/data/projects.js";
 
 export function useProjectNavigation() {
-  const getProject = (id) => projects[id] || null;
+  const getProject = (id) => Object.hasOwn(projects, id) ? projects[id] : null;
 
   const getNextProjectSlug = (currentId) => {
     const currentIndex = projectKeys.indexOf(currentId);

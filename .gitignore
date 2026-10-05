@@ -4,3 +4,7 @@ dist/
 .DS_Store
 *.log
 *.psd
+.env
+.env.*
+!.env.example
+.vercel

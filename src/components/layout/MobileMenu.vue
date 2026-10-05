@@ -1,64 +1,39 @@
 <script setup>
-import { computed, watch, onUnmounted } from "vue";
+import { computed, ref, watch } from "vue";
 import { RouterLink, useRoute } from "vue-router";
-
-const props = defineProps({
-  isOpen: {
-    type: Boolean,
-    default: false
-  }
-});
-
+import { useModalDialog } from "@/composables/useModalDialog.js";
+const props = defineProps({ isOpen: { type: Boolean, default: false } });
 const emit = defineEmits(["close"]);
 const route = useRoute();
-
-function handleNavClick() {
-  emit("close");
-}
-
-function handleKeyDown(event) {
-  if (event.key === "Escape" && props.isOpen) {
-    emit("close");
-  }
-}
-
+const dialog = ref(null);
+function handleNavClick() { emit("close"); }
+useModalDialog(() => props.isOpen, dialog, handleNavClick);
+watch(() => route.fullPath, handleNavClick);
 // Active Route Logic (matches desktop)
 const isHomeActive = computed(() => route.path === "/");
 const isWorkActive = computed(() => route.path === "/projects" || route.path === "/work" || route.path.startsWith("/projects/"));
 const isContactActive = computed(() => route.path === "/contact");
 
-watch(
-  () => props.isOpen,
-  (open) => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
-    } else {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    }
-  }
-);
-
-onUnmounted(() => {
-  document.body.style.overflow = "";
-  window.removeEventListener("keydown", handleKeyDown);
-});
 </script>
 
 <template>
-  <nav
-    v-show="isOpen"
+  <Teleport to="body">
+  <div
+    v-if="isOpen"
+    ref="dialog"
+    tabindex="-1"
     id="mobile-navigation-menu"
-    class="md:hidden fixed inset-x-0 top-[63px] bottom-0 bg-paper z-50 p-6 flex flex-col justify-between border-t border-ink font-sans text-ink animate-fade"
+    class="fixed inset-0 bg-paper z-50 p-6 flex flex-col overflow-y-auto border-t border-ink font-sans text-ink"
     role="dialog"
     aria-modal="true"
     aria-label="Mobile Navigation Menu"
   >
-    <div class="flex flex-col gap-2 pt-2">
-      <p class="font-sans text-[11px] font-extrabold uppercase tracking-widest text-ink/50 mb-3">
-        NAVIGATION
-      </p>
+    <div class="flex items-center justify-between border-b border-ink/20 pb-3 mb-4">
+      <h2 class="font-bold text-lg m-0">Navigation</h2>
+      <button type="button" class="min-w-[44px] min-h-[44px] text-2xl" aria-label="Close navigation menu" @click="handleNavClick">×</button>
+    </div>
+    <nav aria-label="Mobile navigation" class="flex flex-col gap-2 pt-2">
+
       
       <RouterLink
         to="/"
@@ -107,10 +82,10 @@ onUnmounted(() => {
           <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-[0.85em]" />
         </a>
       </div>
-    </div>
+    </nav>
 
     <!-- Mobile Menu Bottom Meta Bar -->
-    <div class="pt-6 border-t border-line text-[13px] font-semibold text-ink/80 flex flex-col gap-3 font-sans">
+    <div class="mt-auto pt-6 border-t border-line text-[13px] font-semibold text-ink/80 flex flex-col gap-3 font-sans">
       <div class="flex items-center gap-5">
         <a href="https://www.linkedin.com/in/marwan-ashraf-ibrahim/" target="_blank" rel="noopener" class="hover:underline font-bold text-ink inline-flex items-center gap-1">
           <span>LinkedIn</span>
@@ -127,7 +102,8 @@ onUnmounted(() => {
       </a>
       <p class="text-[12px] text-ink/60 m-0">Cairo, Egypt · Open to relocate</p>
     </div>
-  </nav>
+  </div>
+  </Teleport>
 </template>
 
 

@@ -2,14 +2,14 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 
-import "@fontsource/urbanist/400.css";
-import "@fontsource/urbanist/500.css";
-import "@fontsource/urbanist/600.css";
-import "@fontsource/urbanist/700.css";
-import "@fontsource/urbanist/800.css";
-import "@fontsource/urbanist/900.css";
-import "@fontsource/bodoni-moda/400-italic.css";
-import "@fontsource/bodoni-moda/700-italic.css";
+import "@fontsource/urbanist/latin-400.css";
+import "@fontsource/urbanist/latin-500.css";
+import "@fontsource/urbanist/latin-600.css";
+import "@fontsource/urbanist/latin-700.css";
+import "@fontsource/urbanist/latin-800.css";
+import "@fontsource/urbanist/latin-900.css";
+import "@fontsource/bodoni-moda/latin-400-italic.css";
+import "@fontsource/bodoni-moda/latin-700-italic.css";
 
 import "./styles/index.css";
 

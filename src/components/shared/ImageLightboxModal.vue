@@ -1,147 +1,61 @@
 <script setup>
-import { watch, onUnmounted } from "vue";
-
+import { nextTick, ref, watch } from 'vue';
+import { useModalDialog } from '@/composables/useModalDialog.js';
 const props = defineProps({
-  isOpen: {
-    type: Boolean,
-    default: false
-  },
-  src: {
-    type: String,
-    default: ""
-  },
-  alt: {
-    type: String,
-    default: "Enlarged project artwork preview"
-  },
-  caption: {
-    type: String,
-    default: ""
-  },
-  hasPrev: {
-    type: Boolean,
-    default: false
-  },
-  hasNext: {
-    type: Boolean,
-    default: false
-  },
-  counterText: {
-    type: String,
-    default: ""
-  }
+  isOpen: { type: Boolean, default: false }, src: { type: String, default: '' },
+  alt: { type: String, default: '' }, caption: { type: String, default: '' },
+  hasPrev: { type: Boolean, default: false }, hasNext: { type: Boolean, default: false }, counterText: { type: String, default: '' }
 });
-
-const emit = defineEmits(["close", "prev", "next"]);
-
-function handleKeyDown(e) {
-  if (e.key === "Escape") {
-    emit("close");
-  } else if (e.key === "ArrowLeft" && props.hasPrev) {
-    emit("prev");
-  } else if (e.key === "ArrowRight" && props.hasNext) {
-    emit("next");
-  }
+const emit = defineEmits(['close', 'prev', 'next']);
+const dialog = ref(null);
+const viewer = ref(null);
+const zoom = ref(1);
+const loadFailed = ref(false);
+useModalDialog(() => props.isOpen, dialog, () => emit('close'));
+watch([() => props.src, () => props.isOpen], async () => {
+  zoom.value = 1; loadFailed.value = false;
+  await nextTick(); viewer.value?.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+});
+function handleKeys(event) {
+  if (zoom.value !== 1) return;
+  if (event.key === 'ArrowLeft' && props.hasPrev) { event.preventDefault(); emit('prev'); }
+  if (event.key === 'ArrowRight' && props.hasNext) { event.preventDefault(); emit('next'); }
 }
-
-watch(
-  () => props.isOpen,
-  (open) => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
-    } else {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    }
-  }
-);
-
-onUnmounted(() => {
-  document.body.style.overflow = "";
-  window.removeEventListener("keydown", handleKeyDown);
-});
 </script>
-
 <template>
   <Teleport to="body">
-    <Transition name="fade">
-      <div
-        v-if="isOpen"
-        class="fixed inset-0 z-[100] bg-ink/95 backdrop-blur-md p-4 md:p-8 flex flex-col justify-between items-center animate-fade font-sans text-paper"
-        @click="emit('close')"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Image Preview Modal"
-      >
-        <!-- Modal Top Bar -->
-        <div class="w-full max-w-[1240px] flex items-center justify-between font-mono text-[12px] text-paper/80 z-20">
-          <div class="flex items-center gap-3">
-            <span class="bg-paper/10 px-3 py-1 rounded font-bold">FULL ARTWORK INSPECTOR</span>
-            <span v-if="counterText" class="text-paper/60 font-medium">{{ counterText }}</span>
-          </div>
-          <button
-            @click.stop="emit('close')"
-            class="px-3.5 py-1 bg-paper text-ink rounded font-black hover:bg-paper/80 transition-colors cursor-pointer"
-            aria-label="Close preview modal"
-          >
-            ✕ CLOSE (ESC)
-          </button>
+    <Transition name="image-preview">
+      <div v-if="isOpen" ref="dialog" tabindex="-1" role="dialog" aria-modal="true" aria-label="Image preview"
+        class="image-dialog fixed inset-0 z-[100] bg-ink text-paper flex flex-col gap-3 p-3 md:p-6 font-sans" @keydown="handleKeys">
+        <div class="flex flex-wrap items-center justify-between gap-3 shrink-0">
+          <div class="text-sm font-bold">Image preview <span v-if="counterText" class="ml-2 text-paper/80">{{ counterText }}</span></div>
+          <button type="button" class="min-h-[44px] px-4 border border-paper rounded font-bold" aria-label="Close image preview" @click="emit('close')">Close <span aria-hidden="true">×</span></button>
         </div>
-
-        <!-- Centered High-Res Image & Navigation Controls -->
-        <div class="my-auto w-full max-w-[1240px] max-h-[85vh] flex items-center justify-between gap-4 p-2 relative" @click.stop>
-          <!-- Prev Button -->
-          <button
-            v-if="hasPrev"
-            @click="emit('prev')"
-            class="w-12 h-12 rounded-full bg-paper/15 hover:bg-paper hover:text-ink text-paper border border-paper/20 flex items-center justify-center font-extrabold text-[18px] transition-all cursor-pointer shrink-0 z-20"
-            aria-label="Previous artwork"
-          >
-            ←
-          </button>
-          <div v-else class="w-12 shrink-0"></div>
-
-          <!-- Main Image Display -->
-          <div class="flex-1 flex flex-col items-center justify-center max-h-[82vh] overflow-hidden">
-            <img
-              :src="src"
-              :alt="alt"
-              class="max-w-full max-h-[80vh] w-auto h-auto object-contain border border-paper/20 rounded shadow-2xl block select-none bg-[#141416]"
-            />
-            <p v-if="caption" class="mt-3 font-mono text-[12px] text-paper/90 text-center max-w-[840px] m-0 bg-ink/90 px-4 py-2 rounded border border-paper/15 shadow-md">
-              {{ caption }}
-            </p>
+        <div class="flex flex-wrap items-center gap-2 shrink-0" role="group" aria-label="Image controls">
+          <button type="button" class="preview-control" :disabled="zoom === 1" aria-label="Zoom out" @click="zoom = Math.max(1, zoom - 0.5)">−</button>
+          <button type="button" class="preview-control" :disabled="zoom === 3" aria-label="Zoom in" @click="zoom = Math.min(3, zoom + 0.5)">+</button>
+          <button type="button" class="preview-control px-3" @click="zoom = 1">Fit to width</button>
+          <span class="text-sm tabular-nums" aria-live="polite">{{ Math.round(zoom * 100) }}%</span>
+          <div v-if="hasPrev || hasNext" class="ml-auto flex gap-2">
+            <button type="button" class="preview-control" :disabled="!hasPrev" aria-label="Previous artwork" @click="emit('prev')">←</button>
+            <button type="button" class="preview-control" :disabled="!hasNext" aria-label="Next artwork" @click="emit('next')">→</button>
           </div>
-
-          <!-- Next Button -->
-          <button
-            v-if="hasNext"
-            @click="emit('next')"
-            class="w-12 h-12 rounded-full bg-paper/15 hover:bg-paper hover:text-ink text-paper border border-paper/20 flex items-center justify-center font-extrabold text-[18px] transition-all cursor-pointer shrink-0 z-20"
-            aria-label="Next artwork"
-          >
-            →
-          </button>
-          <div v-else class="w-12 shrink-0"></div>
         </div>
-
-        <!-- Modal Bottom Hint -->
-        <div class="font-mono text-[11px] text-paper/50 uppercase tracking-widest z-10">
-          Use ← → Arrow Keys to navigate · Click outside to dismiss
+        <div ref="viewer" tabindex="0" role="region" aria-label="Scrollable artwork" class="flex-1 min-h-0 overflow-auto border border-paper/30 rounded overscroll-contain bg-[#101010]">
+          <p v-if="loadFailed" role="alert" class="p-6">This image couldn't load. Close the preview and try again.</p>
+          <img v-else :src="src" :alt="alt || caption || 'Project artwork'" :style="{ width: `${zoom * 100}%`, maxWidth: 'none' }" class="block h-auto" @error="loadFailed = true" />
+        </div>
+        <div class="shrink-0 text-sm leading-relaxed text-paper/90">
+          <p v-if="caption" class="m-0 mb-1">{{ caption }}</p>
+          <p class="m-0 text-paper/80">Scroll to explore. Use + to zoom in, then scroll to pan. Esc closes the preview.</p>
         </div>
       </div>
     </Transition>
   </Teleport>
 </template>
-
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.25s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
+.preview-control { min-width: 44px; min-height: 44px; border: 1px solid currentColor; border-radius: 4px; font-weight: 700; }
+.preview-control:disabled { opacity: .45; cursor: default; }
+.image-preview-enter-active, .image-preview-leave-active { transition: opacity .15s ease; }
+.image-preview-enter-from, .image-preview-leave-to { opacity: 0; }
 </style>
