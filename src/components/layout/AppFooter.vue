@@ -9,9 +9,9 @@ import { RouterLink } from "vue-router";
     <div class="max-w-[1240px] mx-auto w-full">
       <div class="flex max-md:flex-col justify-between items-start md:items-center gap-6 mb-6">
         <div>
-          <p class="font-extrabold text-[16px] tracking-[-0.02em] m-0 text-ink">Marwan Ashraf</p>
+          <p class="font-extrabold text-[16px] tracking-[-0.02em] m-0 text-ink">Marwan Ashraf Elgammal</p>
           <p class="text-[13px] text-ink/75 font-medium m-0 mt-0.5">
-            Product Designer &amp; UI/UX Developer
+            Product &amp; UI/UX Designer
           </p>
         </div>
 
@@ -52,7 +52,7 @@ import { RouterLink } from "vue-router";
       </div>
 
       <div class="pt-4 border-t border-line flex max-md:flex-col justify-between items-start md:items-center gap-2 text-[11px] font-semibold text-ink/60">
-        <span>© 2026 Marwan Ashraf. All rights reserved.</span>
+        <span>© 2026 Marwan Ashraf Elgammal. All rights reserved.</span>
         <span>Designed &amp; Developed with Vue 3, Vite &amp; TailwindCSS</span>
       </div>
     </div>

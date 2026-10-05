@@ -1,4 +1,5 @@
 <script setup>
+import { projectKeys } from "@/data/projects.js";
 import { computed } from "vue";
 import { RouterLink } from "vue-router";
 import { useProjectNavigation } from "@/composables/useProjectNavigation.js";
@@ -23,14 +24,14 @@ const prevProject = computed(() => getPrevProject(props.currentId));
       <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-ink text-[13px] font-bold text-ink">
         <div>
           <RouterLink
-            v-if="prevProject && currentId !== 'smartmeet'"
+            v-if="prevProject && currentId !== projectKeys[0]"
             :to="`/projects/${prevProject.id}`"
             class="inline-flex items-center gap-2 hover:underline"
           >
             <span>← Previous: {{ prevProject.name }}</span>
           </RouterLink>
-          <span v-else class="font-mono text-[11px] uppercase text-ink/50 tracking-wider">
-            01 / FLAGSHIP START
+          <span v-else class="font-mono text-[11px] uppercase text-ink/70 tracking-wider">
+            SELECTED WORK
           </span>
         </div>
 
@@ -44,8 +45,8 @@ const prevProject = computed(() => getPrevProject(props.currentId));
 
       <!-- Main Next Flagship Transition Card -->
       <div v-if="nextProject">
-        <span class="font-mono text-[11px] font-black uppercase tracking-widest text-ink/50 block mb-3">
-          UP NEXT — FLAGSHIP {{ nextProject.num }}
+        <span class="font-mono text-[11px] font-black uppercase tracking-widest text-ink/70 block mb-3">
+          UP NEXT — CASE STUDY {{ nextProject.num }}
         </span>
 
         <RouterLink

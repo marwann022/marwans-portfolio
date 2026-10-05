@@ -14,8 +14,8 @@ const routes = [
     name: "home",
     component: HomeView,
     meta: {
-      title: "Marwan Elgammal — UI/UX Designer & Front-End Developer",
-      description: "Portfolio of Marwan Elgammal, Lead Product Designer & Frontend Developer specializing in SaaS systems, Vue 3 applications, and interaction design."
+      title: "Marwan Ashraf Elgammal — Product & UI/UX Designer",
+      description: "Portfolio of Marwan Ashraf Elgammal, Product & UI/UX Designer with frontend experience specializing in SaaS systems, Vue 3 applications, and interaction design."
     }
   },
   {
@@ -23,7 +23,7 @@ const routes = [
     name: "projects",
     component: ProjectsView,
     meta: {
-      title: "Selected Product Work & Case Studies — Marwan Elgammal",
+      title: "Selected Product Work & Case Studies — Marwan Ashraf Elgammal",
       description: "Explore flagship product design systems including SmartMeet AI workspace, WeCare Healthcare booking, and GolderaPharm enterprise CRM."
     }
   },
@@ -40,8 +40,8 @@ const routes = [
     name: "contact",
     component: ContactView,
     meta: {
-      title: "Contact & Primary Inbox — Marwan Elgammal",
-      description: "Get in touch with Marwan Elgammal for product design, design system architecture, or Vue 3 frontend development opportunities."
+      title: "Contact & Primary Inbox — Marwan Ashraf Elgammal",
+      description: "Get in touch with Marwan Ashraf Elgammal for product design, design system architecture, or Vue 3 frontend development opportunities."
     }
   },
   {
@@ -61,7 +61,7 @@ const routes = [
     name: "not-found",
     component: NotFoundView,
     meta: {
-      title: "404 Page Not Found — Marwan Elgammal"
+      title: "404 Page Not Found — Marwan Ashraf Elgammal"
     }
   }
 ];

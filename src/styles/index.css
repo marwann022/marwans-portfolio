@@ -17,7 +17,7 @@
   a:focus-visible,
   button:focus-visible,
   [tabindex]:focus-visible {
-    outline: 2px solid theme('colors.ink') !important;
+    outline: 2px solid var(--focus-ring, #151515) !important;
     outline-offset: 3px !important;
     border-radius: 2px;
   }
@@ -164,3 +164,6 @@
   }
 }
 
+
+.image-dialog { --focus-ring: #f5f1e8; }
+.case-study-anchor { scroll-margin-top: 24px; }

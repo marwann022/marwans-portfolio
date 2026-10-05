@@ -19,16 +19,16 @@ export function getPageMetadata(path, siteUrl = defaultSiteUrl) {
   const project = normalizedPath.startsWith('/projects/') && Object.hasOwn(projects, slug) ? projects[slug] : null;
   const archive = normalizedPath.startsWith('/archive/') && Object.hasOwn(archiveProjects, slug) ? archiveProjects[slug] : null;
   const pages = {
-    '/': ['Marwan Elgammal — UI/UX Designer & Front-End Developer', 'Portfolio of Marwan Elgammal, Lead Product Designer & Frontend Developer specializing in SaaS systems, Vue 3 applications, and interaction design.'],
-    '/projects': ['Selected Product Work & Case Studies — Marwan Elgammal', 'Explore product design case studies, healthcare experiences, enterprise CRM systems, and visual identities.'],
-    '/contact': ['Contact & Primary Inbox — Marwan Elgammal', 'Get in touch with Marwan Elgammal for product design, design systems, or frontend development opportunities.']
+    '/': ['Marwan Ashraf Elgammal — Product & UI/UX Designer', 'Portfolio of Marwan Ashraf Elgammal, Product & UI/UX Designer with frontend experience specializing in SaaS systems, Vue 3 applications, and interaction design.'],
+    '/projects': ['Selected Product Work & Case Studies — Marwan Ashraf Elgammal', 'Explore product design case studies, healthcare experiences, enterprise CRM systems, and visual identities.'],
+    '/contact': ['Contact & Primary Inbox — Marwan Ashraf Elgammal', 'Get in touch with Marwan Ashraf Elgammal for product design, design systems, or frontend development opportunities.']
   };
   const known = publicPaths.includes(normalizedPath);
   const [title, description] = known && project
-    ? [`${project.name} — Case Study | Marwan Elgammal`, project.blurb]
+    ? [`${project.name} — Case Study | Marwan Ashraf Elgammal`, project.blurb]
     : known && archive
-      ? [`${archive.name} — Visual Identity & Brand System | Marwan Elgammal`, archive.summary]
-      : pages[normalizedPath] || ['404 Page Not Found — Marwan Elgammal', 'This page could not be found. Explore the portfolio and selected projects.'];
+      ? [`${archive.name} — Visual Identity & Brand System | Marwan Ashraf Elgammal`, archive.summary]
+      : pages[normalizedPath] || ['404 Page Not Found — Marwan Ashraf Elgammal', 'This page could not be found. Explore the portfolio and selected projects.'];
   return {
     title, description,
     url: new URL(normalizedPath, origin).href,

@@ -1,4 +1,5 @@
 <script setup>
+import ImagePreviewButton from "@/components/shared/ImagePreviewButton.vue";
 import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
 import { archiveProjects, archiveKeys, gallery } from "@/data/gallery.js";
@@ -85,9 +86,9 @@ function getAspectClass(ratio) {
     <div class="py-4 px-5 md:px-[7vw] border-b border-ink flex flex-wrap items-center justify-between gap-4 font-mono text-[12px] font-bold text-ink">
       <nav aria-label="Breadcrumb" class="flex items-center gap-2">
         <RouterLink to="/projects" class="hover:underline">Work</RouterLink>
-        <span class="text-ink/40">/</span>
+        <span class="text-ink/70">/</span>
         <RouterLink to="/projects#creative-archive" class="hover:underline">Creative Archive</RouterLink>
-        <span class="text-ink/40">/</span>
+        <span class="text-ink/70">/</span>
         <span class="text-ink font-black">{{ project.name }}</span>
       </nav>
 
@@ -99,7 +100,7 @@ function getAspectClass(ratio) {
           :to="`/archive/${item.id}`"
           :class="[
             'hover:underline transition-colors',
-            item.id === project.id ? 'font-black text-ink underline' : 'text-ink/50'
+            item.id === project.id ? 'font-black text-ink underline' : 'text-ink/70'
           ]"
         >
           {{ item.num }} {{ item.name }}
@@ -135,11 +136,11 @@ function getAspectClass(ratio) {
           <!-- Compact Leadership Context Box -->
           <div class="p-5 border border-ink bg-story-bg space-y-2 font-sans text-[13px]">
             <div>
-              <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block">ROLE &amp; LEADERSHIP</span>
+              <span class="font-mono text-[10px] font-extrabold uppercase text-ink/70 block">ROLE &amp; LEADERSHIP</span>
               <strong class="text-ink font-extrabold text-[15px] block">{{ project.role }}</strong>
             </div>
             <div>
-              <span class="font-mono text-[10px] font-extrabold uppercase text-ink/50 block">RESPONSIBILITIES</span>
+              <span class="font-mono text-[10px] font-extrabold uppercase text-ink/70 block">RESPONSIBILITIES</span>
               <p class="text-[12px] font-medium text-ink/80 m-0">{{ project.responsibilities }}</p>
             </div>
             <div class="pt-2 border-t border-ink/20 flex flex-wrap gap-1.5 font-mono text-[10px]">
@@ -177,7 +178,7 @@ function getAspectClass(ratio) {
 
           <!-- Hero Feature Banner (Direct Hugging Artwork Container) -->
           <div v-if="grp.hero" class="w-full">
-            <div
+            <ImagePreviewButton
               @click="openLightbox([grp.hero], 0)"
               class="border border-ink bg-paper p-4 md:p-6 shadow-xs hover:shadow-md transition-all duration-300 group cursor-zoom-in relative rounded-sm"
             >
@@ -190,7 +191,7 @@ function getAspectClass(ratio) {
                 <span>{{ grp.hero.title }}</span>
                 <span class="text-ink/60 text-[10px] uppercase font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT FEATURE</span>
               </div>
-            </div>
+            </ImagePreviewButton>
           </div>
 
           <!-- Natural Aspect Ratio Grid Rows -->
@@ -203,7 +204,7 @@ function getAspectClass(ratio) {
                 row.cols === 2 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
               ]"
             >
-              <div
+              <ImagePreviewButton
                 v-for="(item, idx) in row.items"
                 :key="idx"
                 @click="openLightbox(row.items, idx)"
@@ -222,7 +223,7 @@ function getAspectClass(ratio) {
                   <span class="truncate pr-2">{{ item.title }}</span>
                   <span class="text-ink/60 text-[10px] uppercase shrink-0 font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT</span>
                 </div>
-              </div>
+              </ImagePreviewButton>
             </div>
           </div>
         </div>
@@ -235,7 +236,7 @@ function getAspectClass(ratio) {
         <div class="max-w-[1240px] mx-auto space-y-8">
           <div class="flex items-center justify-between border-b border-ink pb-4">
             <div>
-              <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50 block mb-1">
+              <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/70 block mb-1">
                 CURATED DELIVERABLES
               </span>
               <h2 class="text-[26px] md:text-[36px] font-extrabold text-ink m-0 tracking-[-0.03em]">
@@ -249,7 +250,7 @@ function getAspectClass(ratio) {
 
           <!-- Hero Feature Banner (Direct Hugging Artwork Container) -->
           <div v-if="project.hero" class="w-full">
-            <div
+            <ImagePreviewButton
               @click="openLightbox([project.hero], 0)"
               class="border border-ink bg-paper p-4 md:p-6 shadow-xs hover:shadow-md transition-all duration-300 group cursor-zoom-in relative rounded-sm"
             >
@@ -262,7 +263,7 @@ function getAspectClass(ratio) {
                 <span>{{ project.hero.title }}</span>
                 <span class="text-ink/60 text-[10px] uppercase font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT FEATURE</span>
               </div>
-            </div>
+            </ImagePreviewButton>
           </div>
 
           <!-- Natural Aspect Ratio Grid Rows -->
@@ -275,7 +276,7 @@ function getAspectClass(ratio) {
                 row.cols === 2 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
               ]"
             >
-              <div
+              <ImagePreviewButton
                 v-for="(item, idx) in row.items"
                 :key="idx"
                 @click="openLightbox(row.items, idx)"
@@ -294,7 +295,7 @@ function getAspectClass(ratio) {
                   <span class="truncate pr-2">{{ item.title }}</span>
                   <span class="text-ink/60 text-[10px] uppercase shrink-0 font-extrabold group-hover:text-ink transition-colors">🔍 INSPECT</span>
                 </div>
-              </div>
+              </ImagePreviewButton>
             </div>
           </div>
         </div>

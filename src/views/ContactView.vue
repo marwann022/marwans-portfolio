@@ -2,9 +2,16 @@
 import { ref } from "vue";
 
 const copied = ref(false);
+const copyFailed = ref(false);
 
-function copyEmail() {
-  navigator.clipboard.writeText("marwanelgammal0@gmail.com");
+async function copyEmail() {
+  try {
+    await navigator.clipboard.writeText("marwanelgammal0@gmail.com");
+  } catch {
+    copyFailed.value = true;
+    return;
+  }
+  copyFailed.value = false;
   copied.value = true;
   setTimeout(() => {
     copied.value = false;
@@ -51,7 +58,7 @@ function copyEmail() {
 
           <!-- The Visual Hero Element: Large Direct Email Component -->
           <div class="pt-4 space-y-4 max-w-full">
-            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50 block">
+            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/70 block">
               PRIMARY INBOX
             </span>
             
@@ -95,7 +102,7 @@ function copyEmail() {
           
           <!-- Specializations (Clean Typography, NO pills) -->
           <div class="space-y-4">
-            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50 block border-b border-ink/20 pb-2">
+            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/70 block border-b border-ink/20 pb-2">
               TARGET ROLES &amp; SCOPE
             </span>
             <ul class="space-y-3 font-sans text-[15px] font-extrabold text-ink list-none p-0 m-0">
@@ -109,14 +116,14 @@ function copyEmail() {
               </li>
               <li class="flex items-center gap-3">
                 <span class="w-1.5 h-1.5 bg-ink rounded-full"></span>
-                <span>Frontend UI (Vue 3 / Tailwind)</span>
+                <span>Frontend implementation (supporting skill)</span>
               </li>
             </ul>
           </div>
 
           <!-- Location & Relocation -->
           <div class="space-y-2 border-t border-ink/20 pt-6">
-            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50 block">
+            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/70 block">
               LOCATION &amp; AVAILABILITY
             </span>
             <p class="text-[15px] font-extrabold text-ink m-0">
@@ -129,7 +136,7 @@ function copyEmail() {
 
           <!-- Response Expectation -->
           <div class="space-y-2 border-t border-ink/20 pt-6">
-            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/50 block">
+            <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/70 block">
               RESPONSE TIME
             </span>
             <p class="text-[13px] text-ink/80 font-bold m-0">
@@ -182,10 +189,12 @@ function copyEmail() {
             type="button"
             class="px-6 py-3 bg-paper text-ink rounded-full font-extrabold text-[13px] hover:bg-paper/90 transition-colors cursor-pointer"
           >
-            {{ copied ? 'Copied to Clipboard! ✓' : 'Copy Email Address' }}
+            {{ copied ? 'Email copied' : 'Copy Email Address' }}
           </button>
         </div>
       </div>
     </section>
+    <p v-if="copied" role="status" class="sr-only">Email address copied.</p>
+    <p v-if="copyFailed" role="status" class="px-5 md:px-[7vw] py-3 m-0 text-sm">Your browser couldn't copy the address. Select the email above to copy it manually.</p>
   </main>
 </template>
