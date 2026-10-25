@@ -22,8 +22,9 @@ const isContactActive = computed(() => route.path === "/contact");
 
 <template>
   <header
-    class="h-[82px] max-md:h-[63px] flex items-center justify-between px-5 md:px-[4vw] lg:px-[62px] border-b border-line relative z-20 bg-paper font-sans"
+    class="site-header h-[76px] max-md:h-[64px] flex items-center justify-between px-5 md:px-[4vw] lg:px-[62px] border-b border-line sticky top-0 z-40 bg-paper font-sans"
   >
+    <div class="reading-progress" aria-hidden="true"></div>
     <!-- Logo -->
     <RouterLink
       to="/"

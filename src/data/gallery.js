@@ -29,8 +29,8 @@ export const gallery = [
             ratio: "1/1",
             items: [
               { image: "/ieee/Branding/BBB.jpg", title: "Branch Visual Language & Typography", fit: "contain", bg: "bg-story-bg" },
-              { image: "/ieee/Branding/Front.jpg", title: "Official Member Badge Front Design", fit: "contain", bg: "bg-story-bg" },
-              { image: "/ieee/Branding/Back copy 2.jpg", title: "Official Member Badge Reverse Guidelines", fit: "contain", bg: "bg-story-bg" }
+              { image: "/ieee/Branding/Front.jpg", title: "IEEE Team Polo — Front", fit: "contain", bg: "bg-story-bg" },
+              { image: "/ieee/Branding/Back copy 2.jpg", title: "IEEE Team Polo — Back", fit: "contain", bg: "bg-story-bg" }
             ]
           },
           {

@@ -76,6 +76,7 @@ const router = createRouter({
       await new Promise(resolve => setTimeout(resolve, 400));
     }
     if (savedPosition) return savedPosition;
+    if (to.path === from.path && to.hash === from.hash) return false;
     if (to.hash) {
       // URL fragments are untrusted; getElementById avoids invalid CSS selectors.
       let id;

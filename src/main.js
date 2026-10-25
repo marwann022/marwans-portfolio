@@ -12,6 +12,7 @@ import "@fontsource/bodoni-moda/latin-400-italic.css";
 import "@fontsource/bodoni-moda/latin-700-italic.css";
 
 import "./styles/index.css";
+import "./styles/portfolio.css";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -25,7 +26,8 @@ import {
   faEnvelope,
   faPhone,
   faCircle,
-  faCircleInfo
+  faCircleInfo,
+  faCheck
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
@@ -40,6 +42,7 @@ library.add(
   faPhone,
   faCircle,
   faCircleInfo,
+  faCheck,
   faLinkedin,
   faGithub
 );
