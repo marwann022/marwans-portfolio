@@ -4,8 +4,10 @@ import { RouterLink, useRoute } from "vue-router";
 import AppHeader from "@/components/layout/AppHeader.vue";
 import AppFooter from "@/components/layout/AppFooter.vue";
 import BackToTop from "@/components/shared/BackToTop.vue";
+import { usePageMotion } from '@/composables/usePageMotion.js';
 
 const route = useRoute();
+usePageMotion(route);
 const hasError = ref(false);
 watch(() => route.fullPath, () => { hasError.value = false; });
 onErrorCaptured((error, instance, info) => {
@@ -20,7 +22,7 @@ function reloadPage() {
 </script>
 
 <template>
-  <div class="overflow-x-hidden min-h-screen flex flex-col bg-paper text-ink font-sans">
+  <div class="portfolio-app min-h-screen flex flex-col bg-paper text-ink font-sans">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <AppHeader />
     <div id="main-content" class="flex-grow flex flex-col">
