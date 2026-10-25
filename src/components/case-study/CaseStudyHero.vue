@@ -1,6 +1,6 @@
 <script setup>
 import ImagePreviewButton from "@/components/shared/ImagePreviewButton.vue";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { RouterLink } from "vue-router";
 import ImageLightboxModal from "@/components/shared/ImageLightboxModal.vue";
 
@@ -15,6 +15,8 @@ const props = defineProps({
 const lightboxOpen = ref(false);
 const lightboxSrc = ref("");
 const lightboxCaption = ref("");
+const activeScreenId = ref('home');
+const activeScreen = computed(() => props.project.screenTabs?.find(screen => screen.id === activeScreenId.value) || props.project.screenTabs?.[0]);
 
 function openLightbox(src, caption = "") {
   lightboxSrc.value = src;
@@ -144,6 +146,10 @@ const imdbTabs = [
         </div>
       </div>
 
+      <a v-if="project.liveUrl" :href="project.liveUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 min-h-[44px] self-start w-fit px-6 py-3 rounded-full bg-ink text-paper font-bold text-sm">
+        Visit live website <span aria-hidden="true">↗</span>
+      </a>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-b border-ink/20 pb-6">
         <div><p class="text-xs uppercase font-bold text-ink/70">Design focus</p><p class="text-[18px] leading-relaxed font-semibold m-0">{{ project.headline }}</p></div>
         <div><p class="text-xs uppercase font-bold text-ink/70">Period &amp; deliverables</p><p class="text-sm font-bold m-0">{{ project.meta.period }}</p><p class="text-sm leading-relaxed mt-2 mb-0">{{ project.meta.deliverables }}</p></div>
@@ -156,9 +162,19 @@ const imdbTabs = [
         <a class="inline-flex items-center min-h-[44px] underline underline-offset-4" href="#project-contribution">My role</a>
       </nav>
       <div id="project-screens" class="case-study-anchor"></div>
-      <p class="m-0 text-sm text-ink/75">Choose a screen below. Scroll the screen list sideways on smaller displays.</p>
+      <p class="m-0 text-sm text-ink/75">{{ project.screenTabs ? 'Choose a screen below. Open the image preview to zoom in.' : 'Choose a screen below. Scroll the screen list sideways on smaller displays.' }}</p>
       <!-- HERO 01: SMARTMEET (6 INTERACTIVE TABS) -->
-      <div v-if="project.id === 'smartmeet'" class="border border-ink bg-ink overflow-hidden shadow-[12px_12px_0_rgba(21,21,21,0.08)] relative group">
+      <div v-if="project.screenTabs?.length" class="border border-ink bg-[#eef3ed] p-3 md:p-6 space-y-4 overflow-hidden">
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Project screen views">
+          <button v-for="screen in project.screenTabs" :key="screen.id" type="button" :aria-pressed="activeScreen.id === screen.id" @click="activeScreenId = screen.id" :class="['min-h-[44px] px-4 py-2 border border-ink rounded-full font-bold text-sm transition-colors', activeScreen.id === screen.id ? 'bg-ink text-paper' : 'bg-paper text-ink hover:bg-ink/10']">{{ screen.label }}</button>
+        </div>
+        <p class="m-0 text-sm leading-relaxed text-ink/85">{{ activeScreen.caption }}</p>
+        <ImagePreviewButton @click="openLightbox(activeScreen.image, activeScreen.caption)" class="relative block w-full border border-ink/20 bg-paper overflow-hidden cursor-zoom-in">
+          <img :src="activeScreen.image" :alt="`${project.name} — ${activeScreen.label}`" :class="['block w-full max-h-[560px] object-top', activeScreen.id === 'mobile' ? 'object-contain' : 'object-cover']" loading="eager" />
+          <span class="absolute bottom-3 right-3 rounded-full bg-ink text-paper px-4 py-2 text-xs font-bold">Open image preview ↗</span>
+        </ImagePreviewButton>
+      </div>
+      <div v-else-if="project.id === 'smartmeet'" class="border border-ink bg-ink overflow-hidden shadow-[12px_12px_0_rgba(21,21,21,0.08)] relative group">
         <div class="min-h-[44px] py-2 bg-[#171717] px-4 flex max-sm:flex-col items-center justify-between border-b border-[#333333] font-mono text-[11px] gap-2">
           <div class="flex items-center gap-2">
             <span class="w-3 h-3 rounded-full bg-[#ff5f56] block"></span>

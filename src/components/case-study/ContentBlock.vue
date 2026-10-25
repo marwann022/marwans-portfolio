@@ -61,7 +61,7 @@ const storyMap = {
     <div class="max-w-[1240px] mx-auto space-y-16">
 
       <!-- 1. PROBLEM & SOLUTION STORY MOMENT (2-3 Sentences Max) -->
-      <div id="project-problem" class="case-study-anchor border-t border-ink pt-8 space-y-6" v-if="storyMap[project.id]">
+      <div id="project-problem" class="case-study-anchor border-t border-ink pt-8 space-y-6" v-if="project.story || storyMap[project.id]">
         <div class="flex items-center justify-between border-b border-ink/20 pb-3">
           <span class="font-mono text-[11px] font-extrabold uppercase tracking-widest text-ink/70">
             01 / PROBLEM &amp; PRODUCT THESIS
@@ -70,19 +70,42 @@ const storyMap = {
         </div>
 
         <h2 class="text-[clamp(24px,3.8vw,44px)] leading-[1.1] font-extrabold text-ink m-0 tracking-[-0.03em] max-w-[1020px]">
-          {{ storyMap[project.id].headline }}
+          {{ (project.story || storyMap[project.id]).headline }}
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-[14px] leading-[1.55] items-start">
           <div class="p-5 border-l-4 border-l-ink bg-story-bg border-t border-r border-b border-ink/20 space-y-1.5 self-start h-auto">
             <span class="font-mono text-[11px] font-extrabold uppercase text-ink/60 block">THE PROBLEM</span>
-            <p class="font-medium text-ink/90 m-0">{{ storyMap[project.id].problem }}</p>
+            <p class="font-medium text-ink/90 m-0">{{ (project.story || storyMap[project.id]).problem }}</p>
           </div>
 
           <div class="p-5 border-l-4 border-l-ink bg-paper border-t border-r border-b border-ink/20 space-y-1.5 shadow-sm self-start h-auto">
             <span class="font-mono text-[11px] font-extrabold uppercase text-ink block">THE DESIGN SOLUTION</span>
-            <p class="font-bold text-ink m-0">{{ storyMap[project.id].solution }}</p>
+            <p class="font-bold text-ink m-0">{{ (project.story || storyMap[project.id]).solution }}</p>
           </div>
+        </div>
+      </div>
+
+      <div v-if="project.journey?.length" class="border-t border-ink pt-10 space-y-8">
+        <div>
+          <p class="font-mono text-xs uppercase font-bold text-ink/70">02 / From discovery to enquiry</p>
+          <h3 class="text-[28px] md:text-[36px] leading-tight font-extrabold tracking-tight m-0">One clear journey, from first visit to follow-up.</h3>
+        </div>
+        <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 list-none p-0 m-0">
+          <li v-for="(step, index) in project.journey" :key="step.title" class="border border-ink bg-story-bg p-5">
+            <span class="text-xs font-mono font-bold text-ink/70">0{{ index + 1 }}</span>
+            <h4 class="text-lg font-extrabold mt-4 mb-2">{{ step.title }}</h4>
+            <p class="text-sm leading-relaxed m-0 text-ink/85">{{ step.detail }}</p>
+          </li>
+        </ol>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <article v-for="screen in project.screenTabs.filter(item => item.id === 'roles' || item.id === 'hiring')" :key="screen.id" class="space-y-3 min-w-0">
+            <ImagePreviewButton @click="openLightbox(screen.image, screen.caption)" class="block border border-ink overflow-hidden bg-story-bg cursor-zoom-in">
+              <img :src="screen.image" :alt="`${project.name} — ${screen.label}`" loading="lazy" decoding="async" class="block w-full h-auto" />
+            </ImagePreviewButton>
+            <h4 class="m-0 text-lg font-extrabold">{{ screen.label }}</h4>
+            <p class="m-0 text-sm leading-relaxed text-ink/85">{{ screen.caption }}</p>
+          </article>
         </div>
       </div>
 

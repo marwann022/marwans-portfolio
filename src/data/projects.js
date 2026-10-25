@@ -1,5 +1,8 @@
+import { vactivesProject } from './vactives.js';
+
 // Project scope and design goals; quantitative impact is only published with documented evidence.
 export const projects = {
+  vactives: vactivesProject,
   "smartmeet": {
     "id": "smartmeet",
     "num": "02",
@@ -781,10 +784,12 @@ export const projects = {
   }
 };
 
-export const projectKeys = ["goldera", "smartmeet", "wecare", "hmz", "franchise212", "imdb"];
+export const projectKeys = ["vactives", "goldera", "smartmeet", "wecare", "hmz", "franchise212", "imdb"];
 
-// Flagship Curation (Exact Order: 01 SmartMeet, 02 WeCare, 03 GolderaPharm)
-export const flagshipProjects = [projects.goldera, projects.smartmeet, projects.wecare];
+projectKeys.forEach((id, index) => { projects[id].num = String(index + 1).padStart(2, '0'); });
+
+// Latest shipped client work leads the selected projects.
+export const flagshipProjects = [projects.vactives, projects.goldera, projects.smartmeet, projects.wecare];
 
 // Secondary Extended Work
 export const secondaryProjects = [

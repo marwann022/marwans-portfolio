@@ -80,10 +80,12 @@ function handleMouseLeave() {
           :style="{ transform: `translate3d(${tiltX}px, ${tiltY}px, 0)` }"
         >
           <img
-            src="/assets/marwan-portrait.png"
+            src="/assets/marwan-portrait-2026.png"
             alt="Marwan Ashraf portrait illustration"
             class="w-full h-auto object-contain object-bottom max-h-[240px] sm:max-h-[360px] lg:max-h-[480px] -mb-10 md:-mb-12 pointer-events-none select-none drop-shadow-[0_12px_24px_rgba(21,21,21,0.08)]"
             loading="eager"
+            width="1254"
+            height="1254"
           />
         </div>
       </div>
