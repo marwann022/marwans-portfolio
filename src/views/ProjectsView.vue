@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import { RouterLink } from "vue-router";
-import { secondaryProjects } from "@/data/projects.js";
+import { flagshipProjects, secondaryProjects } from "@/data/projects.js";
 import WorkSection from "@/components/home/WorkSection.vue";
 import { gallery } from "@/data/gallery.js";
 
@@ -56,7 +56,7 @@ onUnmounted(() => {
             </span>
           </div>
           <span class="text-[12px] font-mono font-bold text-ink/60 uppercase">
-            03 SELECTED CASE STUDIES · SAAS &amp; HEALTHCARE
+            {{ String(flagshipProjects.length).padStart(2, '0') }} SELECTED CASE STUDIES · WEB &amp; PRODUCT DESIGN
           </span>
         </div>
 
@@ -66,7 +66,7 @@ onUnmounted(() => {
               Selected Product Work
             </h1>
             <p class="mt-2 text-[15px] md:text-[17px] leading-[1.5] text-ink/75 font-medium m-0 max-w-[620px]">
-              Client design work, an ITI graduation prototype, and independent UX exploration — each with its role, stage, and scope.
+              Live client websites, product design work, an ITI graduation prototype, and independent UX exploration — each with its role, stage, and scope.
             </p>
           </div>
 

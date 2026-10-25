@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { access, readFile } from 'node:fs/promises';
 import { projects, flagshipProjects, projectKeys } from '../src/data/projects.js';
 
 test('project roles and stages distinguish client work from prototypes', async () => {
@@ -9,7 +9,7 @@ test('project roles and stages distinguish client work from prototypes', async (
   assert.equal(projects.goldera.meta.period, 'Jan–May 2026');
   assert.match(projects.smartmeet.meta.statusShort, /prototype/i);
   assert.match(projects.wecare.meta.statusShort, /prototype/i);
-  assert.deepEqual(flagshipProjects.map(p => p.id), projectKeys.slice(0, 3));
+  assert.deepEqual(flagshipProjects.map(p => p.id), projectKeys.slice(0, flagshipProjects.length));
   assert.equal(resume.projects.filter(p => /Goldera/.test(p.title)).length, 0);
   assert.ok(resume.projects.some(p => /WeCare/.test(p.title)));
 });
@@ -39,4 +39,18 @@ test('downloadable CV in the build matches the revised source asset', async () =
   const original = await readFile('public/Marwan-Ashraf-uiux design-CV.pdf');
   const deployed = await readFile('dist/Marwan-Ashraf-uiux design-CV.pdf');
   assert.deepEqual(deployed, original);
+});
+
+test('the latest live project has distinct, locally served screen assets', async () => {
+  const latest = flagshipProjects[0];
+  assert.equal(latest.id, 'vactives');
+  assert.equal(latest.liveUrl, 'https://www.vactives.com/');
+  assert.equal(latest.meta.statusShort, 'Live website');
+  assert.equal(new Set(latest.screenTabs.map(screen => screen.image)).size, 4);
+  for (const screen of latest.screenTabs) {
+    await access(`public${screen.image}`);
+    const screenshot = await readFile(`dist${screen.image}`);
+    assert.ok(screenshot.length > 10000, screen.image);
+  }
+  assert.equal(new Set(projectKeys.map(id => projects[id].num)).size, projectKeys.length);
 });

@@ -11,7 +11,7 @@ import { RouterLink } from "vue-router";
         <RouterLink to="/contact" class="inline-flex min-h-[44px] items-center px-6 mt-4 bg-ink text-paper rounded-full font-bold">Contact me</RouterLink>
       </div>
       <dl class="m-0 divide-y divide-ink/20">
-        <div class="py-5"><dt class="text-xs uppercase font-bold text-ink/70">Client experience</dt><dd class="m-0 mt-2 font-bold">UI/UX Designer · GolderaPharm</dd><dd class="m-0 mt-1 text-sm text-ink/80">Jan–May 2026 · CRM workflows, components, and developer handoff</dd></div>
+        <div class="py-5"><dt class="text-xs uppercase font-bold text-ink/70">Client experience</dt><dd class="m-0 mt-2 font-bold">UI/UX Design &amp; Web Development · VActives Agency</dd><dd class="m-0 mt-1 text-sm text-ink/80">Aug–Oct 2026 · Live recruitment website and hiring enquiry flow</dd><dd class="m-0 mt-4 font-bold">UI/UX Designer · GolderaPharm</dd><dd class="m-0 mt-1 text-sm text-ink/80">Jan–May 2026 · CRM workflows, components, and developer handoff</dd></div>
         <div class="py-5"><dt class="text-xs uppercase font-bold text-ink/70">Training &amp; education</dt><dd class="m-0 mt-2">ITI UI/UX Development · Completed July 2026</dd><dd class="m-0 mt-1">B.Sc. Computer and Control Engineering · July 2025</dd></div>
         <div class="py-5"><dt class="text-xs uppercase font-bold text-ink/70">Earlier visual work</dt><dd class="m-0 mt-2">Graphic design at Cela, and media direction for IEEE SCU.</dd><dd class="m-0 mt-2"><RouterLink to="/projects#creative-archive" class="underline underline-offset-4">Explore the creative archive</RouterLink></dd></div>
       </dl>

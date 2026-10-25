@@ -8,7 +8,7 @@ defineProps({ showHeading: { type: Boolean, default: true }, showArchiveLink: { 
     <div class="max-w-[1240px] mx-auto">
       <div v-if="showHeading" class="flex flex-wrap justify-between gap-4 border-b border-ink pb-5 mb-8">
         <h2 class="m-0 text-[28px] md:text-[38px] font-bold tracking-tight">Selected work</h2>
-        <p class="m-0 self-end text-sm text-ink/75">Client work, a graduation project, and UX exploration</p>
+        <p class="m-0 self-end text-sm text-ink/75">Live client work, product design, and UX exploration</p>
       </div>
       <div class="space-y-10 md:space-y-14">
         <article v-for="(project, index) in flagshipProjects" :key="project.id" class="grid grid-cols-1 lg:grid-cols-2 border border-ink bg-paper overflow-hidden">
